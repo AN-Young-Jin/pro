@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.common.Command;
+import co.hong.schedule.travel.command.travelListForm;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -25,8 +26,7 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/mainControl.do", new mainControl());
-		map.put("fdva", fdsasg())
+		map.put("travelList.do", new travelListForm());
 	}
 	
 	
