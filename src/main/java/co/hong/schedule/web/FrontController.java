@@ -25,11 +25,6 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/mainControl.do", new mainControl());
-		map.put("fdva", fdsasg())
-		map.put("/mainCommand.do", new mainCommand());
-		map.put("/world", null)
-		map.put("/hello", null)
 	}
 	
 	
