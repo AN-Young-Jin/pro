@@ -26,7 +26,10 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
+<<<<<<< HEAD
 		map.put("travelList.do", new travelListForm());
+=======
+>>>>>>> refs/heads/master
 	}
 	
 	
