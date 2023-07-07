@@ -28,6 +28,7 @@ public class FrontController extends HttpServlet {
 		map.put("/mainControl.do", new mainControl());
 		map.put("fdva", fdsasg())
 		map.put("/mainCommand.do", new mainCommand());
+		map.put("/world", null)
 		map.put("/hello", null)
 	}
 	
