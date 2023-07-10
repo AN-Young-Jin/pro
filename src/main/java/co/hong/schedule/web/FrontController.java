@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.common.Command;
-import co.hong.schedule.travel.command.travelListForm;
+import co.hong.schedule.travel.command.travelListControl;
+import co.hong.schedule.travel.command.AddTravelControl;
+import co.hong.schedule.travel.command.RemoveTravelControl;
+import co.hong.schedule.travel.command.travelForm;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -26,6 +29,12 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
+
+		map.put("/travelForm.do", new travelForm());
+		map.put("/traveltList.do", new travelListControl());
+		map.put("/addTravel.do", new AddTravelControl());
+		map.put("/removeTravel.do", new RemoveTravelControl());
+
 
 	}
 	
