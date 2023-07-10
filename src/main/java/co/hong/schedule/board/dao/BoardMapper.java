@@ -5,9 +5,10 @@ import java.util.List;
 import co.hong.schedule.board.vo.BoardVO;
 
 public interface BoardMapper {
-	List<BoardVO> boardList();
-	BoardVO select(BoardVO vo);
+	List<BoardVO> boardList(int page);
+	public int totalCnt();
+	BoardVO select(long bno);
 	int boardInsert(BoardVO vo);
 	int boardUpdate(BoardVO vo);
-	int boardDelete(BoardVO vo);
+	int boardDelete(long boardNum);
 }

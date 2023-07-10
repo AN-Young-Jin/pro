@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>co.micol</groupId>
-  <artifactId>P20230705</artifactId>
+  <groupId>co.hong</groupId>
+  <artifactId>schedule</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>P20230705 Maven Webapp</name>
+  <name>schedule Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -72,7 +72,11 @@
 	    <version>2.15.2</version>
 	</dependency>
 	
-
+	<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.10.1</version>
+		</dependency>
 
 	  
     <dependency>
@@ -84,7 +88,7 @@
   </dependencies>
 
   <build>
-    <finalName>P20230705</finalName>
+    <finalName>schedule</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

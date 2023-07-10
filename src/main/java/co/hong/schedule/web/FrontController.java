@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.hong.schedule.board.command.AddBoardCommand;
+import co.hong.schedule.board.command.boardFormCommand;
+import co.hong.schedule.board.command.boardListCommand;
+import co.hong.schedule.board.command.boardselectCommand;
 import co.hong.schedule.common.Command;
 import co.hong.schedule.travel.command.travelListForm;
 
@@ -26,10 +30,12 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-<<<<<<< HEAD
-		map.put("travelList.do", new travelListForm());
-=======
->>>>>>> refs/heads/master
+		map.put("/main.do", new MainCommand());
+		
+		map.put("/boardList.do", new boardListCommand());
+		map.put("/boardForm.do", new boardFormCommand());
+		map.put("/addBoard.do", new AddBoardCommand());
+		map.put("/boardselect.do", new boardselectCommand());
 	}
 	
 	
