@@ -1,8 +1,17 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.hong.schedule.travel.mapper.TravelMapper">
-
-	<select id = "events" resultType="co.hong.schedule.travel.dao.TravelVO">
+  
+	<select id="hotelList" resultType="co.hong.schedule.travel.vo.HotelVO">
+		select * from hotel
+	</select>
+	
+	<select id="tourList" resultType="co.hong.schedule.travel.vo.TourVO">
+		select * from tour
+	</select>
+  
+  <select id = "events" resultType="co.hong.schedule.travel.dao.TravelVO">
 		select * from schedule
 	</select>
 	
@@ -15,5 +24,5 @@
 	<update id="removeTravel">
 		delete from schedule where sc_num = #{scheduleNum}
 	</update>
-
+  
 </mapper>

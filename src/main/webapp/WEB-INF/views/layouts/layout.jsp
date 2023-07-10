@@ -5,9 +5,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title><tiles:getAsString name="title"/></title>
+
 </head>
 <body>
+<div align="center">
+	<!-- header -->
+	<tiles:insertAttribute name="header"/>
+	<hr>
+	
+	<!-- body -->
+	<tiles:insertAttribute name="body"/>
+	<hr>
+	<!-- footer -->
+	<tiles:insertAttribute name="footer"/>
+</div>
 
 <tiles:insertAttribute name="header"/>
 <br><hr>
@@ -16,4 +28,5 @@
 
 <tiles:insertAttribute name="footer" />
 </body>
+
 </html>

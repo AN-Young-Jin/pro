@@ -17,10 +17,16 @@ import co.hong.schedule.board.command.boardFormCommand;
 import co.hong.schedule.board.command.boardListCommand;
 import co.hong.schedule.board.command.boardselectCommand;
 import co.hong.schedule.common.Command;
+
+import co.hong.schedule.schedule.command.MakeSchedule;
+import co.hong.schedule.schedule.command.MySchedule;
+import co.hong.schedule.travel.command.TravelList;
+
 import co.hong.schedule.travel.command.travelListControl;
 import co.hong.schedule.travel.command.AddTravelControl;
 import co.hong.schedule.travel.command.RemoveTravelControl;
 import co.hong.schedule.travel.command.travelForm;
+
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -34,6 +40,7 @@ public class FrontController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 
+
     map.put("/main.do", new MainCommand());
 		
 		map.put("/boardList.do", new boardListCommand());
@@ -44,6 +51,11 @@ public class FrontController extends HttpServlet {
 		map.put("/traveltList.do", new travelListControl());
 		map.put("/addTravel.do", new AddTravelControl());
 		map.put("/removeTravel.do", new RemoveTravelControl());
+    
+    map.put("/jTravelList.do", new TravelList());
+		map.put("/mySchedule.do", new MySchedule());
+		map.put("/makeSchedule.do", new MakeSchedule());
+
 
 
 	}
@@ -64,7 +76,7 @@ public class FrontController extends HttpServlet {
 						//Ajax처리
 						resp.setContentType("text/html; charset=UTF-8");
 						resp.getWriter().append(viewPage.substring(5));
-						return ;
+						return;
 					}
 					viewPage += ".tiles";
 					
