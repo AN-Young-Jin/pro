@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.hong.schedule.board.dao.BoardMapper">
+
+	<select id ="boardList">
+		 select *
+	from(
+        select rownum rn, a.*
+        from ( 
+                 select *
+                from board order by board_num desc
+                ) a
+            )b
+	where b.rn > (#{page} - 1) * 10 
+	<![CDATA[
+	and     b.rn <= #{page} * 10
+	]]>
+	</select>
+	
+	<select id ="totalCnt">
+  	select count(*)
+  	from board
+  	</select>
+	
+	<select id = "select" parameterType="long">
+		select * from board where board_num = #{boardNum}
+	</select>
+	
+	<insert id="boardInsert" parameterType="co.hong.schedule.board.vo.BoardVO">
+		<selectKey keyProperty="boardNum" resultType="int" order="BEFORE">
+			select count(board_num) +1 as boardNum from board
+		</selectKey>
+		insert into board(board_num,board_title,board_content,mem_id) values (#{boardNum},#{boardTitle},#{boardContent},#{memId})
+	</insert>
+	
+	<update id="boardUpdate" parameterType="co.hong.schedule.board.vo.BoardVO">
+		update board
+		set board_title = #{boardTitle},
+			board_content = #{boardContent},
+			board_date = #{boardDate}
+		where board_num = #{boardNum}
+	</update>
+	
+	<delete id="boardDelete" parameterType="co.hong.schedule.board.vo.BoardVO">
+		delete from board
+		where board_num = #{boardNum}
+	</delete>
+</mapper>
+

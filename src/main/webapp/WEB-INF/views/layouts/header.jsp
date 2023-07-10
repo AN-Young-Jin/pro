@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>헤더</h1>
+
+	<h3>header입니다.</h3>
+
 </body>
 </html>
