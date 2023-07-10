@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.common.Command;
+import co.hong.schedule.schedule.command.MakeSchedule;
+import co.hong.schedule.schedule.command.MySchedule;
+import co.hong.schedule.travel.command.TravelList;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -25,11 +28,9 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/mainControl.do", new mainControl());
-		map.put("fdva", fdsasg())
-		map.put("/mainCommand.do", new mainCommand());
-		map.put("/world", null)
-		map.put("/hello", null)
+		map.put("/travelList.do", new TravelList());
+		map.put("/mySchedule.do", new MySchedule());
+		map.put("/makeSchedule.do", new MakeSchedule());
 	}
 	
 	
@@ -48,7 +49,7 @@ public class FrontController extends HttpServlet {
 						//Ajax처리
 						resp.setContentType("text/html; charset=UTF-8");
 						resp.getWriter().append(viewPage.substring(5));
-						return ;
+						return;
 					}
 					viewPage += ".tiles";
 					
