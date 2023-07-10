@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<tiles:insertAttribute name="header" />
 
+<tiles:insertAttribute name="header"/>
+<br><hr>
 <tiles:insertAttribute name="body" />
+<br><hr>
 
 <tiles:insertAttribute name="footer" />
 </body>

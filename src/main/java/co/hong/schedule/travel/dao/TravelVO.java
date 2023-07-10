@@ -2,9 +2,13 @@ package co.hong.schedule.travel.dao;
 
 import java.util.Date;
 
+import lombok.Getter;
+import lombok.Setter;
+@Setter
+@Getter
 public class TravelVO {
 	private String scheduleNum;
 	private String memberId;
-	private Date sDate;
-	private Date eDate;
+	private String sDate;
+	private String eDate;
 }

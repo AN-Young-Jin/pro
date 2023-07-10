@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.common.Command;
 
-public class travelListForm implements Command {
+public class travelForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("ㅎㅇ");
+		return "trav/calendar";
 	}
 
 }
