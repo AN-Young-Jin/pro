@@ -5,9 +5,10 @@ import java.util.List;
 import co.hong.schedule.board.vo.BoardVO;
 
 public interface BoardService {
-	List<BoardVO> boardList();
-	BoardVO select(BoardVO vo);
-	int boardInsert(BoardVO vo);
-	int boardUpdate(BoardVO vo);
-	int boardDelete(BoardVO vo);
+	List<BoardVO> boardList(int page);
+	int totalCnt();
+	BoardVO select(long boardNum);
+	boolean boardInsert(BoardVO vo);
+	boolean boardUpdate(BoardVO vo);
+	boolean boardDelete(long boardNum);
 }
