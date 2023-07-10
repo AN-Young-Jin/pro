@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.common.Command;
-import co.hong.schedule.travel.command.travelListControl;
-import co.hong.schedule.travel.command.AddTravelControl;
-import co.hong.schedule.travel.command.RemoveTravelControl;
-import co.hong.schedule.travel.command.travelForm;
+import co.hong.schedule.tv.command.AddTravelControl;
+import co.hong.schedule.tv.command.RemoveTravelControl;
+import co.hong.schedule.tv.command.travelForm;
+import co.hong.schedule.tv.command.travelListControl;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {

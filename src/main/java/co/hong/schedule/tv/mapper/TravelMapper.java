@@ -1,8 +1,8 @@
-package co.hong.schedule.travel.mapper;
+package co.hong.schedule.tv.mapper;
 
 import java.util.List;
 
-import co.hong.schedule.travel.dao.TravelVO;
+import co.hong.schedule.tv.dao.TravelVO;
 
 public interface TravelMapper {
 	List<TravelVO> events();

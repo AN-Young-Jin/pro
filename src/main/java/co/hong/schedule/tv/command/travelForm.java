@@ -1,4 +1,4 @@
-package co.hong.schedule.travel.command;
+package co.hong.schedule.tv.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

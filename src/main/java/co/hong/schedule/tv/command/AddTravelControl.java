@@ -1,12 +1,12 @@
-package co.hong.schedule.travel.command;
+package co.hong.schedule.tv.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.common.Command;
-import co.hong.schedule.travel.dao.TravelVO;
-import co.hong.schedule.travel.service.TravelService;
-import co.hong.schedule.travel.service.TravelServiceImpl;
+import co.hong.schedule.tv.dao.TravelVO;
+import co.hong.schedule.tv.service.TravelService;
+import co.hong.schedule.tv.service.TravelServiceImpl;
 
 public class AddTravelControl implements Command {
 
