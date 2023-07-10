@@ -2,5 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.hong.schedule.travel.mapper.TravelMapper">
 
+	<select id = "events" resultType="co.hong.schedule.travel.dao.TravelVO">
+		select * from schedule
+	</select>
 
 </mapper>

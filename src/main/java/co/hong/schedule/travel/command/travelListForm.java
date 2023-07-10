@@ -9,8 +9,7 @@ public class travelListForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
-		return null;
+		return "trav/calendar.jsp";
 	}
 
 }
