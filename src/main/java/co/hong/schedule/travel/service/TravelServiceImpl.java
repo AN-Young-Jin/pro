@@ -17,5 +17,15 @@ public class TravelServiceImpl  implements TravelService{
 	public List<TravelVO> events() {
 		return mapper.events();
 	}
+
+	@Override
+	public boolean addTravel(TravelVO vo) {
+		return false;
+	}
+
+	@Override
+	public boolean removeTravel(TravelVO vo) {
+		return false;
+	}
 	
 }

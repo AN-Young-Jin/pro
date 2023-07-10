@@ -5,5 +5,15 @@
 	<select id = "events" resultType="co.hong.schedule.travel.dao.TravelVO">
 		select * from schedule
 	</select>
+	
+	<insert id ="addTravel">
+		insert into
+		schedule(sc_num, s_date, e_date)
+		values(#{scheduleNum}, #{sDate}, #{eDate})
+	</insert>
+	
+	<update id="removeTravel">
+		delete from schedule where sc_num = #{scheduleNum}
+	</update>
 
 </mapper>
