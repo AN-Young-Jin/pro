@@ -29,10 +29,12 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
+
 		map.put("/travelForm.do", new travelForm());
 		map.put("/traveltList.do", new travelListControl());
 		map.put("/addTravel.do", new AddTravelControl());
 		map.put("/removeTravel.do", new RemoveTravelControl());
+
 
 	}
 	
