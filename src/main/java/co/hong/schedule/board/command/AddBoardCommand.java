@@ -3,9 +3,6 @@ package co.hong.schedule.board.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import co.hong.schedule.board.service.BoardService;
 import co.hong.schedule.board.service.BoardServiceImpl;
 import co.hong.schedule.board.vo.BoardVO;
