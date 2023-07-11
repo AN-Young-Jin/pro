@@ -20,13 +20,6 @@
 	<!-- footer -->
 	<tiles:insertAttribute name="footer"/>
 </div>
-
-<tiles:insertAttribute name="header"/>
-<br><hr>
-<tiles:insertAttribute name="body" />
-<br><hr>
-
-<tiles:insertAttribute name="footer" />
 </body>
 
 </html>
