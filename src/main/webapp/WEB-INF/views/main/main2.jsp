@@ -4,10 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<html>
-    <head>
-        <title>홍규연(Hong) - AI 여행 일정 플래너</title>
+
+ <title>홍규연(Hong) - AI 여행 일정 플래너</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
@@ -111,34 +109,9 @@
                 src="https://www.facebook.com/tr?id=256507643181766&ev=PageView&noscript=1"
         /></noscript>
         <!-- End Facebook Pixel Code -->
-    </head>
-
-    <body>
-        <!-- Navbar -->
-
-        <link rel="stylesheet" type="text/css" href="resources/myro/header.css" />
-<link rel="stylesheet" type="text/css" href="resources/myro/uikit.min.css" />
-
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" /> -->
-<div id="headerArea">
-    <nav id="navcc">
-        <div class="nav-wrapper navWidth">
-            <a href="/" id="navlefttext">
-                <b>Hong</b>
-                <h7 id="navlongtext2">&nbsp;Hong gu yeon</h7>
-                <!-- h7사이에 ~~환영합니다 -->
-                <!-- <h7 id="navlongtext2"></h7> -->
-            </a>
-
-                    </div>
-                </div>
-            </ul>
-        </div>
-    </nav>
-</div>
 </head>
 <body>
- <header class="wide-spacing" id="home">
+<header class="wide-spacing" id="home">
             <div class="main-top-container">
                 <div class="uk-grid-match" uk-grid>
                     <div style="margin: 0; padding: 0" class="uk-width-2-5@m">
@@ -296,7 +269,7 @@
             </div>
             <!-- </div> -->
             <!--Main image-->
-             <div><img src="resources/myro/images/제주사진.jpg" style="background-size: cover; height: 100vh; width: 100%" alt="메인이미지" loading="lazy"/></div> 
+            <!-- <div class="parallax"><img src="/myro_image/mainN.jpg" alt="메인이미지" loading="lazy"/></div> -->
             <!-- </div> -->
 
             <!--User city count Div-->

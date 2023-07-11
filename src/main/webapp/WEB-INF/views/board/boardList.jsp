@@ -6,12 +6,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+    <link rel="stylesheet" type="text/css" href="/schedule/resources/semantic.min.css">
+ 
+    <style type="text/css">
+        body {
+            background-color: #DADADA;
+        }
+        body>.grid {
+            height: 100%;
+        }
+        .image {
+            margin-top: -100px;
+        }
+        .column {
+            max-width: 1000px;
+        }
+        .view_btn {
+            cursor: pointer;
+        }
+ 
+    </style>
 </head>
 <body>
-	<h3>게시판</h3>
-	<table border="1" class="table" style=>
-		<thead>
-			<tr>
+	<div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui teal image header">
+                게시판 페이지
+            </h2>
+            <div class="ui large form">
+                <div class="ui stacked segment">
+                    <a href="boardForm.do"><button class="ui fluid large teal submit button">게시글 작성하기</button></a>
+                    <table class="ui celled table">
+                        <thead>
+                            <tr>
 				<th>글번호</th>
 				<th>제목</th>
 				<th>작성자</th>
@@ -28,6 +56,32 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
+ 
+                <div class="ui error message"></div>
+ 
+            </div>
+        </div>
+    </div>
+ 
+    <div class="ui modal" id='view_modal'>
+        <i class="close">x</i>
+        <div class="header" id="b_title">
+            
+        </div>
+        <div class="content">
+            <div class="description">
+                <p style = "text-align: right" id = "b_review"></p>
+                <div id = 'b_content'></div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                닫기
+            </div>
+        </div>
+    </div>
+ 
 	<br>
 	<div>
 			<form id="frm"  method="post">
@@ -70,6 +124,7 @@
 	  </div>
 	</div>	
 	<br>
+
 	<a href="boardForm.do">등록화면으로</a>
 	
 	<script type="text/javascript">
@@ -88,5 +143,6 @@
 		  .then(json => console.log(json));
 		}
 		</script>
+
 </body>
 </html>

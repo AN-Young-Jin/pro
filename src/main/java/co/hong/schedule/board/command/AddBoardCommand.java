@@ -17,7 +17,7 @@ public class AddBoardCommand implements Command {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
 		
-		
+		String result = "Ajax:";
 		String wr = req.getParameter("writer");
 		String tl = req.getParameter("title");
 		String ctn = req.getParameter("content");
@@ -31,9 +31,15 @@ public class AddBoardCommand implements Command {
 //			System.out.println(vo);
 			
 			BoardService service = new BoardServiceImpl();
-			service.boardInsert(vo);
-		
-		return "boardList.do";
+			
+			
+			if(service.boardInsert(vo)) {
+				result +=0;
+			} else {
+				result +=1;
+			}
+			//Ajax:0
+		return result;
 	}
 
 }
