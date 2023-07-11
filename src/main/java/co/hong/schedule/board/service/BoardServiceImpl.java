@@ -15,6 +15,11 @@ public class BoardServiceImpl implements BoardService{
 	
 		
 	@Override
+	public List<BoardVO> boardSelectList(String key, String val) {
+		return mapper.memberSelectList(key, val);
+	}
+	
+	@Override
 	public List<BoardVO> boardList(int page) {
 		return mapper.boardList(page);
 	}
@@ -43,5 +48,7 @@ public class BoardServiceImpl implements BoardService{
 	public int totalCnt() {
 		return mapper.totalCnt();
 	}
+
+
 	
 }

@@ -50,7 +50,7 @@
 			<tr>
 				<td><c:out value="${list.boardNum }" /></td>
 				<td><a href="boardselect.do?bno=${list.boardNum}">${list.boardTitle }</td>
-				<td>${list.boardContent }</td>
+				<td>${list.memId }</td>
 				<!--  <td>${vo.clickCnt }</td>-->
 			</tr>
 			</c:forEach>
@@ -83,6 +83,20 @@
     </div>
  
 	<br>
+	<div>
+			<form id="frm"  method="post">
+				<label >검색:</label> 
+				<select id="key" name="key">
+					<option value="boardTitle">제목</option>
+					<option value="memId">작성자</option>
+					<option value="boardContent">글내용</option>
+					<option value="all">전체</option>
+				</select>
+				<input type="text" id="val" name="val">
+				<button type="button" onclick="memberSearch()">검색</button>
+			</form>
+				
+		</div>
 	<div class="center">
   	<div class="pagination">
   	
@@ -101,6 +115,8 @@
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
+	
+		
 		
 	<c:if test="${page.next }">
 		<a href="boardList.do?page=${page.endPage +1 }"> next </a>
@@ -108,5 +124,25 @@
 	  </div>
 	</div>	
 	<br>
+
+	<a href="boardForm.do">등록화면으로</a>
+	
+	<script type="text/javascript">
+		function memberSearch(){
+		let key = document.getElementById("key").value;
+		let val = document.getElementById("val").value;
+		let payload = "key="+key+"&val="+val;
+		let url = "boardSearch.do";
+		fetch(url, {
+			method: "POST",
+			headers:{
+				"Content-type": "application/x-www-form-urlencoded"
+			},
+			body: payload
+		}).then(res=>res.json())
+		  .then(json => console.log(json));
+		}
+		</script>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-package co.hong.schedule.travel.dao;
+package co.hong.schedule.calendar.dao;
 
 import java.util.Date;
 

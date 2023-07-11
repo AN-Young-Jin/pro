@@ -33,6 +33,7 @@
 </head>
 <body>
  <h3>게시글 등록</h3>
+
      <div class="ui middle aligned center aligned grid">
         <div class="column">
             <h2 class="ui teal image header">
@@ -108,6 +109,7 @@
         });
 
     </script>
+
 </body>
 
 </html>

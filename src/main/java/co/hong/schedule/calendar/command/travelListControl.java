@@ -1,4 +1,4 @@
-package co.hong.schedule.travel.command;
+package co.hong.schedule.calendar.command;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import co.hong.schedule.calendar.dao.TravelVO;
+import co.hong.schedule.calendar.service.TravelService;
+import co.hong.schedule.calendar.service.TravelServiceImpl;
 import co.hong.schedule.common.Command;
-import co.hong.schedule.travel.dao.TravelVO;
-import co.hong.schedule.travel.service.TravelService;
-import co.hong.schedule.travel.service.TravelServiceImpl;
 
 public class travelListControl implements Command {
 
