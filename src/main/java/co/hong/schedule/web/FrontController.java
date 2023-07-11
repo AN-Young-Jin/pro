@@ -52,7 +52,7 @@ public class FrontController extends HttpServlet {
 		map.put("/addTravel.do", new AddTravelControl());
 		map.put("/removeTravel.do", new RemoveTravelControl());
     
-    map.put("/jTravelList.do", new TravelList());
+		map.put("/jTravelList.do", new TravelList());
 		map.put("/mySchedule.do", new MySchedule());
 		map.put("/makeSchedule.do", new MakeSchedule());
 

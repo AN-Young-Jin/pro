@@ -21,7 +21,7 @@ public class boardselectCommand implements Command {
 		req.setAttribute("list", vo);
 		
 		
-		return null;
+		return "board/boardInfo";
 	}
 
 }
