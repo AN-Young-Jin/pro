@@ -5,22 +5,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.board.service.BoardService;
 import co.hong.schedule.board.service.BoardServiceImpl;
-import co.hong.schedule.board.vo.BoardVO;
 import co.hong.schedule.common.Command;
 
-public class boardselectCommand implements Command {
+public class BoardRemoveControl implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String boardNum = req.getParameter("bno");
+		String bno = req.getParameter("bno");
 		
 		BoardService service = new BoardServiceImpl();
-		BoardVO vo = service.select(Long.parseLong(boardNum));
-		
-		req.setAttribute("list", vo);
+		service.boardDelete(Long.parseLong(bno));
 		
 		
-		return "board/boardInfo";
+		return "boardList.do";
 	}
 
 }

@@ -23,8 +23,10 @@
   </environments>
   <!-- Mapper(Sql)를 연결 -->
   <mappers>
-  <!--	<mapper resource="co/hong/schedule/board/dao/ReplyMapper.xml" />  -->
   	<mapper resource="co/hong/schedule/board/dao/BoardMapper.xml" />
+  	<mapper resource="co/hong/schedule/calendar/mapper/TravelMapper.xml" />
+  	<mapper resource="co/hong/schedule/board/dao/ReplyMapper.xml" />
   	<mapper resource="co/hong/schedule/travel/mapper/TravelMapper.xml" />
+
   </mappers>
 </configuration>
