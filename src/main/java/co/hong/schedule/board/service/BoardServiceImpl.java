@@ -2,33 +2,53 @@ package co.hong.schedule.board.service;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
+import co.hong.schedule.board.dao.BoardMapper;
 import co.hong.schedule.board.vo.BoardVO;
+import co.hong.schedule.common.DataSource;
+
 
 public class BoardServiceImpl implements BoardService{
-
+	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
+	private BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+	
+		
 	@Override
-	public List<BoardVO> boardList() {
-		return null;
+	public List<BoardVO> boardSelectList(String key, String val) {
+		return mapper.memberSelectList(key, val);
+	}
+	
+	@Override
+	public List<BoardVO> boardList(int page) {
+		return mapper.boardList(page);
 	}
 
 	@Override
-	public BoardVO select(BoardVO vo) {
-		return null;
+	public BoardVO select(long boardNum) {
+		return mapper.select(boardNum);
 	}
 
 	@Override
-	public int boardInsert(BoardVO vo) {
-		return 0;
+	public boolean boardInsert(BoardVO vo) {
+		return mapper.boardInsert(vo) == 1;
 	}
 
 	@Override
-	public int boardUpdate(BoardVO vo) {
-		return 0;
+	public boolean boardUpdate(BoardVO vo) {
+		return mapper.boardUpdate(vo) == 1;
 	}
 
 	@Override
-	public int boardDelete(BoardVO vo) {
-		return 0;
+	public boolean boardDelete(long boardNum) {
+		return mapper.boardDelete(boardNum) == 1;
 	}
+
+	@Override
+	public int totalCnt() {
+		return mapper.totalCnt();
+	}
+
+
 	
 }

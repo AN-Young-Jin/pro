@@ -5,13 +5,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title><tiles:getAsString name="title"/></title>
+
 </head>
 <body>
-<tiles:insertAttribute name="header"/>
-<br><hr>
-<tiles:insertAttribute name="body" />
-<br><hr>
-<tiles:insertAttribute name="footer" />
+<div align="center">
+	<!-- header -->
+	<tiles:insertAttribute name="header" ignore="true"/>
+	<hr>
+	
+	<!-- body -->
+	<tiles:insertAttribute name="body" ignore="true"/>
+	<hr>
+	<!-- footer -->
+	<tiles:insertAttribute name="footer" ignore="true"/>
+</div>
+
 </body>
+
 </html>

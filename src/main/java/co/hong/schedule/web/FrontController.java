@@ -12,11 +12,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.hong.schedule.board.command.AddBoardCommand;
+import co.hong.schedule.board.command.AddReplyControl;
+import co.hong.schedule.board.command.BoardModifyControl;
+import co.hong.schedule.board.command.BoardRemoveControl;
+import co.hong.schedule.board.command.BoardSearchControl;
+import co.hong.schedule.board.command.ReplyListControl;
+import co.hong.schedule.board.command.boardFormCommand;
+import co.hong.schedule.board.command.boardListCommand;
+import co.hong.schedule.board.command.boardselectCommand;
+import co.hong.schedule.calendar.command.AddTravelControl;
+import co.hong.schedule.calendar.command.RemoveTravelControl;
+import co.hong.schedule.calendar.command.travelForm;
+import co.hong.schedule.calendar.command.travelListControl;
 import co.hong.schedule.common.Command;
-import co.hong.schedule.tv.command.AddTravelControl;
-import co.hong.schedule.tv.command.RemoveTravelControl;
-import co.hong.schedule.tv.command.travelForm;
-import co.hong.schedule.tv.command.travelListControl;
+import co.hong.schedule.schedule.command.MakeSchedule;
+import co.hong.schedule.schedule.command.MySchedule;
+import co.hong.schedule.travel.command.TravelList;
+
+
+
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -29,10 +44,32 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
+
+
+		map.put("/main.do", new MainCommand());
+		
+		map.put("/boardList.do", new boardListCommand());
+		map.put("/boardForm.do", new boardFormCommand());
+		map.put("/addBoard.do", new AddBoardCommand());
+		map.put("/boardselect.do", new boardselectCommand());
+		map.put("/boardModify.do", new BoardModifyControl());
+		map.put("/boardRemove.do", new BoardRemoveControl());
+		map.put("/boardSearch.do", new BoardSearchControl());
+		//댓글
+		map.put("/replyList.do", new ReplyListControl());
+		map.put("/addReply.do", new AddReplyControl());
+		
+		
 		map.put("/travelForm.do", new travelForm());
 		map.put("/traveltList.do", new travelListControl());
 		map.put("/addTravel.do", new AddTravelControl());
 		map.put("/removeTravel.do", new RemoveTravelControl());
+    
+		map.put("/jTravelList.do", new TravelList());
+		map.put("/mySchedule.do", new MySchedule());
+		map.put("/makeSchedule.do", new MakeSchedule());
+		
+
 
 	}
 	
@@ -52,7 +89,7 @@ public class FrontController extends HttpServlet {
 						//Ajax처리
 						resp.setContentType("text/html; charset=UTF-8");
 						resp.getWriter().append(viewPage.substring(5));
-						return ;
+						return;
 					}
 					viewPage += ".tiles";
 					

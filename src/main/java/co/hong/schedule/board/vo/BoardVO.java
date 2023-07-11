@@ -2,8 +2,11 @@ package co.hong.schedule.board.vo;
 
 import java.util.Date;
 
+import lombok.Data;
+
+@Data
 public class BoardVO {
-	private int boardNum;
+	private long boardNum;
 	private int scNum;
 	private String boardTitle;
 	private String boardContent;

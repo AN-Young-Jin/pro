@@ -5,11 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>co.hong</groupId>
+
   <artifactId>schedule</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <name>schedule Maven Webapp</name>
+
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -59,11 +61,29 @@
 
 	<!-- https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-impl -->
 	<dependency>
-	    <groupId>org.apache.taglibs</groupId>
-	    <artifactId>taglibs-standard-impl</artifactId>
-	    <version>1.2.5</version>
-	    <scope>runtime</scope>
-	</dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-impl</artifactId>
+			<version>1.2.5</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-spec</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-jstlel</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-compat</artifactId>
+			<version>1.2.5</version>
+		</dependency>
 
 	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 	<dependency>
@@ -72,6 +92,7 @@
 	    <version>2.15.2</version>
 	</dependency>
 	
+
 <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -89,7 +110,9 @@
   </dependencies>
 
   <build>
+
     <finalName>schedule</finalName>
+
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
