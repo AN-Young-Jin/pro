@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>join Form JSP</title>
 	<h3>회원가입 페이지</h3>
-	<form action="memberJoinAction.me" method="post">
+	<form action="joinAction.do" method="post">
 		<table border="1">
 			<tr>
 				<th>아이디</th>
