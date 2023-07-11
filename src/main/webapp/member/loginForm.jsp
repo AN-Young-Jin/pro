@@ -17,21 +17,13 @@
 	<div class="w3-padding-large" style="margin-left:300px;margin-right:70px">
 		<h3>로그인</h3>
 		<div class="w3-container">
-			<form action="/expro/LoginAction.do" method="post">
+			<form action="loginAction.do" method="post">
 				<input class="w3-input w3-border" style="width:50%" type="text" name="id" id="id" required="" placeholder="아이디" autofocus>
 				<input class="w3-input w3-border" style="width:50%" type="password" name="passwd" id="passwd" required="" placeholder="비밀번호">
 				<input class="w3-button w3-text-black" type="submit" value="로그인">
 			</form>
 		</div>
 	</div>
-	<div class="w3-container">
-	<form action="/expro/LoginAction.do" method="post">
-		<input class="w3-input w3-border" style="width:50%" type="text" name="id" id="id" required="" placeholder="아이디" autofocus>
-		<input class="w3-input w3-border" style="width:50%" type="password" name="passwd" id="passwd" required="" placeholder="비밀번호">
-		<input class="w3-button w3-text-black" type="submit" value="로그인">
-		<input class="w3-button w3-text-black" type="button" value="ID/PW 찾기" onclick="location.href=''">
-	</form>
-</div>
 	
 </body>
 </html>

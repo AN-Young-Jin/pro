@@ -17,7 +17,7 @@ import co.hong.schedule.board.command.boardFormCommand;
 import co.hong.schedule.board.command.boardListCommand;
 import co.hong.schedule.board.command.boardselectCommand;
 import co.hong.schedule.common.Command;
-
+import co.hong.schedule.member.command.JoinAction;
 import co.hong.schedule.schedule.command.MakeSchedule;
 import co.hong.schedule.schedule.command.MySchedule;
 import co.hong.schedule.travel.command.TravelList;
@@ -41,7 +41,7 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 
-    map.put("/main.do", new MainCommand());
+		map.put("/main.do", new MainCommand());
 		
 		map.put("/boardList.do", new boardListCommand());
 		map.put("/boardForm.do", new boardFormCommand());
@@ -52,11 +52,12 @@ public class FrontController extends HttpServlet {
 		map.put("/addTravel.do", new AddTravelControl());
 		map.put("/removeTravel.do", new RemoveTravelControl());
     
-    map.put("/jTravelList.do", new TravelList());
+		map.put("/jTravelList.do", new TravelList());
 		map.put("/mySchedule.do", new MySchedule());
 		map.put("/makeSchedule.do", new MakeSchedule());
 
-
+		map.put("/joinAction.do", new JoinAction());
+		
 
 	}
 	

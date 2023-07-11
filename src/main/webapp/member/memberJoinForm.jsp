@@ -26,9 +26,11 @@
 						<input type="password" class="w3-input" style="width:90%" name="passwd2" id="passwd2" requured="" placeholder="비밀번호 확인">
 						<input type="text" class="w3-input" style="width:90%" name="name" id="name" required="" placeholder="이름">
 						<input type="text" class="w3-input" style="width:90%" name="email" id="email" required="" placeholder="이메일">
+						<input type="text" class="w3-input" style="width:90%" name="phone" id="phone" required="" placeholder="전화번호">
+						
 						
 					</fieldset>
-					<input type="submit" class="w3-button w3-section w3-black w3-gray" value="회원 가입">
+					<input type="submit" class="w3-button w3-section w3-black w3-yellow" value="회원 가입">
 				</form>
 			</div>
 		</div>
