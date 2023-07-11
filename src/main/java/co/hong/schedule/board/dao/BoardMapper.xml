@@ -2,7 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.hong.schedule.board.dao.BoardMapper">
 
-	<select id ="boardList">
+
+	<select id ="memberSelectList" resultType = "co.hong.schedule.board.vo.BoardVO">
+		SELECT * FROM BOARD
+		<if test="key == 'boardTitle'"> WHERE BOARD_TITLE LIKE '%' || #{val} || '%'</if>
+		<if test="key == 'memId'"> WHERE MEM_ID LIKE '%' || #{val} || '%'</if>
+		<if test="key == 'boardContent'"> WHERE BOARD_CONTENT LIKE '%' || #{val} || '%'</if>
+		<if test="key == 'all'"> </if>
+	</select> <!-- parameterType은 select에서 필요없음 -->
+
+	<select id ="boardList" resultType="co.hong.schedule.board.vo.BoardVO">
 		 select *
 	from(
         select rownum rn, a.*

@@ -5,12 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.hong.schedule.common.DataSource;
-
 import co.hong.schedule.travel.mapper.TravelMapper;
 import co.hong.schedule.travel.vo.HotelVO;
 import co.hong.schedule.travel.vo.TourVO;
-
-import co.hong.schedule.travel.dao.TravelVO;
 
 
 
@@ -22,30 +19,14 @@ public class TravelServiceImpl implements TravelService {
 	@Override
 	public List<HotelVO> hotelList() {
 		// TODO Auto-generated method stub
-		return mapper.hotelList();
+		return null;
 	}
 
 	@Override
 	public List<TourVO> tourList() {
 		// TODO Auto-generated method stub
-		return mapper.tourList();
+		return null;
 	}
 
-
-	@Override
-	public List<TravelVO> events() {
-		return mapper.events();
-	}
-
-	@Override
-	public boolean addTravel(TravelVO vo) {
-		return false;
-	}
-
-	@Override
-	public boolean removeTravel(TravelVO vo) {
-		return false;
-	}
-	
 
 }
