@@ -9,10 +9,9 @@ import co.hong.schedule.travel.vo.TourVO;
 public interface TravelMapper {
 	List<HotelVO> hotelList();
 	List<TourVO> tourList();
-  List<TravelVO> events();
+	
+	List<TravelVO> events();
 	public boolean addTravel(TravelVO vo);	
 	public boolean removeTravel(TravelVO vo);
-
-
 
 }
