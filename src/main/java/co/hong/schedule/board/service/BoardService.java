@@ -5,6 +5,7 @@ import java.util.List;
 import co.hong.schedule.board.vo.BoardVO;
 
 public interface BoardService {
+	List<BoardVO> boardSelectList(String key, String val); //R  Ajax로 
 	List<BoardVO> boardList(int page);
 	int totalCnt();
 	BoardVO select(long boardNum);

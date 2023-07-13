@@ -12,16 +12,15 @@ public class boardselectCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
-		String brdNum = req.getParameter("bno");
+		String boardNum = req.getParameter("bno");
 		
 		BoardService service = new BoardServiceImpl();
-		BoardVO vo = service.select(Long.parseLong(brdNum));
+		BoardVO vo = service.select(Long.parseLong(boardNum));
 		
 		req.setAttribute("list", vo);
 		
 		
-		return null;
+		return "board/boardInfo";
 	}
 
 }
