@@ -194,7 +194,7 @@ summary {
 audio,
 canvas,
 progress,
-img {
+video {
     display: inline-block;
 }
 
@@ -285,7 +285,7 @@ hr {
     transition: background-color 500ms linear;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 2px 10px 0 rgba(0, 0, 0, 0.05) !important;
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 2px 10px 0 rgba(0, 0, 0, 0.05) !important;
-    color: #000 !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 .modecontainer {
@@ -496,7 +496,7 @@ hr {
     justify-content: center;
     align-content: center;
 }
-}
+
 
 .mobile1_timediv {
     font-size: 12px;
@@ -1274,7 +1274,6 @@ navsp ul li a:hover {
 }
 
 #navcc {
-    position: fixed;
     z-index: 9999;
     height: 80px;
     line-height: 80px;
