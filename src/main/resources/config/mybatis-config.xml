@@ -9,6 +9,9 @@
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
+	<typeAliases>
+		<typeAlias alias="MemberVO" type="co.hong.schedule.member.vo.MemberVO"/>
+	</typeAliases>
 	<!-- DB 환경 설정 -->
   <environments default="development">
     <environment id="development">
