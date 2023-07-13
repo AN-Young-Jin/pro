@@ -17,6 +17,7 @@ import co.hong.schedule.board.command.AddReplyControl;
 import co.hong.schedule.board.command.BoardModifyControl;
 import co.hong.schedule.board.command.BoardRemoveControl;
 import co.hong.schedule.board.command.BoardSearchControl;
+import co.hong.schedule.board.command.ReplyControl;
 import co.hong.schedule.board.command.ReplyListControl;
 import co.hong.schedule.board.command.boardFormCommand;
 import co.hong.schedule.board.command.boardListCommand;
@@ -27,7 +28,7 @@ import co.hong.schedule.calendar.command.travelForm;
 import co.hong.schedule.calendar.command.travelListControl;
 import co.hong.schedule.common.Command;
 
-import co.hong.schedule.member.command.JoinAction;
+//import co.hong.schedule.member.command.JoinAction;
 
 import co.hong.schedule.schedule.command.MakeSchedule;
 import co.hong.schedule.schedule.command.MySchedule;
@@ -62,6 +63,7 @@ public class FrontController extends HttpServlet {
 		//댓글
 		map.put("/replyList.do", new ReplyListControl());
 		map.put("/addReply.do", new AddReplyControl());
+		map.put("/getReply.do", new ReplyControl());
 
 		map.put("/travelForm.do", new travelForm());
 		map.put("/traveltList.do", new travelListControl());
@@ -72,7 +74,7 @@ public class FrontController extends HttpServlet {
 		map.put("/mySchedule.do", new MySchedule());
 		map.put("/makeSchedule.do", new MakeSchedule());
 
-		map.put("/joinAction.do", new JoinAction());
+//		map.put("/joinAction.do", new JoinAction());
 
 
 	}
