@@ -55,14 +55,14 @@ public class FrontController extends HttpServlet {
 		map.put("/boardForm.do", new boardFormCommand());
 		map.put("/addBoard.do", new AddBoardCommand());
 		map.put("/boardselect.do", new boardselectCommand());
+
 		map.put("/boardModify.do", new BoardModifyControl());
 		map.put("/boardRemove.do", new BoardRemoveControl());
 		map.put("/boardSearch.do", new BoardSearchControl());
 		//댓글
 		map.put("/replyList.do", new ReplyListControl());
 		map.put("/addReply.do", new AddReplyControl());
-		
-		
+
 		map.put("/travelForm.do", new travelForm());
 		map.put("/traveltList.do", new travelListControl());
 		map.put("/addTravel.do", new AddTravelControl());

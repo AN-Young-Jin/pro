@@ -9,5 +9,4 @@ public interface TravelService {
 	List<HotelVO> hotelList();
 	List<TourVO> tourList();
 
-	
 }
