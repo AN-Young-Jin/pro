@@ -3,6 +3,14 @@
 <mapper namespace="co.hong.schedule.board.dao.BoardMapper">
 
 
+
+	<select id = "boardDate" resultType = "co.hong.schedule.board.vo.BoardVO">
+	SELECT *
+	FROM board
+	WHERE board_date BETWEEN TO_DATE(#{from}, 'MM/DD/YYYY')
+			AND TO_DATE(#{to}, 'MM/DD/YYYY')    
+	</select>
+
 	<select id ="memberSelectList" resultType = "co.hong.schedule.board.vo.BoardVO">
 		SELECT * FROM BOARD
 		<if test="key == 'boardTitle'"> WHERE BOARD_TITLE LIKE '%' || #{val} || '%'</if>

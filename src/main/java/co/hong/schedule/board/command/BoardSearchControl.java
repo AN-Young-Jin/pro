@@ -22,11 +22,11 @@ public class BoardSearchControl implements Command {
 		List<BoardVO> boards = new ArrayList<>();
 		ObjectMapper mapper = new ObjectMapper();
 		
-		String key = req.getParameter("key");
-		String val = req.getParameter("val");
-		System.out.println(key+val);
+		String from = req.getParameter("from");
+		String to = req.getParameter("to");
+		System.out.println(from + to);
 		
-		boards = service.boardSelectList(key, val);
+		boards = service.boardDate(from, to);
 		
 		String str = "Ajax:";
 		try {
