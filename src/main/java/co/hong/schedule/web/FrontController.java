@@ -26,11 +26,13 @@ import co.hong.schedule.calendar.command.RemoveTravelControl;
 import co.hong.schedule.calendar.command.travelForm;
 import co.hong.schedule.calendar.command.travelListControl;
 import co.hong.schedule.common.Command;
+
 import co.hong.schedule.member.command.JoinAction;
 import co.hong.schedule.member.command.JoinForm;
 import co.hong.schedule.member.command.LogOut;
 import co.hong.schedule.member.command.LoginAction;
 import co.hong.schedule.member.command.LoginForm;
+
 import co.hong.schedule.schedule.command.MakeSchedule;
 import co.hong.schedule.schedule.command.MySchedule;
 import co.hong.schedule.travel.command.TravelList;
@@ -57,14 +59,14 @@ public class FrontController extends HttpServlet {
 		map.put("/boardForm.do", new boardFormCommand());
 		map.put("/addBoard.do", new AddBoardCommand());
 		map.put("/boardselect.do", new boardselectCommand());
+
 		map.put("/boardModify.do", new BoardModifyControl());
 		map.put("/boardRemove.do", new BoardRemoveControl());
 		map.put("/boardSearch.do", new BoardSearchControl());
 		//댓글
 		map.put("/replyList.do", new ReplyListControl());
 		map.put("/addReply.do", new AddReplyControl());
-		
-		
+
 		map.put("/travelForm.do", new travelForm());
 		map.put("/traveltList.do", new travelListControl());
 		map.put("/addTravel.do", new AddTravelControl());
@@ -73,6 +75,7 @@ public class FrontController extends HttpServlet {
 		map.put("/jTravelList.do", new TravelList());
 		map.put("/mySchedule.do", new MySchedule());
 		map.put("/makeSchedule.do", new MakeSchedule());
+
 		
 		//로그인 호출하는 이름들
 		map.put("/joinForm.do", new JoinForm()); //회원가입폼
@@ -83,6 +86,10 @@ public class FrontController extends HttpServlet {
 		
 		
 		
+
+
+//		map.put("/joinAction.do", new JoinAction());
+
 
 
 	}
