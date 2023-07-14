@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <meta name="description" content="마이로(MYRO)-쉽고 간편한 여행 일정 플래너" />
 <meta name="keywords"
 	content="마이로, myro, 여행일정, 마이로 여행일정, 추천 일정, 추천 코스, 여행 플래너, 5분 만에 여행 일정, 유럽 여행, 홍콩 여행, 대만 여행, 나만의 여행 일정, 해외여행, 국내여행" />
@@ -290,4 +291,5 @@ body>.grid {
 			let headAddress = 'https://www.myro.co.kr';
 		</script>
 </body>
+
 </html>
