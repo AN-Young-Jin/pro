@@ -1,15 +1,14 @@
 package co.hong.schedule.schedule.vo;
 
-import java.sql.Date;
-
 import lombok.Data;
 
 @Data
 public class HotelScVO {
 	private int hotelScNum;
-	private Date sDate;
-	private Date eDate;
 	private int scNum;
-	private int hotelNum;
-	private String hotelMemo;
+	private String day1Cid;
+	private String day2Cid;
+	private String day3Cid;
+	private String day4Cid;
+	private String day5Cid;
 }

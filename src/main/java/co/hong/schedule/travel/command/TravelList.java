@@ -16,13 +16,6 @@ public class TravelList implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
-//		TravelService svc = new TravelServiceImpl();
-//		List<HotelVO> hList = svc.hotelList();
-//		List<TourVO> tList = svc.tourList();
-//		
-//		req.setAttribute("hList", hList);
-//		req.setAttribute("tList", tList);
-		
 		return "schedule/travelList";
 	}
 
