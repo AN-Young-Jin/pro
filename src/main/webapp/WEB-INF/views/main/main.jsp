@@ -129,7 +129,7 @@
                                 <div
                                     style="color: #000; text-align: center"
                                 ></div>
-                                <li><a href="/mypage.do">마이페이지</a></li>
+                                <li><a href="/boardList.do">마이페이지</a></li>
                                 <li><a onclick="logout()">로그아웃</a></li>
                             </ul>
                         </div>`);

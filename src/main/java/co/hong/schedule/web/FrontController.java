@@ -62,7 +62,6 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainCommand());
 		map.put("/mypage.do", new MyPage());
 		
-		map.put("/boardList.do", new boardListCommand());
 		map.put("/boardForm.do", new boardFormCommand());
 		map.put("/addBoard.do", new AddBoardCommand());
 		map.put("/boardselect.do", new boardselectCommand());
@@ -91,7 +90,7 @@ public class FrontController extends HttpServlet {
 //		map.put("/loginForm.do", new LoginForm()); //로그인 폼
 //		map.put("/loginAction.do", new LoginAction()); //로그인
 //		map.put("/logOut.do", new LogOut()); //로그아웃
-		
+
 			
 	}
 	
