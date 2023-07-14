@@ -75,8 +75,7 @@
 
                 for (var str in json) {
                     if (json[str].length == 0) {
-                        alert($("#" + str).attr("placeholder") + "를 입력해주세요.");
-                        $("#" + str).focus();
+                        alert("값을 모두 입력해주세요.");
                         return;
                     }
                 }

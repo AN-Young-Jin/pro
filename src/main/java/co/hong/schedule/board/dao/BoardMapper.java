@@ -1,5 +1,6 @@
 package co.hong.schedule.board.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -7,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import co.hong.schedule.board.vo.BoardVO;
 
 public interface BoardMapper {
-	List<BoardVO> memberSelectList(@Param("key") String key,@Param("val") String val);
+	List<BoardVO> boardDate(@Param("from") String from, @Param("to") String to);
 	List<BoardVO> boardList(int page);
 	public int totalCnt();
 	BoardVO select(long bno);

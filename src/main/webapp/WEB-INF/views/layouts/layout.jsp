@@ -6,7 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title><tiles:getAsString name="title"/></title>
-
+  <link rel="stylesheet" type="text/css" href="resources/myro/header.css" />
+  <link rel="stylesheet" type="text/css" href="resources/myro/uikit.min.css" />
+  <link rel="stylesheet" type="text/css" href="resources/myro/myro.css" />
+  <link rel="stylesheet" type="text/css" href="resources/myro/materialize.min.css" />
 </head>
 <body>
 <div align="center">

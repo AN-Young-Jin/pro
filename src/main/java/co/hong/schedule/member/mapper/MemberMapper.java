@@ -1,5 +1,6 @@
 package co.hong.schedule.member.mapper;
 
+<<<<<<< HEAD
 import co.hong.schedule.member.vo.MemberVO;
 
 public interface MemberMapper {
@@ -14,4 +15,8 @@ public interface MemberMapper {
 	int memberUpdate(MemberVO vo);
 	//테이블 들어가는거 insert, delete int타입으로
 	
+=======
+public interface MemberMapper {
+
+>>>>>>> refs/heads/master
 }

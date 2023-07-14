@@ -1,5 +1,6 @@
 package co.hong.schedule.board.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -14,10 +15,6 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 	
 		
-	@Override
-	public List<BoardVO> boardSelectList(String key, String val) {
-		return mapper.memberSelectList(key, val);
-	}
 	
 	@Override
 	public List<BoardVO> boardList(int page) {
@@ -47,6 +44,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public int totalCnt() {
 		return mapper.totalCnt();
+	}
+
+	@Override
+	public List<BoardVO> boardDate(String from, String to) {
+		return mapper.boardDate(from, to);
 	}
 
 
