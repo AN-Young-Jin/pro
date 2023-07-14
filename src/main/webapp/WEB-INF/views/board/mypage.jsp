@@ -6,17 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="마이로(MYRO)-쉽고 간편한 여행 일정 플래너" />
-        <meta name="keywords" content="마이로, myro, 여행일정, 마이로 여행일정, 추천 일정, 추천 코스, 여행 플래너, 5분 만에 여행 일정, 유럽 여행, 홍콩 여행, 대만 여행, 나만의 여행 일정, 해외여행, 국내여행" />
-
-        <!--Open Graph-->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="마이로(MYRO)" />
-        <meta property="og:description" content="국내외 70개 여행 도시 / 여행 일정 플래너 / 일자별 경로 제공 / 가고 싶은 장소만 넣으면 되는 간단하고 쉬운 나만의 여행 일정 만들기" />
-        <meta property="og:site_name" content="마이로" />
-        <meta property="og:image" content="/myro_image/meta_logo.png" />
-        <meta property="og:url" content="https://www.myro.co.kr" />
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" />
@@ -27,7 +16,8 @@
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
  <body>
-       <!--  <div id="loading">
+  	<body>
+     <!--    <div id="loading">
             로딩 Ani
             <div id="loadingback">
                 <div class="preloader-wrapper big active" style="top: 45%">
@@ -52,8 +42,446 @@
                 </div>
             </div>
         </div> -->
-      
-       
+        <link rel="stylesheet" type="text/css" href="resources/myro/header.css" />
+<link rel="stylesheet" type="text/css" href="resources/myro/uikit.min.css" />
+
+
+<script>
+   
+
+    if (!userEmail && !userNickName) {
+        if (window.localStorage.myroRefreshToken) {
+            $.ajax({
+                url: "/checkRefreshToken",
+                type: "PUT",
+                data: {
+                    refreshToken: window.localStorage.myroRefreshToken,
+                },
+                success: function (res) {
+                    if (res.statusCode == 200) {
+                        window.localStorage.setItem(
+                            "myroRefreshToken",
+                            res.jwtRefreshToken
+                        );
+                        userEmail = res.userEmail;
+                        userNickName = res.userNickName;
+                        userSignupOrigin = res.userSignupOrigin;
+                        userEmailSubString = userEmail.substring(0, 1);
+                        userNickNameSubString = userNickName.substring(0, 1);
+                        $("#loginLogout").html(`<button
+                            class="nav-profile-btn"
+                            type="button"
+                        >
+                            <div><span id="userNickNameLogo"></span></div>
+                        </button>
+                        <div uk-dropdown="mode: click" class="header-dropdown-style">
+                            <ul>
+                                <div
+                                    style="color: #000; text-align: center"
+                                ></div>
+                                <li><a href="/mypage.do">마이페이지</a></li>
+                                <li><a onclick="logout()">로그아웃</a></li>
+                            </ul>
+                        </div>`);
+                        $("#userNickNameLogo").append(userNickNameSubString);
+                    } else if (res.statusCode == 401) {
+                    }
+                },
+                fail: function (res) {},
+            });
+        }
+    }
+    if (userEmail) {
+        if ($(window).width() <= 600) {
+            $("#userNickNameByPhone").html(userNickName);
+            let userNickNameSubStringByPhone = userNickName.substring(0, 1);
+            $("#userNickNameLogoByPhone").html(userNickNameSubStringByPhone);
+            $("#loginLogout").hide();
+        } else {
+            $("#loginLogout").append(`<button
+                            class="nav-profile-btn"
+                            type="button"
+                        >
+                            <div><span id="userNickNameLogo"></span></div>
+                        </button>
+                        <div uk-dropdown="mode: click" class="header-dropdown-style">
+                            <ul>
+                                <div
+                                    style="color: #000; text-align: center"
+                                ></div>
+                                <li><a href="/mypage.do">마이페이지</a></li>
+                                <li><a onclick="logout()">로그아웃</a></li>
+                            </ul>
+                        </div>`);
+            let userEmailSubString = userEmail.substring(0, 1);
+            let userNickNameSubString = userNickName.substring(0, 1);
+            $("#userNickNameLogo").append(userNickNameSubString);
+            // console.log(userName);
+        }
+        // $('#loginBtn').hide();
+    } else {
+        if ($(window).width() <= 600) {
+            $("#loginLogoutByPhone").html(
+                `<button class="logout-btn" onclick="loginByPhone()" >로그인</button>`
+            );
+        } else {
+            $("#loginLogout").html(
+                `<a onclick="window.open('/loginForm.do')">로그인</a>`
+            );
+            // $('#loginLogout').hide();
+        }
+    }
+    function loginByPhone() {
+        window.open("/login");
+    }
+
+    let pageLocation = location.href.split("/")[3];
+    if (pageLocation == "" || pageLocation.indexOf("myro1") != -1) {
+        $(document).scroll(function () {
+            var $nav = $("#navcc");
+            $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            //                $("#navcc b").css("display", "inherit");
+        });
+        $("#navtextbtn1_5").hide();
+    } else if (pageLocation.indexOf("guide") != -1) {
+        $("#navtextbtn1_1").hide();
+        $("#navtextbtn1_2").hide();
+        $("#navtextbtn1_3").hide();
+        $("#navtextbtn1_4").hide();
+        $("#navcc").css("background-color", "#fff");
+        $("#navcc").css("color", "#000");
+    } else {
+        $("#navtextbtn1_1").hide();
+        $("#navtextbtn1_2").hide();
+        $("#navtextbtn1_3").hide();
+        $("#navtextbtn1_4").hide();
+        $("#navtextbtn1_5").hide();
+        $("#navcc").css("background-color", "#fff");
+        $("#navcc").css("color", "#000");
+        if ($(window).width() >= 600) {
+            $("#navcc").addClass("nav-shadow");
+        }
+    }
+
+    function logout() {
+        window.localStorage.removeItem("myroRefreshToken");
+
+        $.ajax({
+            type: "GET",
+            url: headAddress + "/logout",
+
+            success: function (data) {
+                $("#loginLogout").html(
+                    `<a onclick="window.open('/loginForm.do')">로그인</a>`
+                );
+                $("#loginLogoutByPhone").html(
+                    `<button class="logout-btn" onclick="loginByPhone()" >로그인</button>`
+                );
+                userEmail = null;
+                userNickName = null;
+                userSignupOrigin = null;
+                location.href = "/";
+            },
+            fail: function () {},
+        });
+    }
+
+    function setParentPage(_userEmail, _userNickName, _userSignupOrigin) {
+        userEmail = _userEmail;
+        userNickName = _userNickName;
+        userSignupOrigin = _userSignupOrigin;
+        userEmailSubString = userEmail.substring(0, 1);
+        userNickNameSubString = userNickName.substring(0, 1);
+
+        $("#loginLogout").html(`<button
+                class="nav-profile-btn"
+                type="button"
+            >
+                <div><span id="userNickNameLogo"></span></div>
+            </button>
+            <div uk-dropdown="mode: click" class="header-dropdown-style">
+                <ul>
+                    <div
+                        style="color: #000; text-align: center"
+                    ></div>
+                    <li><a href="/mypage.do">마이페이지</a></li>
+                    <li><a onclick="logout()">로그아웃</a></li>
+                </ul>
+            </div>`);
+        $("#loginLogoutByPhone").html(
+            `<button class="logout-btn" onclick="logout()" >로그아웃</button>`
+        );
+
+        $("#userNickNameByPhone").html(userNickName);
+        let userNickNameSubStringByPhone = userNickName.substring(0, 1);
+        $("#userNickNameLogoByPhone").html(userNickNameSubStringByPhone);
+        // console.log(location.href.indexOf('city'));
+        // console.log(location.href.indexOf('myro2'));
+        // console.log(location.href.indexOf('savedRouteToken'));
+        let isNotLoginWithToken = false;
+        if (
+            isNotLoginWithToken &&
+            location.href.indexOf("city") != -1 &&
+            location.href.indexOf("myro2") != -1 &&
+            location.href.indexOf("savedRouteToken") != -1
+        ) {
+            // console.log(132131);
+            let l = location.href;
+            if (l.split("?")[1].split("&")[1]) {
+                let ll = l.split("?")[1].split("&")[1];
+                if (ll.split("=")[0] == "savedRouteToken") {
+                    savedRouteToken = ll.split("=")[1];
+                    addUserTrackingData("savedRouteToken:" + savedRouteToken);
+                    // console.log(savedRouteToken);
+                    //루트토큰 있고 없고&& 로그인 및 권한~
+                    if (savedRouteToken) {
+                        if (userEmail) {
+                            $.ajax({
+                                type: "GET",
+                                url: headAddress + "/verifyAuthority",
+                                data: {
+                                    savedRouteToken: savedRouteToken,
+                                    userEmail: userEmail,
+                                },
+                                success: function (res) {
+                                    if (
+                                        res.statusCode == 200 &&
+                                        (res.msg == "여행 주인" ||
+                                            res.msg == "여행 친구")
+                                    ) {
+                                        console.log("여행주인");
+                                        $("#saveRouteByExelBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                        $("#sendEmailBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                        $("#modifySavedRouteBtnInBox").css(
+                                            "display",
+                                            "flex"
+                                        );
+                                        $("#duplicateRouteBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                        $("#saveRouteBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                        $("#loginBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                    } else if (
+                                        res.statusCode == 200 &&
+                                        res.msg == "여행 방문자"
+                                    ) {
+                                        console.log(44444444);
+                                        $("#saveRouteByExelBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                        $("#sendEmailBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                        $("#modifySavedRouteBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                        $("#duplicateRouteBtnInBox").css(
+                                            "display",
+                                            "flex"
+                                        );
+                                        $("#saveRouteBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                        $("#loginBtnInBox").css(
+                                            "display",
+                                            "none"
+                                        );
+                                    }
+                                },
+                            });
+                            // console.log('토큰 있고 이메일 있고');
+                        } else {
+                            // alert('로그인을 하셔야 합니다')
+                            // window.open('/login')
+                            // location.href = '/'
+                            $("#saveRouteByExelBtnInBox").css(
+                                "display",
+                                "flex"
+                            );
+                            $("#sendEmailBtnInBox").css("display", "none");
+                            $("#modifySavedRouteBtnInBox").css(
+                                "display",
+                                "none"
+                            );
+                            $("#duplicateRouteBtnInBox").css("display", "none");
+                            $("#saveRouteBtnInBox").css("display", "none");
+                            $("#loginBtnInBox").css("display", "flex");
+                        }
+                    }
+                    showLoading();
+                    $.ajax({
+                        type: "GET",
+                        url: headAddress + "/getDataFromSavedRoute",
+                        data: {
+                            savedRouteToken: savedRouteToken,
+                        },
+                        success: function (data) {
+                            let gestureHandlingType = "cooperative";
+                            if ($(window).width() > 600) {
+                                gestureHandlingType = "";
+                            }
+                            document.getElementById("routepage").style.display =
+                                "block";
+                            map2 = new google.maps.Map(
+                                document.getElementById("googleMapForRoute"),
+                                {
+                                    zoom: 11,
+                                    center: {
+                                        lat: startLat,
+                                        lng: startLng,
+                                    },
+                                    gestureHandling: gestureHandlingType,
+                                }
+                            );
+                            dataFromServer = data;
+                            backupDataFromServer = JSON.parse(
+                                JSON.stringify(dataFromServer)
+                            );
+                            // 공항, 이메일 정보 등
+                            backupDataFromSavedToken = JSON.parse(
+                                JSON.stringify(dataFromServer)
+                            );
+                            delete backupDataFromSavedToken.spotsByDay;
+                            delete backupDataFromSavedToken.stayingInfos;
+                            delete backupDataFromSavedToken.originalSchedule;
+                            for (
+                                let i = 0;
+                                i <
+                                backupDataFromSavedToken.originalSpotsNo.length;
+                                i++
+                            ) {
+                                addSpotToSelectedSpotsWhenHaveToken(
+                                    backupDataFromSavedToken.originalSpotsNo[i]
+                                );
+                            }
+                            startTravelDate = new Date(
+                                dataFromServer.startTravelDate
+                            );
+                            travelDay = dataFromServer.spotsByDay.length - 1;
+                            setEndTravelDateAfterSettingStartDateAndSetEDailyTimeSettingArea(
+                                startTravelDate
+                            );
+                            setDailyTimeSettingArea(startTravelDate);
+                            $("#showingTravelDay").html(
+                                travelDay + "&nbsp" + "DAY"
+                            );
+                            $("#showingTravelDay3").html(travelDay);
+                            $("#travelDayForRouteMap").html(travelDay);
+                            $("#travelDay").val(travelDay);
+                            changeSelectedHotelAreaWhenChangeDate();
+
+                            //originalHotels로 넣어주는거 변경(no만 갖고 있으니까 해당 정보 불러온 후 해야함)
+                            // for (let i = 1; i < dataFromServer.spotsByDay.length; i++) {
+                            //     selectedHotels.push(dataFromServer.spotsByDay[i][0]);
+
+                            // }
+                            setHotelsWhenHaveToken(selectedHotels);
+                            //dataFromServer.originalSchedule
+                            totalTravelMins = 0;
+                            for (
+                                let i = 0;
+                                i < dataFromServer.originalSchedule.length;
+                                i++
+                            ) {
+                                let originalSchedule =
+                                    dataFromServer.originalSchedule[i];
+                                let startTime = originalSchedule.startTime;
+                                let endTime = originalSchedule.endTime;
+                                let dailySpendingMins =
+                                    getAbsoluteMinuteFromHHMM(endTime) -
+                                    getAbsoluteMinuteFromHHMM(startTime);
+                                if (dailySpendingMins < 0) {
+                                    dailySpendingMins += 1440;
+                                }
+                                totalTravelMins += dailySpendingMins;
+                                let startTimeForPresent =
+                                    startTime.substr(0, 2) +
+                                    ":" +
+                                    startTime.substr(2, 4);
+                                let endTimeForPresent =
+                                    endTime.substr(0, 2) +
+                                    ":" +
+                                    endTime.substr(2, 4);
+                                $('input[name="dailyStartTimes"]')[i].value =
+                                    startTimeForPresent;
+                                $('input[name="dailyEndTimes"]')[i].value =
+                                    endTimeForPresent;
+                            }
+
+                            let totalTravelH = Math.floor(totalTravelMins / 60);
+                            let totalTravelM = Math.floor(totalTravelMins % 60);
+                            $("#totalTravelH").html(totalTravelH);
+                            $("#totalTravelM").html(totalTravelM);
+                            $(".myro2-multibtndiv-modal").css("left", "360px");
+                            $("#cart2NoList").css("display", "none");
+                            $("#getScheduleFileByExcelBtnT").css(
+                                "display",
+                                "block"
+                            );
+                            $("#copyRouteTokenBtnT").css("display", "block");
+                            $("#saveButton").css("display", "none");
+                            $("#modifyFixButton").css("display", "block");
+
+                            closePlanSideBar();
+                            modifyModeDeActivate();
+                            openPlanPageWidely = false;
+                            setMap(dataFromServer);
+                            hideLoading();
+                        },
+                    });
+                }
+            }
+        } else if (
+            location.href.indexOf("city") != -1 &&
+            location.href.indexOf("myro2") != -1 &&
+            location.href.indexOf("savedRouteToken") == -1
+        ) {
+            $("#saveRouteByExelBtnInBox").css("display", "none");
+            $("#sendEmailBtnInBox").css("display", "none");
+            $("#modifySavedRouteBtnInBox").css("display", "none");
+            $("#duplicateRouteBtnInBox").css("display", "none");
+            $("#saveRouteBtnInBox").css("display", "flex");
+            $("#loginBtnInBox").css("display", "none");
+        } else if (
+            location.href.indexOf("city") != -1 &&
+            location.href.indexOf("myro2") != -1 &&
+            location.href.indexOf("savedRouteToken") != -1
+        ) {
+            $("#saveRouteByExelBtnInBox").css("display", "none");
+            $("#sendEmailBtnInBox").css("display", "none");
+            $("#modifySavedRouteBtnInBox").css("display", "none");
+            $("#duplicateRouteBtnInBox").css("display", "none");
+            $("#saveRouteBtnInBox").css("display", "flex");
+            $("#loginBtnInBox").css("display", "none");
+        }
+        // console.log(userNameSubString);
+        $("#userNickNameLogo").append(userNickNameSubString);
+    }
+    // }
+
+    // userNickNameLogo
+    // $('#userNickNameLogoByPhone').html(userNickNameSubStringByPhone)
+    // console.log(userNickName);
+</script>
+
+        <div class="wrapper">
             <div class="container">
                 <div class="top-background-div"></div>
                 <div class="top-container">
@@ -72,7 +500,7 @@
                                     <b>나의 일정</b>
                                 </h5>
                                 <div>
-                                    <h2 style="line-height: 1; font-weight: 700" id="myPlan"></h2>
+                                    <h2 style="line-height: 1; font-weight: 700" id="myPlan">0</h2>
                                 </div>
                             </div>
                             <div class="index-circle" onclick="myReviewData()">
@@ -109,7 +537,7 @@
                     <button class="btn-normal" onclick="location.href='main.do' ">홈으로 가기</button>
                 </div>
             </div>
-       
+        </div>
         <!-- <span id="modalResultArea"></span> -->
 
         <div id="reviewEditModal" class="review-edit-modal">
@@ -128,6 +556,7 @@
                 </div>
             </div>
         </div>
+    </body>
     <span id="resultArea1"></span>
     <!--Alert 모달폼-->
     <span id="modalResultArea"></span>
