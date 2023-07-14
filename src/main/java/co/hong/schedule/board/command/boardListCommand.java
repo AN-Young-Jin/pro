@@ -1,5 +1,6 @@
 package co.hong.schedule.board.command;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +23,10 @@ public class boardListCommand implements Command {
 		PageDTO dto = new PageDTO(Integer.parseInt(page), service.totalCnt());
 		
 		List<BoardVO> list = service.boardList(Integer.parseInt(page));
+		List<BoardVO> boards = new ArrayList<>();
 		
 		req.setAttribute("list", list);
+		req.setAttribute("boards", boards);
 		req.setAttribute("page", dto);
 		
 		return "board/boardList";

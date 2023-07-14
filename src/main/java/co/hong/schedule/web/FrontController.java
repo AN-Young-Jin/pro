@@ -18,6 +18,8 @@ import co.hong.schedule.board.command.BoardModifyControl;
 import co.hong.schedule.board.command.BoardRemoveControl;
 import co.hong.schedule.board.command.BoardSearchControl;
 import co.hong.schedule.board.command.MyPage;
+
+import co.hong.schedule.board.command.ReplyControl;
 import co.hong.schedule.board.command.ReplyListControl;
 import co.hong.schedule.board.command.boardFormCommand;
 import co.hong.schedule.board.command.boardListCommand;
@@ -27,6 +29,16 @@ import co.hong.schedule.calendar.command.RemoveTravelControl;
 import co.hong.schedule.calendar.command.travelForm;
 import co.hong.schedule.calendar.command.travelListControl;
 import co.hong.schedule.common.Command;
+
+
+//import co.hong.schedule.member.command.JoinAction;
+
+import co.hong.schedule.member.command.JoinAction;
+import co.hong.schedule.member.command.JoinForm;
+import co.hong.schedule.member.command.LogOut;
+import co.hong.schedule.member.command.LoginAction;
+import co.hong.schedule.member.command.LoginForm;
+
 
 
 import co.hong.schedule.schedule.command.MakeSchedule;
@@ -63,6 +75,7 @@ public class FrontController extends HttpServlet {
 		//댓글
 		map.put("/replyList.do", new ReplyListControl());
 		map.put("/addReply.do", new AddReplyControl());
+		map.put("/getReply.do", new ReplyControl());
 
 		map.put("/travelForm.do", new travelForm());
 		map.put("/traveltList.do", new travelListControl());
@@ -75,7 +88,15 @@ public class FrontController extends HttpServlet {
 
 //		map.put("/joinAction.do", new JoinAction());
 
-
+		
+		//로그인 호출하는 이름들
+		map.put("/joinForm.do", new JoinForm()); //회원가입폼
+		map.put("/joinAction.do", new JoinAction()); //회원가입
+		map.put("/loginForm.do", new LoginForm()); //로그인 폼
+		map.put("/loginAction.do", new LoginAction()); //로그인
+		map.put("/logOut.do", new LogOut()); //로그아웃
+		
+			
 	}
 	
 	
