@@ -4088,16 +4088,18 @@ a.btn_view {
 
 .recommend_area .item_list.type_thumb.type_1 li {
   float: left;
-  margin: 50px 0 0 60px
+  margin: 40px 0 0 50px
 }
 
 .recommend_area .item_list.type_thumb.type_1 li:nth-child(3n+1) {
-  margin-left: 0
+  margin-left: 10px
 }
 
 .recommend_area .item_list.type_thumb.type_1 li .item_section {
   width: 409px;
-  height: 300px
+  height: 300px;
+  box-shadow: 0px 0px 10px black;
+  border-radius: 40px;
 }
 
 .recommend_area .item_list.type_thumb.type_1 li .item_section .item_top a img {

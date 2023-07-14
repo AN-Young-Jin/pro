@@ -43,30 +43,35 @@
 			background-color: #ddd;
 		}
 		
-		#aaa {
-			 margin-top: 250px;
-			border:  solid 1px bisque;
-			
+		.nav_schedule{
+			position: sticky;
+			top:0;
+			z-index: 999;
+			width: 1450px;
+			margin: 0 auto;
+			background-color: white;
 		}
 	</style>
 </head>
 
 <body>
-
+	<div class="nav_schedule">
+		<form action="makeSchedule.do">
+			<div class="recommend_area" id="schedule">
+			</div>
+			<div style="text-align: left;">
+				<label for="from">From</label>
+				<input type="text" id="from" name="from">
+				<label for="to">to</label>
+				<input type="text" id="to" name="to">
+				<button id="makeSchedule">날짜선택</button>
+				<button type="submit">일정저장</button>
+			</div>
+		</form>
+	</div>
 	<div id="container">
 
 		<div id="content">
-			<form action="makeSchedule.do">
-				<div class="recommend_area" id="schedule">
-				</div>
-				<div style="text-align: right;">
-					<label for="from">From</label>
-					<input type="text" id="from" name="from">
-					<label for="to">to</label>
-					<input type="text" id="to" name="to">
-					<button id="makeSchedule">날짜선택</button>
-				</div>
-			</form>
 			<div class="cont detail_page">
 				<div class="recommend_area">
 					<div class="theme_tit_area clear">
@@ -181,7 +186,6 @@
 					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
 					$('#schedule').append(schedule);
 				}
-				$('#schedule').append($('<button/>').text('일정만들기').attr('type', 'submit'))
 			} else {
 				alert('기간을 선택해주세요')
 			}
