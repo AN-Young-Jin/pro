@@ -3883,14 +3883,15 @@ a.btn_view {
 
 .recommend_area .item_list.type_list {
   margin-top: 35px;
-  border-top: 1px solid #e5e5e5
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .recommend_area .item_list.type_list li {
   position: relative;
   padding: 10px 5px;
-  border-bottom: 1px solid #e5e5e5;
   float: left;
+  text-align:center;
 }
 
 .recommend_area .item_list.type_list li .item_section {
@@ -4529,7 +4530,7 @@ label.css-label3 {
 
 .util_area2 {
   height: 30px;
-  text-align: center
+  text-align: left
 }
 
 .util_area2 div {
@@ -7219,14 +7220,13 @@ header.on .inner-conts .language-wrap .btn-search {
 }
 
 #container {
-  padding-top: 90px;
-  min-height: 500px
+  min-height: 500px;
 }
 
 #content {
   margin: 0 auto;
   padding: 0 0 150px;
-  width: 1400px
+  width: 1350px
 }
 
 #content.main_content {

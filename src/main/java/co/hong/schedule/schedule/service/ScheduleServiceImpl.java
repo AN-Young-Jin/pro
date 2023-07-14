@@ -12,9 +12,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 	
 	
 	@Override
-	public ScheduleVO selectSchedule(int num) {
-		// TODO Auto-generated method stub
-		return mapper.selectSchedule(num);
+	public int makeSchedule(ScheduleVO vo) {
+		return mapper.makeSchedule(vo);
 	}
 
 }
