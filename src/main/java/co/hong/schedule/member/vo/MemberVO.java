@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class MemberVO {
-<<<<<<< HEAD
+
 	private String memId;
 	private String memPw;
 	private String memEmail;
@@ -24,12 +24,12 @@ public class MemberVO {
 	public Object pwCheck(String id) {
 		return null;
 	}
-=======
+
 	private String id;
 	private String passwd;
 	private String name;
 	private String email;
 	private String phone;
 	private String author;
->>>>>>> refs/heads/master
+
 }

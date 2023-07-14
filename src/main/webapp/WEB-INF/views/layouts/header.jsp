@@ -88,9 +88,7 @@
                             <li class="uk-active">
                                
                             </li>
-
                             <!-- <li class="uk-active"><a onclick="openYoutubeGideButton()" id="guidebuttonByPhone">이용방법</a></li> -->
-
                             <li class="uk-parent">
                             
                             </li>

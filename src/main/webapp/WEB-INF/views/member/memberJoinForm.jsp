@@ -19,7 +19,7 @@
 				<div>
 					<h5>가입하기</h5>
 				</div>
-				<form action="/expro/MemberJoin.do" method="post">
+				<form action="/hong/MemberJoin.do" method="post">
 					<fieldset>
 						<input type="text" class="w3-input"  style="width:90%" name="id" id="id" required="" placeholder="아이디">
 						<input type="password" class="w3-input" style="width:90%" name="passwd" id="passwd" required="" placeholder="비밀번호">

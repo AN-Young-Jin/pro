@@ -28,7 +28,7 @@
 				<td colspan="2" align="center">
 					<input type="submit" value="회원가입"/>
 					<input type="reset" value="다시 작성"/>
-					<input type="button" value="로그인" onclick="location.href='memberLogin.me'"/>
+					<input type="button" value="로그인" onclick="location.href='memberlogin.me'"/>
 				</td>
 			</tr>
 		</table>

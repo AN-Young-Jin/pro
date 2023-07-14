@@ -37,7 +37,13 @@ body>.grid {
 	cursor: pointer;
 }
 </style>
-<script>
+
+<!-- 달력폼 -->
+
+</head>
+
+		<body>
+		<script>
   $( function() {
     var dateFormat = "YY/MM/DD",
       from = $( "#from" )
@@ -70,64 +76,66 @@ body>.grid {
     }
   } );
   </script>
-</head>
-<body>
-	<div class="ui middle aligned center aligned grid">
-		<div class="column">
-			<h2 class="ui teal image header">게시판 페이지</h2>
-			<div class="ui large form">
-				<div class="ui stacked segment">
-					<a href="boardForm.do"><button
-							class="ui fluid large teal submit button">게시글 작성하기</button></a>
-					<table class="ui celled table">
-						<thead>
-							<tr>
-								<th>사진</th>
-								<th>제목</th>
-								<th>여행일자</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${list }" var="list">
-								<tr>
-									<td><c:out value="${list.boardNum }" /></td>
-									<td><a href="boardselect.do?bno=${list.boardNum}">${list.boardTitle }</td>
-									<td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.boardDate }"/></td><td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.boardEdate }"/></td>  
-								
-									<!--  <td>${vo.clickCnt }</td>-->
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+			<div class="ui middle aligned center aligned grid">
+				<div class="column">
+					<h5 style="font-family: 'Montserrat' !important">
+		<b>나의 일정</b>
+	</h5>
+					<div class="ui large form">
+						<div class="ui stacked segment">
+							<a href="jTravelList.do"><button
+									class="ui fluid large teal submit button">일정 만들기</button></a>
+							<table class="ui celled table">
+								<thead>
+									<tr>
+										<th>사진</th>
+										<th>제목</th>
+										<th>여행일자</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${list }" var="list">
+										<tr>
+											<td><c:out value="${list.boardNum }" /></td>
+											<td><a href="boardselect.do?bno=${list.boardNum}">${list.boardTitle }</td>
+											<td><fmt:formatDate pattern="yyyy-MM-dd"
+													value="${list.boardDate }" /> ~ <fmt:formatDate
+													pattern="yyyy-MM-dd" value="${list.boardEdate }" /></td>
+
+											<!--  <td>${vo.clickCnt }</td>-->
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="ui error message"></div>
+
+					</div>
 				</div>
-
-				<div class="ui error message"></div>
-
 			</div>
-		</div>
-	</div>
 
-	<div class="ui modal" id='view_modal'>
-		<i class="close">x</i>
-		<div class="header" id="b_title"></div>
-		<div class="content">
-			<div class="description">
-				<p style="text-align: right" id="b_review"></p>
-				<div id='b_content'></div>
+			<div class="ui modal" id='view_modal'>
+				<i class="close">x</i>
+				<div class="header" id="b_title"></div>
+				<div class="content">
+					<div class="description">
+						<p style="text-align: right" id="b_review"></p>
+						<div id='b_content'></div>
+					</div>
+				</div>
+				<div class="actions">
+					<div class="ui black deny button">닫기</div>
+				</div>
 			</div>
-		</div>
-		<div class="actions">
-			<div class="ui black deny button">닫기</div>
-		</div>
-	</div>
 
-	<br>
+			<br>
 
-	<label for="from">출발일</label>
-	<input type="text" id="from" name="from">
-	<label for="to">도착일</label>
-	<input type="text" id="to" name="to">
-	<!-- <div>
+			<label for="from">출발일</label>
+			<input type="text" id="from" name="from">
+			<label for="to">도착일</label>
+			<input type="text" id="to" name="to">
+			<!-- <div>
 			<form id="frm"  method="post">
 				<label >검색:</label> 
 				<select id="key" name="key">
@@ -140,43 +148,43 @@ body>.grid {
 		
 			</form>
 	</div> -->
-	
-				<button type="button" onclick="memberSearch()">검색</button>
 
-	<div class="center">
-		<div class="pagination">
+			<button type="button" onclick="memberSearch()">검색</button>
 
-			<c:if test="${page.prev }">
-				<a href="boardList.do?page=${page.startPage - 1}"> prev </a>
-			</c:if>
+			<div class="center">
+				<div class="pagination">
 
-
-			<c:forEach begin="${page.startPage }" end="${page.endPage }" var="i">
-				<c:choose>
-					<c:when test="${i == page.curPage }">
-						<a href="boardList.do?page=${i }" class="active"> <c:out
-								value="${i }"></c:out>
-						</a>
-					</c:when>
-					<c:otherwise>
-						<a href="boardList.do?page=${i }"> <c:out value="${i }"></c:out>
-						</a>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
+					<c:if test="${page.prev }">
+						<a href="boardList.do?page=${page.startPage - 1}"> prev </a>
+					</c:if>
 
 
+					<c:forEach begin="${page.startPage }" end="${page.endPage }"
+						var="i">
+						<c:choose>
+							<c:when test="${i == page.curPage }">
+								<a href="boardList.do?page=${i }" class="active"> <c:out
+										value="${i }"></c:out>
+								</a>
+							</c:when>
+							<c:otherwise>
+								<a href="boardList.do?page=${i }"> <c:out value="${i }"></c:out>
+								</a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
 
-			<c:if test="${page.next }">
-				<a href="boardList.do?page=${page.endPage +1 }"> next </a>
-			</c:if>
-		</div>
-	</div>
-	<br>
 
-	<a href="boardForm.do">등록화면으로</a>
 
-	<script type="text/javascript">
+					<c:if test="${page.next }">
+						<a href="boardList.do?page=${page.endPage +1 }"> next </a>
+					</c:if>
+				</div>
+			</div>
+			<br>
+
+
+			<script type="text/javascript">
 	function memberSearch() {
 	    var from = $("#from").val();
 	    var to = $("#to").val();
@@ -206,34 +214,47 @@ body>.grid {
 	    });
 	  }
 
-	  function viewHtml(datas) {
-	    var tableBody = $("tbody");
-	    var pageBody = $(".pagination");
-	    datas = JSON.parse(datas);
-	    // 기존 데이터 삭제
-	    tableBody.empty();
-	    pageBody.empty();
+	function viewHtml(datas) {
+		  var tableBody = $("tbody");
+		  var pageBody = $(".pagination");
+		  datas = JSON.parse(datas);
+		  // 기존 데이터 삭제
+		  tableBody.empty();
+		  pageBody.empty();
 
-	    // 게시글 목록 출력
-	    datas.forEach(function (item) {
-	      var row = $("<tr>");
+		  // 게시글 목록 출력
+		  datas.forEach(function (item) {
+		    var row = $("<tr>");
 
-	      var boardNum = $("<td>").text(item.boardNum);
-	      row.append(boardNum);
+		    var boardNum = $("<td>").text(item.boardNum);
+		    row.append(boardNum);
 
-	      var boardTitle = $("<td>");
-	      var boardLink = $("<a>")
-	        .attr("href", "boardselect.do?bno=" + item.boardNum)
-	        .text(item.boardTitle);
-	      boardTitle.append(boardLink);
-	      row.append(boardTitle);
+		    var boardTitle = $("<td>");
+		    var boardLink = $("<a>")
+		      .attr("href", "boardselect.do?bno=" + item.boardNum)
+		      .text(item.boardTitle);
+		    boardTitle.append(boardLink);
+		    row.append(boardTitle);
 
-	      var boardDate = $("<td>").text(item.boardDate + "~" + item.boardEdate);
-	      row.append(boardDate);
+		    var boardDate = $("<td>").text(formatDate(item.boardDate) + "~" + formatDate(item.boardEdate));
+		    row.append(boardDate);
 
-	      tableBody.append(row);
-	    });
-	  }
+		    tableBody.append(row);
+		  });
+		}
+
+		function formatDate(dateString) {
+		  var date = new Date(dateString);
+		  var month = date.getMonth() + 1;
+		  var day = date.getDate();
+		  var year = date.getFullYear().toString();
+		  
+		  // Add leading zeros if necessary
+		  month = month < 10 ? "0" + month : month;
+		  day = day < 10 ? "0" + day : day;
+		  
+		  return year + "-" + month+ "-" + day ;
+		}
 		
 		
 		
@@ -242,5 +263,5 @@ body>.grid {
 
 
 
-</body>
+		</body>
 </html>

@@ -29,7 +29,7 @@ public class boardListCommand implements Command {
 		req.setAttribute("boards", boards);
 		req.setAttribute("page", dto);
 		
-		return "board/boardList";
+		return "board/mypage";
 	}
 
 }

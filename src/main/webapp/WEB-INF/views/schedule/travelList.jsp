@@ -42,10 +42,17 @@
 		.pagination a:hover:not(.active) {
 			background-color: #ddd;
 		}
+		
+		#aaa {
+			 margin-top: 250px;
+			border:  solid 1px bisque;
+			
+		}
 	</style>
 </head>
 
 <body>
+
 	<div id="container">
 
 		<div id="content">
@@ -67,6 +74,7 @@
 							<button id="tour" style="padding: 10px;">관광지</button>
 							<button id="hotel" style="padding: 10px;">숙박</button>
 						</div>
+
 					</div>
 					<ul class="item_list type_thumb type_1 clear">
 					</ul>
