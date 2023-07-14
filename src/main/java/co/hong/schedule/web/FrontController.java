@@ -26,9 +26,6 @@ import co.hong.schedule.calendar.command.RemoveTravelControl;
 import co.hong.schedule.calendar.command.travelForm;
 import co.hong.schedule.calendar.command.travelListControl;
 import co.hong.schedule.common.Command;
-
-import co.hong.schedule.member.command.JoinAction;
-
 import co.hong.schedule.schedule.command.MakeSchedule;
 import co.hong.schedule.schedule.command.MySchedule;
 import co.hong.schedule.travel.command.TravelList;
@@ -72,7 +69,7 @@ public class FrontController extends HttpServlet {
 		map.put("/mySchedule.do", new MySchedule());
 		map.put("/makeSchedule.do", new MakeSchedule());
 
-		map.put("/joinAction.do", new JoinAction());
+//		map.put("/joinAction.do", new JoinAction());
 
 
 	}
