@@ -13,4 +13,13 @@ public class BoardVO {
 	private String memId;
 	private Date boardDate;
 	private Date boardEdate;
+	private int dateAsInt;
+	
+	 public int getDateAsInt() {
+	        return dateAsInt;
+	    }
+
+	    public void setDateAsInt(int dateAsInt) {
+	        this.dateAsInt = dateAsInt;
+	    }
 }

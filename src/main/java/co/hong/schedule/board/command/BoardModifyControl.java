@@ -23,6 +23,7 @@ public class BoardModifyControl implements Command {
 		vo.setBoardTitle(boardTitle);
 		vo.setBoardContent(boardContent);
 		vo.setBoardDate(new Date());
+		vo.setBoardEdate(new Date());
 		BoardService service = new BoardServiceImpl();
 		service.boardUpdate(vo);
 		

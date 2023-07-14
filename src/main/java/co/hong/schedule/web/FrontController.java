@@ -32,12 +32,12 @@ import co.hong.schedule.common.Command;
 
 
 //import co.hong.schedule.member.command.JoinAction;
-
-import co.hong.schedule.member.command.JoinAction;
-import co.hong.schedule.member.command.JoinForm;
-import co.hong.schedule.member.command.LogOut;
-import co.hong.schedule.member.command.LoginAction;
-import co.hong.schedule.member.command.LoginForm;
+//
+//import co.hong.schedule.member.command.JoinAction;
+//import co.hong.schedule.member.command.JoinForm;
+//import co.hong.schedule.member.command.LogOut;
+//import co.hong.schedule.member.command.LoginAction;
+//import co.hong.schedule.member.command.LoginForm;
 
 
 
@@ -64,7 +64,6 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainCommand());
 		map.put("/mypage.do", new MyPage());
 		
-		map.put("/boardList.do", new boardListCommand());
 		map.put("/boardForm.do", new boardFormCommand());
 		map.put("/addBoard.do", new AddBoardCommand());
 		map.put("/boardselect.do", new boardselectCommand());
@@ -90,12 +89,12 @@ public class FrontController extends HttpServlet {
 
 		
 		//로그인 호출하는 이름들
-		map.put("/joinForm.do", new JoinForm()); //회원가입폼
-		map.put("/joinAction.do", new JoinAction()); //회원가입
-		map.put("/loginForm.do", new LoginForm()); //로그인 폼
-		map.put("/loginAction.do", new LoginAction()); //로그인
-		map.put("/logOut.do", new LogOut()); //로그아웃
-		
+//		map.put("/joinForm.do", new JoinForm()); //회원가입폼
+//		map.put("/joinAction.do", new JoinAction()); //회원가입
+//		map.put("/loginForm.do", new LoginForm()); //로그인 폼
+//		map.put("/loginAction.do", new LoginAction()); //로그인
+//		map.put("/logOut.do", new LogOut()); //로그아웃
+//		
 			
 	}
 	
