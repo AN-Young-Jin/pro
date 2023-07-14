@@ -34,9 +34,9 @@ public class MemberJoin implements Action{
 		}else{
 			
 			MemberVO member = new MemberVO();
-			member.getmemId(request.getParameter("mem_Id"));
-			member.getmemName(request.getParameter("mem_Name"));
-			member.getmemEmail(request.getParameter("mem_Email"));
+			member.setMemId(request.getParameter("mem_Id"));
+			member.setMemName(request.getParameter("mem_Name"));
+			member.setEmail(request.getParameter("mem_Email"));
 		}
 		
 		ActionForward forward = new ActionForward();

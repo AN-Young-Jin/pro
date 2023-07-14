@@ -11,7 +11,7 @@
 	<div class="w3-padding-large" style="margin-left:300px;margin-right:70px">
 		<h3>정보수정</h3>
 		<div class="w3-container">
-			<form action="/expro/MemberUpdate.do" method="post">
+			<form action="/shedule/MemberUpdate.do" method="post">
 				<div class="w3-row w3-section">
 					<div class="w3-col" style="width:70px">
 						아이디 : 
@@ -39,8 +39,8 @@
     				</div>
 				</div>
 				<input type="submit" value="수정" class="w3-button w3-text-black">
-				<input type="button" value="비밀번호 변경" onclick="location.href='/expro/PasswdChangeForm.do'" class="w3-button w3-text-black">
-				<input type="button" value="탈퇴" onclick="location.href='/expro/Withdrawal.do'" class="w3-button w3-text-black">
+				<input type="button" value="비밀번호 변경" onclick="location.href='/shedule/PasswdChangeForm.do'" class="w3-button w3-text-black">
+				<input type="button" value="탈퇴" onclick="location.href='/shedule/Withdrawal.do'" class="w3-button w3-text-black">
 			</form>
 		</div>
 	</div>
