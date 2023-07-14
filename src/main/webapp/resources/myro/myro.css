@@ -101,6 +101,7 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -272,7 +273,7 @@ strong {
 hr {
     border: 0;
     border-top: 1px solid #ddd;
-    margin: 20px 0;
+     margin: 0;
 }
 
 .hr2 {

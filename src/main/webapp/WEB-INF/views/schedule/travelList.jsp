@@ -42,17 +42,24 @@
 		.pagination a:hover:not(.active) {
 			background-color: #ddd;
 		}
+		
+		#aaa {
+			 margin-top: 250px;
+			border:  solid 1px bisque;
+			
+		}
 	</style>
 </head>
 
 <body>
-	<div>
+	<div id= "aaa">
 		<label for="from">From</label>
 		<input type="text" id="from" name="from">
 		<label for="to">to</label>
 		<input type="text" id="to" name="to">
 		<button id="makeSchedule">날짜선택</button>
 	</div>
+	
 	<div id="content">
 		<div class="recommend_area" id="schedule">
 			<ul class="item_list type_list clear">

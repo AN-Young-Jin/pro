@@ -51,7 +51,7 @@ body, h1, h2, h3, h4, h5, h6 {
 			<c:if test="${ id.equals('hong') }">
 				<a href="#" class="w3-bar-item w3-button w3-hover-yellow">관리자 모드</a>
 			</c:if>
-			<a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">메뉴1</a>
+			
 		</nav>
 	</div>
 </body>
