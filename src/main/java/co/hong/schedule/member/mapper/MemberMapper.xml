@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.hong.schedule.member.mapper.MemberMapper">
+	<!--  회원가입 -->
+	<insert id="memberJoin" parameterType="MemberVO">
+	insert into memberinfo values( mem_id = #{memId},
+		mem_pw = #{memPw},
+		mem_email = #{memEmail},
+		mem_phone = #{memPhone},
+		mem_author = #{memAuthor},
+		mem_name = #{memName})
+		</insert>
+		
+		<!-- 아이디 중복 검사 -->
+		<select id="memberCheck" parameterType="String" resultType="int">
+		select count(id) from memberinfo where member_id = #{memId}
+		</select>
+		
+		<!-- 로그인 -->
+		<select parameterType="memberVO" id="passwdCheck" resultType="MemberVO"> 
+			select mem_pw from ex_memberinfo where id = #{memId}
+			</select>
+		
+		<!-- 회원정보 -->
+		<select parameterType="String" id="memberList" resultType="MemberVO"> 
+			select * from ex_memberinfo where id =#{memId}
+		</select>
+		
+		<!-- 회원정보 수정 -->
+		<update id="updateMember" parameterType="memberVO">
+		UPDATE MEMBER
+		<set>
+			<if test="memPass != null">mem_pass = #{memPass},</if>
+			<if test="memName != null">mem_name = #{memName},</if>
+			<if test="memTel != null">mem_tel = #{memTel},</if>
+			<if test="memberAutor != null">mem_autor = #{memberAutor</if>
+		</set>
+		WHERE MEMBER_ID = #{memId}
+		</update>
+		
+		
+	
+
+</mapper>
