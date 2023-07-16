@@ -5,20 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>join Form JSP</title>
+</head>
+<body>
 	<h3>회원가입 페이지</h3>
 	<form action="joinAction.do" method="post">
 		<table border="1">
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="member_id" required="required"/></td>
+				<td><input type="text" name="member_id" required/></td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password" name="member_pw" required="required"/></td>
+				<td><input type="password" name="member_pw" required/></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="member_name" required="required"/></td>
+				<td><input type="text" name="member_name" required/></td>
 			</tr>
 			<tr>
 				<th>이메일 주소</th>
@@ -33,9 +35,5 @@
 			</tr>
 		</table>
 	</form>
-</div>
-</head>
-<body>
-
 </body>
 </html>

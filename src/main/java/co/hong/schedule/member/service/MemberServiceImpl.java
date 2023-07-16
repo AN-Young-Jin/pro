@@ -15,9 +15,11 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO memberLogin(MemberVO vo) {
 		return map.memberLogin(vo);
 	}
+	
+	//회원가입 (mapper와 주고받기)
 	@Override
-	public int memberJoin(MemberVO vo) {
-		return map.memberJoin(vo);
+	public boolean memberJoin(MemberVO vo) {
+		return map.memberJoin(vo) == 1;
 	}
 	@Override
 	public int memberUpdate(MemberVO vo) {

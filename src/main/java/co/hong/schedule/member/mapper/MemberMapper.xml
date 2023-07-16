@@ -3,12 +3,14 @@
 <mapper namespace="co.hong.schedule.member.mapper.MemberMapper">
 	<!--  회원가입 -->
 	<insert id="memberJoin" parameterType="MemberVO">
-	insert into memberinfo values( mem_id = #{memId},
-		mem_pw = #{memPw},
-		mem_email = #{memEmail},
-		mem_phone = #{memPhone},
-		mem_author = #{memAuthor},
-		mem_name = #{memName})
+		insert into member 
+		values( #{memId},
+				#{memPw},
+				#{memEmail},
+				#{memPhone},
+				#{memAuthor},
+				#{memName}
+				)
 		</insert>
 		
 		<!-- 아이디 중복 검사 -->

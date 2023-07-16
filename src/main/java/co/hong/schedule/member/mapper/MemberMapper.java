@@ -8,9 +8,12 @@ public interface MemberMapper {
 //	MemberVO passCheck(String memPw);
 //	MemberVO memberList(String memId);
 //	int updateMember(MemberVO vo);
-	// 로그인 회원가입 정보수정
-	MemberVO memberLogin(MemberVO vo);
-	int memberJoin(MemberVO vo);
-	int memberUpdate(MemberVO vo);
+
+	int memberJoin(MemberVO vo); // 회원가입
+	
+	MemberVO memberLogin(MemberVO vo); //로그인
+	int memberUpdate(MemberVO vo); // 정보수정
+	
+	
 	// 테이블 들어가는거 insert, delete int타입으로
 }

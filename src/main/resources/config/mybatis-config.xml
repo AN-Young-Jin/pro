@@ -30,7 +30,7 @@
   	<mapper resource="co/hong/schedule/calendar/mapper/TravelMapper.xml" />
   	<mapper resource="co/hong/schedule/board/dao/ReplyMapper.xml" />
   	<mapper resource="co/hong/schedule/travel/mapper/TravelMapper.xml" />
+  	<mapper resource="co/hong/schedule/member/mapper/MemberMapper.xml" />
   	<mapper resource="co/hong/schedule/schedule/mapper/ScheduleMapper.xml" />
-
   </mappers>
 </configuration>
