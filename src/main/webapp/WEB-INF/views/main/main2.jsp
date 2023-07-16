@@ -134,6 +134,7 @@
                                         <h5>쉽고 간편한 여행 일정 플래너</h5> -->
                                     </div>
                                 </div>
+                                
                                 <!-- <div style="width: 400px; margin: 8px 0 32px 0">
                                     <img
                                         src="/myro_image/myro_logo_test_2.png"

@@ -11,15 +11,14 @@ public class Test {
 		SqlSession Session = DataSource.getInstance().openSession(true);
 		ScheduleMapper mapper = Session.getMapper(ScheduleMapper.class);
 		
-		ScheduleVO sc= mapper.selectSchedule(0);
-		long t = 0;
-		long day = 0;
-		if(sc.getEDate()!=null) {
-			 t = sc.getEDate().getTime() - sc.getSDate().getTime();
-		day = t/(1000*60*60*24);
-		}
-		System.out.println(day);
 		
+		ScheduleVO vo = new ScheduleVO();
+		vo.setMemId("user1");
+		vo.setSDate("07/11/2022");
+		vo.setEDate("07/13/2022");
+		mapper.makeSchedule(vo);
+		
+		System.out.println(vo.getScNum()); 
 		
 	}
 }

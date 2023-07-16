@@ -10,7 +10,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/jeju.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="/resources/demos/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -42,38 +42,48 @@
 		.pagination a:hover:not(.active) {
 			background-color: #ddd;
 		}
+		
+		#aaa {
+			 margin-top: 250px;
+			border:  solid 1px bisque;
+			
+		}
 	</style>
 </head>
 
 <body>
-	<div>
-		<label for="from">From</label>
-		<input type="text" id="from" name="from">
-		<label for="to">to</label>
-		<input type="text" id="to" name="to">
-		<button id="makeSchedule">날짜선택</button>
-	</div>
-	<div id="content">
-		<div class="recommend_area" id="schedule">
-			<ul class="item_list type_list clear">
-				
-			</ul>
-		</div>
-		<div class="cont detail_page">
-			<div class="recommend_area">
-				<div class="clear">
-					<div class="util_area2">
-						<button id="tour" style="padding: 10px;">관광지</button>
-						<button id="hotel">숙박</button>
-					</div>
-				</div>
-				<ul class="item_list type_thumb type_1 clear">
-				</ul>
-			</div>
-		</div>
-		<div class="center">
-			<div class="pagination">
 
+	<div id="container">
+
+		<div id="content">
+			<form action="makeSchedule.do">
+				<div class="recommend_area" id="schedule">
+				</div>
+				<div style="text-align: right;">
+					<label for="from">From</label>
+					<input type="text" id="from" name="from">
+					<label for="to">to</label>
+					<input type="text" id="to" name="to">
+					<button id="makeSchedule">날짜선택</button>
+				</div>
+			</form>
+			<div class="cont detail_page">
+				<div class="recommend_area">
+					<div class="theme_tit_area clear">
+						<div class="util_area2">
+							<button id="tour" style="padding: 10px;">관광지</button>
+							<button id="hotel" style="padding: 10px;">숙박</button>
+						</div>
+
+					</div>
+					<ul class="item_list type_thumb type_1 clear">
+					</ul>
+				</div>
+			</div>
+			<div class="center">
+				<div class="pagination">
+
+				</div>
 			</div>
 		</div>
 	</div>
@@ -90,6 +100,7 @@
 
 	var hotel_id;
 	var tour_id;
+	let whatDay = null;
 
 	$(function () {
 		var dateFormat = "mm/dd/yy";
@@ -135,27 +146,42 @@
 			return date;
 		}
 
-		$('#makeSchedule').on('click', function () {
+
+		$('#makeSchedule').on('click', function (e) {
+			e.preventDefault();
 			var from = $.datepicker.parseDate(dateFormat, $('#from').val());
 			var to = $.datepicker.parseDate(dateFormat, $('#to').val());
 			if (from != null && to != null) {
 				$('#schedule').html('')
 
 				let howLong = (to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24) + 1;
-				console.log(howLong)
+			
 				for (let i = 1; i <= howLong; i++) {
-					let schedule = $('<ul/>').attr('class', 'item_list type_list clear')
-					$(schedule).append($('<li/>').attr('style',"height: 120px; display: flex;align-items: center;width: 13px;").text(i+'일차'))
-					$(schedule).append($('<li/>').attr('style',"height: 120px; display: flex;align-items: center;width: 13px;").attr('id', 'set_hotel_' + i).text('숙박').on('click', function () {
-						hotel_id = $(this).attr('id')
-						tour_id=null;
-					}))
-					$(schedule).append($('<li/>').attr('style',"height: 120px; display: flex;align-items: center;width: 13px;").attr('id', 'set_tour_' + i).text('관광지').on('click', function () {
-						tour_id = $(this).attr('id')
-						hotel_id=null;
-					}))
+					let schedule = $('<ul/>').attr('class', 'item_list type_list clear').attr('id', 'day' + i)
+						.on('click', function () {
+							whatDay = $(this).attr('id');
+						})
+					$(schedule).append($('<li/>').attr('style',
+						"height: 142px; display: flex;align-items: center;width: 23px;").text(i + '일차'))
+					$(schedule).append($('<li/>').attr('style',
+							"height: 142px; display: flex;align-items: center;width: 23px;").attr('id', 'set_hotel_' + i)
+						.text('숙박').on('click', function () {
+							hotel_id = $(this).attr('id')
+							tour_id = null;
+						}))
+					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
+					$(schedule).append($('<li/>').attr('style',
+							"height: 142px; display: flex;align-items: center;width: 23px;").attr('id', 'set_tour_' + i)
+						.text('관광지').on('click', function () {
+							tour_id = $(this).attr('id')
+							hotel_id = null;
+						}))
+					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
+					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
+					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
 					$('#schedule').append(schedule);
 				}
+				$('#schedule').append($('<button/>').text('일정만들기').attr('type', 'submit'))
 			} else {
 				alert('기간을 선택해주세요')
 			}
@@ -192,15 +218,16 @@
 
 		function addSchedule() {
 			cid = $(this).parent().parent().parent().prev().val();
-			if (category == 'c1' && tour_id != null) {
-				console.log(cid + '///' + tour_id);
+			if (category == 'c3' && whatDay != null) {
 				$.ajax({
 					url: url + '&cid=' + cid,
 					method: 'get',
 					success: function (result) {
 						$(result.items).each(function (idx, ele) {
-							let li = $('<li/>');
 							let dl = $('<dl/>').attr('class', 'item_section');
+							let hiddneId = $('<input/>').attr('name', whatDay + '_hotel').attr('type', 'hidden').val(
+							cid);
+							$(dl).append(hiddneId);
 							let dt = $('<dt/>').attr('class', 'item_top');
 							let a = $('<a/>');
 							let img;
@@ -209,6 +236,9 @@
 							} else {
 								img = $('<img/>').attr('src', '#');
 							}
+							$(img).on('click', function () {
+								$(this).parent().parent().remove()
+							})
 							let pTit = $('<p/>').attr('class', 's_tit');
 							$(pTit).text(ele.title)
 							let pTheme = $('<p/>').attr('class', 's_theme');
@@ -218,12 +248,12 @@
 							$(a).append(pTheme);
 							$(dt).append(a);
 							$(dl).append(dt);
-							$(li).append(dl);
-							$('#'+tour_id).after(li)
+							$('#' + whatDay).children().eq(2).empty();
+							$('#' + whatDay).children().eq(2).append(dl);
 						})
 					}
 				})
-			} else if(category == 'c3' && hotel_id != null){
+			} else if (category == 'c1' && whatDay != null) {
 				$.ajax({
 					url: url + '&cid=' + cid,
 					method: 'get',
@@ -231,6 +261,8 @@
 						$(result.items).each(function (idx, ele) {
 							let li = $('<li/>');
 							let dl = $('<dl/>').attr('class', 'item_section');
+							let hiddneId = $('<input/>').attr('name', whatDay + '_tour').attr('type', 'hidden').val(cid);
+							$(dl).append(hiddneId);
 							let dt = $('<dt/>').attr('class', 'item_top');
 							let a = $('<a/>');
 							let img;
@@ -239,6 +271,9 @@
 							} else {
 								img = $('<img/>').attr('src', '#');
 							}
+							$(img).on('click', function () {
+								$(this).parent().parent().remove()
+							})
 							let pTit = $('<p/>').attr('class', 's_tit');
 							$(pTit).text(ele.title)
 							let pTheme = $('<p/>').attr('class', 's_theme');
@@ -249,7 +284,8 @@
 							$(dt).append(a);
 							$(dl).append(dt);
 							$(li).append(dl);
-							$('#'+hotel_id).after(li)
+							$('#' + whatDay).children().eq(6).remove();
+							$('#' + whatDay).children().eq(3).after(li);
 						})
 					}
 				})

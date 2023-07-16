@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="headerArea">
-    <nav id="navcc">
+    <nav id="navcc" class="nav-shadow">
         <div class="nav-wrapper navWidth">
             <a href="main.do" id="navlefttext">
                 <b>HONG</b>
@@ -88,9 +88,7 @@
                             <li class="uk-active">
                                
                             </li>
-
                             <!-- <li class="uk-active"><a onclick="openYoutubeGideButton()" id="guidebuttonByPhone">이용방법</a></li> -->
-
                             <li class="uk-parent">
                             
                             </li>

@@ -6,7 +6,12 @@
     letter-spacing: 2px;
     width: 100vw;
     color: #fff;
-    margin-bottom: -200px;
+
+}
+
+#navtextbtn1{
+	color:lime;
+
 }
 
 #navcc b {
