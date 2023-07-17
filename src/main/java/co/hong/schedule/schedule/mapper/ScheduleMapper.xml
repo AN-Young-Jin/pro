@@ -6,11 +6,12 @@
 			select schedule_seq.nextval from dual
 		</selectKey>
 		INSERT INTO SCHEDULE(SC_NUM, MEM_ID, S_DATE, E_DATE, 
-										H_DAY1_CID, H_DAY2_CID, H_DAY3_CID, H_DAY4_CID, H_DAY5_CID,
-										T_DAY1_CID, T_DAY2_CID, T_DAY3_CID, T_DAY4_CID, T_DAY5_CID, TITLE)
+										HDAY1_CID, HDAY2_CID, HDAY3_CID, HDAY4_CID, HDAY5_CID,
+										TDAY1_CID, TDAY2_CID, TDAY3_CID, TDAY4_CID, TDAY5_CID,title)
 		VALUES(#{scNum},#{memId},#{sDate},#{eDate},
-					#{hDay1Cid}, #{hDay2Cid}, #{hDay3Cid}, #{hDay4Cid}, #{hDay5Cid}, 
-					#{tDay1Cid}, #{tDay2Cid}, #{tDay3Cid}, #{tDay4Cid}, #{tDay5Cid}, #{title})
+					#{hday1Cid}, #{hday2Cid}, #{hday3Cid}, #{hday4Cid}, #{hday5Cid}, 
+					#{tday1Cid}, #{tday2Cid}, #{tday3Cid}, #{tday4Cid}, #{tday5Cid},#{title})
+
 	</insert>
 	
 </mapper>

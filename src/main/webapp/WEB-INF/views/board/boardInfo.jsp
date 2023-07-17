@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,33 +12,27 @@
 <link rel="stylesheet" type="text/css"
 	href="/schedule/resources/semantic.min.css">
 <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 </head>
 
 <body>
-	<h3>상세 + 수정화면</h3>
-	<table border = "1" class= "table">
-		<thead>
-		<tr>
-			<th>호텔</th>
-			<th>관광지<th>
-		</tr>		
-		</thead>
-		<tbody>
-		<tr>
-			<td>
-				<c:out value="${sVo.hDay1Cid }"></c:out>
-			</td>
-		</tr>
-			
-		</tbody>
-	</table>
-	
+<h1>boardinfo</h1>
+<p><c:out value="${schedule }"/></p>
+<h1><c:out value="${schedule.title }"></c:out></h1>
+<h1><c:out value="${schedule.memId }"></c:out></h1>
+<p><c:out value="${schedule.hday1Cid }"/></p>
 
 </body>
+<script>
+	let tday1 = '${schedule.tday1Cid}'.split(',')
+	$(tday1).each(function(idx,item){
+		console.log(idx,item);
+	})
+	
+</script>
 </html>
 
 
