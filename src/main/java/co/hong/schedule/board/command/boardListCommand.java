@@ -23,7 +23,7 @@ public class boardListCommand implements Command {
 		
 		ScheduleService service = new ScheduleServiceImpl();
 		
-		List<ScheduleVO> svo = service.select(Integer.parseInt(scNum));
+		List<ScheduleVO> svo = service.myList("user1");
 		
 		req.setAttribute("list", svo);
 		

@@ -14,13 +14,19 @@ public class ScheduleServiceImpl implements ScheduleService{
 	private ScheduleMapper mapper = sqlSession.getMapper(ScheduleMapper.class);
 	
 	@Override
-	public List<ScheduleVO> select(int scNum) {
+	public ScheduleVO select(int scNum) {
 		return mapper.select(scNum);
 	}
 
 	@Override
 	public List<ScheduleVO> boardDate(String from, String to) {
 		return mapper.boardDate(from, to);
+	}
+
+	@Override
+	public List<ScheduleVO> myList(String memId) {
+		// TODO Auto-generated method stub
+		return mapper.myList(memId);
 	}
 
 }

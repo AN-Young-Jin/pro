@@ -26,7 +26,7 @@ public class MyPage implements Command {
 		BoardService service = new BoardServiceImpl();
 		PageDTO dto = new PageDTO(Integer.parseInt(page), service.totalCnt());
 		
-		List<ScheduleVO> list = sService.select(Integer.parseInt(page));
+		List<ScheduleVO> list = sService.myList("user1");
 		List<ScheduleVO> schedules = new ArrayList<>();
 		
 		
