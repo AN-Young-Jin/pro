@@ -11,6 +11,8 @@
 	</settings>
 	<typeAliases>
 		<typeAlias alias="MemberVO" type="co.hong.schedule.member.vo.MemberVO"/>
+		<typeAlias alias="BoardVO" type="co.hong.schedule.board.vo.BoardVO"/>
+		<typeAlias alias="ScheduleVO" type="co.hong.schedule.schedule.vo.ScheduleVO"/>
 	</typeAliases>
 	<!-- DB 환경 설정 -->
   <environments default="development">
@@ -32,5 +34,6 @@
   	<mapper resource="co/hong/schedule/travel/mapper/TravelMapper.xml" />
   	<mapper resource="co/hong/schedule/member/mapper/MemberMapper.xml" />
   	<mapper resource="co/hong/schedule/schedule/mapper/ScheduleMapper.xml" />
+  	<mapper resource="co/hong/schedule/board/dao/ScheduleMapper.xml" />
   </mappers>
 </configuration>

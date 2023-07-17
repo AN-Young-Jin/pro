@@ -7,8 +7,8 @@
 	<select id = "boardDate" resultType = "co.hong.schedule.board.vo.BoardVO">
 	SELECT *
 	FROM board
-	WHERE board_date BETWEEN TO_DATE(#{from}, 'MM/DD/YYYY')
-			AND TO_DATE(#{to}, 'MM/DD/YYYY')    
+	WHERE board_date BETWEEN TO_DATE(#{from}, 'YYYY-MM-DD')
+			AND TO_DATE(#{to}, 'YYYY-MM-DD')    
 	</select>
 
 	<select id ="memberSelectList" resultType = "co.hong.schedule.board.vo.BoardVO">
@@ -40,7 +40,7 @@
   	</select>
 	
 	<select id = "select" parameterType="long">
-		select * from board where board_num = #{boardNum}
+		select * from schedule where sc_num = #{scNum}
 	</select>
 	
 	<insert id="boardInsert" parameterType="co.hong.schedule.board.vo.BoardVO">

@@ -18,8 +18,10 @@ import co.hong.schedule.board.command.BoardModifyControl;
 import co.hong.schedule.board.command.BoardRemoveControl;
 import co.hong.schedule.board.command.BoardSearchControl;
 import co.hong.schedule.board.command.MyPage;
+
 import co.hong.schedule.board.command.ReplyControl;
 import co.hong.schedule.board.command.ReplyListControl;
+
 import co.hong.schedule.board.command.boardFormCommand;
 import co.hong.schedule.board.command.boardselectCommand;
 import co.hong.schedule.calendar.command.AddTravelControl;
@@ -63,8 +65,8 @@ public class FrontController extends HttpServlet {
 
 
 		map.put("/main.do", new MainCommand());
-		map.put("/mypage.do", new MyPage());
 		
+		map.put("/mypage.do", new MyPage());
 		map.put("/boardForm.do", new boardFormCommand());
 		map.put("/addBoard.do", new AddBoardCommand());
 		map.put("/boardselect.do", new boardselectCommand());
@@ -73,9 +75,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardRemove.do", new BoardRemoveControl());
 		map.put("/boardSearch.do", new BoardSearchControl());
 		//댓글
-		map.put("/replyList.do", new ReplyListControl());
 		map.put("/addReply.do", new AddReplyControl());
-		map.put("/getReply.do", new ReplyControl());
 
 		map.put("/travelForm.do", new travelForm());
 		map.put("/traveltList.do", new travelListControl());
