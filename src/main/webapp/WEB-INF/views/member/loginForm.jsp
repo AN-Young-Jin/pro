@@ -7,18 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>로그인</title>
 
-<style>
-
-
-
-</style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-
+<script src="./member/memberJoinCheck.js">
 </script>
 </head>
 <body>
-
-
 	<div>
 		<%@ include file="/home/sidebar.jsp" %>
 	</div>
@@ -30,9 +23,9 @@
 				<input class="w3-input w3-border" style="width:50%" type="password" name="passwd" id="passwd" required="" placeholder="비밀번호">
 				<input class="w3-button w3-text-black" type="submit" value="로그인">
 				<a href="joinForm.do"><input class="w3-button w3-text-black" type="submit" value="회원가입"></a>
+
 			</form>
 		</div>
 	</div>
-	
 </body>
 </html>
