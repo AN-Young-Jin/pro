@@ -24,6 +24,7 @@ public class MakeSchedule implements Command {
 		String[] tour4 = req.getParameterValues("day4_tour");
 		String[] tour5 = req.getParameterValues("day5_tour");
 
+		String title = req.getParameter("title");
 		String sDate = req.getParameter("from");
 		String eDate = req.getParameter("to");
 
@@ -80,9 +81,11 @@ public class MakeSchedule implements Command {
 		vo.setTDay3Cid(str3);
 		vo.setTDay4Cid(str4);
 		vo.setHDay5Cid(str5);
+		vo.setTitle(title);
 		
 		svc.makeSchedule(vo);
-
+		
+		int scNum = vo.getScNum();
 
 		return "mypage.do";
 	}

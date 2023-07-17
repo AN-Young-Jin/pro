@@ -18,10 +18,6 @@ import co.hong.schedule.board.command.BoardModifyControl;
 import co.hong.schedule.board.command.BoardRemoveControl;
 import co.hong.schedule.board.command.BoardSearchControl;
 import co.hong.schedule.board.command.MyPage;
-
-import co.hong.schedule.board.command.ReplyControl;
-import co.hong.schedule.board.command.ReplyListControl;
-
 import co.hong.schedule.board.command.boardFormCommand;
 import co.hong.schedule.board.command.boardselectCommand;
 import co.hong.schedule.calendar.command.AddTravelControl;
