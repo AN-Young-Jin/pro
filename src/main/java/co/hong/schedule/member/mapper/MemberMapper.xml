@@ -13,15 +13,19 @@
 				)
 		</insert>
 		
+		<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
+			select * from member where mem_id = #{memId} AND mem_pw = #{memPw}
+		</select>
+		
 		<!-- 아이디 중복 검사 -->
 		<select id="memberCheck" parameterType="String" resultType="int">
-		select count(id) from memberinfo where member_id = #{memId}
+		select count(id) from member where member_id = #{memId}
 		</select>
 		
 		<!-- 로그인 -->
 		<select parameterType="memberVO" id="passwdCheck" resultType="MemberVO"> 
 			select mem_pw from ex_memberinfo where id = #{memId}
-			</select>
+		</select>
 		
 		<!-- 회원정보 -->
 		<select parameterType="String" id="memberList" resultType="MemberVO"> 
@@ -34,10 +38,14 @@
 		<set>
 			<if test="memPass != null">mem_pass = #{memPass},</if>
 			<if test="memName != null">mem_name = #{memName},</if>
-			<if test="memTel != null">mem_tel = #{memTel},</if>
+			<if test="memTel != null">mem_phone = #{memPhone},</if>
 			<if test="memberAutor != null">mem_autor = #{memAuthor},</if>
 		</set>
 		WHERE MEMBER_ID = #{memId}
 		</update>
+		<!-- 아이디 중복검사 -->
+	<select id="isMemberIdCheck" resultType="boolean">
+	select count(*) as id from member where mem_id = #{id}
+	</select>
 </mapper>
 

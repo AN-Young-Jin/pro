@@ -19,6 +19,6 @@ public class LogOut implements Command {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 
-		return "schedule/Index";
+		return "main.do";
 	}
 }
