@@ -544,7 +544,7 @@
                                 <div class="maintitleTextdiv" style="justify-content: center">
                                     <div>
                                         <h2 class="mainsubtitle">
-                                            AI 여행 스케줄링 플래너
+                                            ${memberId }
                                         </h2>
                                         <!-- <h5 class="">
                                             여행 일자, 숙소, 가고 싶은 장소만

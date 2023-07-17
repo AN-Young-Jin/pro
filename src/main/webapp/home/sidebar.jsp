@@ -48,7 +48,7 @@ body, h1, h2, h3, h4, h5, h6 {
 					<br />로그아웃
 				</a>
 			</c:if>
-			<c:if test="${ id.equals('hong') }">
+			<c:if test="${ id.equals('schedule') }">
 				<a href="#" class="w3-bar-item w3-button w3-hover-yellow">관리자 모드</a>
 			</c:if>
 			
