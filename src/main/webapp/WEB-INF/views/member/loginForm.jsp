@@ -22,7 +22,7 @@
 				<input class="w3-input w3-border" style="width:50%" type="text" name="id" id="id" required="" placeholder="아이디" autofocus>
 				<input class="w3-input w3-border" style="width:50%" type="password" name="passwd" id="passwd" required="" placeholder="비밀번호">
 				<input class="w3-button w3-text-black" type="submit" value="로그인">
-				<a href="joinForm.do"><input class="w3-button w3-text-black" type="submit" value="회원가입"></a>
+				<a href="joinForm.do"><input class="w3-button w3-text-black" type="button" value="회원가입"></a>				
 
 			</form>
 		</div>
