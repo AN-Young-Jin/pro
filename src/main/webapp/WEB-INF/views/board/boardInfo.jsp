@@ -23,18 +23,16 @@
 	<table border = "1" class= "table">
 		<thead>
 		<tr>
-			<th>여행일자</th>
-		</tr>
+			<th>호텔</th>
+			<th>관광지<th>
+		</tr>		
 		</thead>
 		<tbody>
-			<tr>
-				<c:forEach items="${list }" var="list">
-				<td><fmt:formatDate value="${list.boardDate }" pattern="yy/mm/dd"/>
-				</td>
-				</c:forEach>
-				
-			</tr>
-			
+		<tr>
+			<td>
+				<c:out value="${sVo.hDay1Cid }"></c:out>
+			</td>
+		</tr>
 			
 		</tbody>
 	</table>

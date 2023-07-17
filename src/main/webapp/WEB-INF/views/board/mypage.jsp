@@ -64,16 +64,18 @@ body>.grid {
 </style>
 <script>
 	$(function() {
-		var dateFormat = "YY/MM/DD", from = $("#from").datepicker({
+		var dateFormat = "yy-mm-dd", from = $("#from").datepicker({
 			defaultDate : "+1w",
 			changeMonth : true,
-			numberOfMonths : 1
+			numberOfMonths : 1,
+			dateFormat : dateFormat
 		}).on("change", function() {
 			to.datepicker("option", "minDate", getDate(this));
 		}), to = $("#to").datepicker({
 			defaultDate : "+1w",
 			changeMonth : true,
-			numberOfMonths : 1
+			numberOfMonths : 1,
+			dateFormat : dateFormat
 		}).on("change", function() {
 			from.datepicker("option", "maxDate", getDate(this));
 		});
@@ -93,33 +95,7 @@ body>.grid {
 </head>
 <body>
 	<div class="container">
-		<div class="top-background-div"></div>
-		<div class="top-container">
-
-
-			<div>
-				<div class="row">
-					<div class="index-section">
-						<div class="index-circle" onclick="myPlanData()">
-							<h5 style="font-family: 'Montserrat' !important">
-								<b>나의 일정</b>
-							</h5>
-							<div>
-								<h2 style="line-height: 1; font-weight: 700" id="myPlan"></h2>
-							</div>
-						</div>
-						<div class="index-circle" onclick="myReviewData()">
-							<h5 style="font-family: 'Montserrat' !important">
-								<b>나의 리뷰</b>
-							</h5>
-							<div>
-								<h2 style="line-height: 1; font-weight: 700" id="myReview">0</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 		<!-- <div class="section-divider"></div> -->
 		<div class="container uk-container-large" id="mypageData">
 			<!-- 나의 일정 div -->
@@ -129,10 +105,16 @@ body>.grid {
 						<b>나의 일정</b>
 					</h3>
 
+					
 					<div class="ui middle aligned center aligned grid">
 						<div class="column">
 							<h5 style="font-family: 'Montserrat' !important">
-								<b>나의 일정</b>
+								<label for="from">출발일</label> <input type="text"
+						id="from" name="from"> <label for="to">도착일</label> <input
+						type="text" id="to" name="to">
+
+
+					<button type="button" onclick="memberSearch()">검색</button>
 							</h5>
 							<div class="ui large form">
 								<div class="ui stacked segment">
@@ -149,11 +131,10 @@ body>.grid {
 										<tbody>
 											<c:forEach items="${list }" var="list">
 												<tr>
-													<td><c:out value="${list.boardNum }" /></td>
-													<td><a href="boardselect.do?bno=${list.boardNum}">${list.boardTitle }</a></td>
-													<td><fmt:formatDate pattern="yyyy-MM-dd"
-															value="${list.boardDate }" /> ~ <fmt:formatDate
-															pattern="yyyy-MM-dd" value="${list.boardEdate }" /></td>
+													<td><c:out value="${list.scNum }" /></td>
+													<td><a href="boardselect.do?sno=${list.scNum}">${list.title }</a></td>
+													<td>${list.SDate } ~ 
+														${list.EDate }</td>
 
 													<!--  <td>${vo.clickCnt }</td>-->
 												</tr>
@@ -182,12 +163,7 @@ body>.grid {
 						</div>
 					</div>
 
-					<br> <label for="from">출발일</label> <input type="text"
-						id="from" name="from"> <label for="to">도착일</label> <input
-						type="text" id="to" name="to">
-
-
-					<button type="button" onclick="memberSearch()">검색</button>
+					<br> 
 
 
 					<br>
@@ -233,21 +209,21 @@ body>.grid {
 
 							// 게시글 목록 출력
 							datas.forEach(function(item) {
+								console.log(item)
 								var row = $("<tr>");
 
-								var boardNum = $("<td>").text(item.boardNum);
-								row.append(boardNum);
+								var scNum = $("<td>").text(item.scNum);
+								row.append(scNum);
 
-								var boardTitle = $("<td>");
+								var Title = $("<td>");
 								var boardLink = $("<a>").attr("href",
-										"boardselect.do?bno=" + item.boardNum)
-										.text(item.boardTitle);
-								boardTitle.append(boardLink);
-								row.append(boardTitle);
+										"boardselect.do?sno=" + item.scNum)
+										.text(item.title);
+								Title.append(boardLink);
+								row.append(Title);
 
-								var boardDate = $("<td>").text(
-										formatDate(item.boardDate) + "~"
-												+ formatDate(item.boardEdate));
+								var boardDate = $("<td>").text((item.sdate) + "~"
+												+ (item.edate));
 								row.append(boardDate);
 
 								tableBody.append(row);

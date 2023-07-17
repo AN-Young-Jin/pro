@@ -1,14 +1,14 @@
 package co.hong.schedule.board.command;
 
-import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.hong.schedule.board.service.BoardService;
-import co.hong.schedule.board.service.BoardServiceImpl;
-import co.hong.schedule.board.vo.BoardVO;
+import co.hong.schedule.board.service.ScheduleService;
+import co.hong.schedule.board.service.ScheduleServiceImpl;
 import co.hong.schedule.common.Command;
+import co.hong.schedule.schedule.vo.ScheduleVO;
 
 public class boardselectCommand implements Command {
 		
@@ -17,17 +17,12 @@ public class boardselectCommand implements Command {
 	
 		
 		
-		String boardNum = req.getParameter("bno");
+		String scNum = req.getParameter("sno");
 		
-		BoardService service = new BoardServiceImpl();
-		BoardVO vo = service.select(Long.parseLong(boardNum));
-		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-		 int boardDate = Integer.parseInt(dateFormat.format(vo.getBoardDate()));
-		    vo.setDateAsInt(boardDate);
-		req.setAttribute("list", vo);
-		int boardEdate = Integer.parseInt(dateFormat.format(vo.getBoardEdate()));
-		vo.setDateAsInt(boardEdate);
+		ScheduleService sService = new ScheduleServiceImpl();
 		
+		List<ScheduleVO> sVo = sService.select(Integer.parseInt(scNum));
+		req.setAttribute("list", sVo);
 		
 		return "board/boardInfo";
 	}
