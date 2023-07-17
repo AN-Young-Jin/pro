@@ -30,16 +30,18 @@ body, h1, h2, h3, h4, h5, h6 {
 <body class="w3-white">
 	<div>
 		<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" style="width:250px;font-weight:bold;">
+
 			<c:if test="${ id == null }">
 				<a href="loginForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
 	   				<i class="fa fa-connectdevelop w3-xxlarge"></i>
 	  			 	<br />로그인
 	  			</a>
+
 	  			<a href="joinForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
 	    			<i class="fa fa-user-plus w3-xxlarge"></i>
 	    			<br />회원가입
 	  			</a>
-  			</c:if>
+      </c:if>
   			<c:if test="${ id != null }">
 				<a href="MemberUpdateForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
 					<i class="fa fa-user w3-xxlarge"></i>
