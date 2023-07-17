@@ -10,24 +10,26 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+
 body, h1, h2, h3, h4, h5, h6 {
 	font-family: "Montserrat", sans-serif;
 }
 .w3-sidebar {
-	width: 120px;
-	background: #99FF99;
+	border : 3px  #FFFFFF;
+	height: 300px;
+	width: 200px;
+	background: #0080FF;
+	
 }
+
+
 </style>
+
 <title>홈페이지 만들기</title>
 </head>
-<body class="w3-blue">
+<body class="w3-white">
 	<div>
 		<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" style="width:250px;font-weight:bold;">
-			
-			<a href="Index.do" class="w3-bar-item w3-button w3-padding-large w3-yellow">
-				<i class="fa fa-home w3-xxlarge"></i>
-				<br />HOME
-			</a>
 			<c:if test="${ id == null }">
 				<a href="loginForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
 	   				<i class="fa fa-connectdevelop w3-xxlarge"></i>
@@ -41,7 +43,7 @@ body, h1, h2, h3, h4, h5, h6 {
   			<c:if test="${ id != null }">
 				<a href="MemberUpdateForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
 					<i class="fa fa-user w3-xxlarge"></i>
-					<br />${ nickname }(${ id })
+					
 				</a>
 				<a href="logOut.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
 					<i class="fa fa-sign-out w3-xxlarge"></i>
