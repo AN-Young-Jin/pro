@@ -25099,7 +25099,7 @@ div.map_print_layer .popup.program .popup-contents .map_container {
   left: 20px;
   color: #fff
 }
-
+/* 
 @font-face {
   font-family: NanumSquare;
   src: url("/fonts/nanumsquarer.eot");
@@ -25134,7 +25134,7 @@ div.map_print_layer .popup.program .popup-contents .map_container {
   src: url("/fonts/mavenpro_bold.eot?#iefix") format("embedded-opentype"), url("/fonts/mavenpro_bold.woff2") format("woff2"), url("/fonts/mavenpro_bold.woff") format("woff"), url("/fonts/mavenpro_bold.ttf") format("truetype"), url("/fonts/mavenpro_bold.svg#mavenpro_bold") format("svg");
   font-weight: 800
 }
-
+ */
 .swiper-container {
   margin: 0 auto;
   position: relative;
