@@ -11,9 +11,9 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/jeju.css">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="/resources/demos/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style>
 		.center {
 			text-align: center;
@@ -42,14 +42,51 @@
 		.pagination a:hover:not(.active) {
 			background-color: #ddd;
 		}
-		
-		.nav_schedule{
+
+		.nav_schedule {
 			position: sticky;
-			top:0;
+			top: 0;
 			z-index: 999;
 			width: 1450px;
 			margin: 0 auto;
 			background-color: white;
+		}
+
+		.nav_schedule ul {
+			width: 1350px;
+			margin: 0 auto;
+		}
+
+		.nav_schedule button {
+			padding: 5px;
+		}
+
+		.nav_schedule .right {
+			position: absolute;
+			right: 0;
+		}
+
+		#ls {
+			position: absolute;
+			left: 0;
+			width: 50px;
+			height: 144px;
+			display: none;
+		}
+
+		#rs {
+			position: absolute;
+			bottom: 25px;
+			right: 0;
+			width: 50px;
+			height: 144px;
+			display: none;
+		}
+
+		.ic {
+			position: absolute;
+			top: 60px;
+			left: 13px;
 		}
 	</style>
 </head>
@@ -57,7 +94,17 @@
 <body>
 	<div class="nav_schedule">
 		<form action="makeSchedule.do">
-			<div class="recommend_area" id="schedule">
+			<input type="text" value="TITLE" class="center">
+			<div class="recommend_area">
+				<div id="ls">
+					<i class="material-icons ic">chevron_left</i>
+				</div>
+				<div id="schedule">
+
+				</div>
+				<div id="rs">
+					<i class="material-icons ic">chevron_right</i>
+				</div>
 			</div>
 			<div style="text-align: left;">
 				<label for="from">From</label>
@@ -65,7 +112,9 @@
 				<label for="to">to</label>
 				<input type="text" id="to" name="to">
 				<button id="makeSchedule">날짜선택</button>
-				<button type="submit">일정저장</button>
+				<button id="tour" style="position: absolute; left: 45%;">관광지</button>
+				<button id="hotel" style="position: absolute; left: 55%;">숙박</button>
+				<button type="submit" class="right">일정저장</button>
 			</div>
 		</form>
 	</div>
@@ -76,8 +125,6 @@
 				<div class="recommend_area">
 					<div class="theme_tit_area clear">
 						<div class="util_area2">
-							<button id="tour" style="padding: 10px;">관광지</button>
-							<button id="hotel" style="padding: 10px;">숙박</button>
 						</div>
 
 					</div>
@@ -108,12 +155,18 @@
 	let whatDay = null;
 
 	$(function () {
-		var dateFormat = "mm/dd/yy";
+		var dateFormat = "yy-mm-dd";
 		var from = $("#from")
 			.datepicker({
 				defaultDate: "+1w",
-				changeMonth: true,
-				numberOfMonths: 1
+				changeMonth: false,
+				numberOfMonths: 1,
+				dateFormat: dateFormat,
+				dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+				dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+				monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+				monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
 			})
 			.on("change", function () {
 				to.datepicker("option", "minDate", getDate(this));
@@ -121,8 +174,14 @@
 			});
 		var to = $("#to").datepicker({
 			defaultDate: "+1w",
-			changeMonth: true,
-			numberOfMonths: 1
+			changeMonth: false,
+			numberOfMonths: 1,
+			dateFormat: dateFormat,
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+				dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+				monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+				monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
 		})
 		// .on("change", function () {
 		// 	from.datepicker("option", "maxDate", getDate(this));
@@ -150,7 +209,35 @@
 
 			return date;
 		}
+		let currSchedule = 1;
 
+		$('#ls').on('click', function () {
+			if (1 < currSchedule) {
+				let ul = $('#schedule').children();
+				console.log(ul)
+				$(ul).attr('style', 'display:none');
+				currSchedule--
+				$('#day' + (currSchedule)).attr('style', 'display:block');
+				whatDay = 'day' + currSchedule
+			} else {
+				alert('첫째날입니다.')
+			}
+		})
+
+		$('#rs').on('click', function () {
+			if (howLong > currSchedule) {
+				let ul = $('#schedule').children();
+				console.log(ul)
+				$(ul).attr('style', 'display:none');
+				currSchedule++
+				$('#day' + (currSchedule)).attr('style', 'display:block');
+				whatDay = 'day' + currSchedule
+			} else {
+				alert('마지막날입니다.')
+			}
+		})
+
+		let howLong;
 
 		$('#makeSchedule').on('click', function (e) {
 			e.preventDefault();
@@ -159,32 +246,30 @@
 			if (from != null && to != null) {
 				$('#schedule').html('')
 
-				let howLong = (to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24) + 1;
-			
+				howLong = (to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24) + 1;
+
 				for (let i = 1; i <= howLong; i++) {
 					let schedule = $('<ul/>').attr('class', 'item_list type_list clear').attr('id', 'day' + i)
-						.on('click', function () {
-							whatDay = $(this).attr('id');
-						})
+					if (i != 1) {
+						$(schedule).attr('style', 'display:none');
+					}
 					$(schedule).append($('<li/>').attr('style',
 						"height: 142px; display: flex;align-items: center;width: 23px;").text(i + '일차'))
 					$(schedule).append($('<li/>').attr('style',
 							"height: 142px; display: flex;align-items: center;width: 23px;").attr('id', 'set_hotel_' + i)
-						.text('숙박').on('click', function () {
-							hotel_id = $(this).attr('id')
-							tour_id = null;
-						}))
+						.text('숙박'))
 					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
 					$(schedule).append($('<li/>').attr('style',
 							"height: 142px; display: flex;align-items: center;width: 23px;").attr('id', 'set_tour_' + i)
-						.text('관광지').on('click', function () {
-							tour_id = $(this).attr('id')
-							hotel_id = null;
-						}))
+						.text('관광지'))
 					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
 					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
 					$(schedule).append($('<li/>').append($('<dl/>').attr('class', 'item_section')))
 					$('#schedule').append(schedule);
+					$('#ls').attr('style', 'display:block');
+					$('#rs').attr('style', 'display:block');
+					currSchedule = 1;
+					whatDay = 'day' + currSchedule;
 				}
 			} else {
 				alert('기간을 선택해주세요')
@@ -204,7 +289,8 @@
 		makeContent(pageStart, pageEnd);
 
 
-		$('#tour').on('click', function () {
+		$('#tour').on('click', function (e) {
+			e.preventDefault()
 			category = 'c1'
 			pageStart = 0;
 			pageEnd = 9;
@@ -212,7 +298,8 @@
 			makeContent(pageStart, pageEnd)
 		})
 
-		$('#hotel').on('click', function () {
+		$('#hotel').on('click', function (e) {
+			e.preventDefault()
 			category = 'c3'
 			pageStart = 0;
 			pageEnd = 9;
@@ -230,7 +317,7 @@
 						$(result.items).each(function (idx, ele) {
 							let dl = $('<dl/>').attr('class', 'item_section');
 							let hiddneId = $('<input/>').attr('name', whatDay + '_hotel').attr('type', 'hidden').val(
-							cid);
+								cid);
 							$(dl).append(hiddneId);
 							let dt = $('<dt/>').attr('class', 'item_top');
 							let a = $('<a/>');
