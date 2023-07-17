@@ -48,8 +48,16 @@
 			top: 0;
 			z-index: 999;
 			width: 1450px;
-			margin: 0 auto;
+			margin: 10px auto;
 			background-color: white;
+			text-align: center;
+		}
+
+		.nav_schedule .title {
+			width: 300px;
+			border: 0px;
+			font-size: large;
+			font-weight: bold;
 		}
 
 		.nav_schedule ul {
@@ -64,6 +72,11 @@
 		.nav_schedule .right {
 			position: absolute;
 			right: 0;
+		}
+
+		#from,
+		#to {
+			width: 100px;
 		}
 
 		#ls {
@@ -94,7 +107,7 @@
 <body>
 	<div class="nav_schedule">
 		<form action="makeSchedule.do">
-			<input type="text" value="TITLE" class="center">
+			<input type="text" name="title" placeholder="제목을 입력해주세요." class="center title" maxlength="15">
 			<div class="recommend_area">
 				<div id="ls">
 					<i class="material-icons ic">chevron_left</i>
@@ -112,7 +125,7 @@
 				<label for="to">to</label>
 				<input type="text" id="to" name="to">
 				<button id="makeSchedule">날짜선택</button>
-				<button id="tour" style="position: absolute; left: 45%;">관광지</button>
+				<button id="tour" style="position: absolute; left: 41%;">관광지</button>
 				<button id="hotel" style="position: absolute; left: 55%;">숙박</button>
 				<button type="submit" class="right">일정저장</button>
 			</div>
@@ -163,7 +176,7 @@
 				numberOfMonths: 1,
 				dateFormat: dateFormat,
 				dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+				dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
 				dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 				monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
 				monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
@@ -178,10 +191,10 @@
 			numberOfMonths: 1,
 			dateFormat: dateFormat,
 			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-				dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-				monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-				monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
 		})
 		// .on("change", function () {
 		// 	from.datepicker("option", "maxDate", getDate(this));
@@ -382,23 +395,6 @@
 				})
 			}
 		}
-
-
-
-		// <li>
-		// 	<dl class="item_section">
-		// 		<dt class="item_top">
-		// 			<a>
-		// 				<img
-		// 					src="https://api.cdn.visitjeju.net/photomng/thumbnailpath/201804/30/cee2e88e-7b94-4fcd-b23b-edbeef415414.jpg"
-		// 					alt="">
-		// 				<p class="s_tit">스프링데일골프앤리조트</p>
-		// 				<p class="s_theme">제주시>애월</p>
-		// 			</a>
-		// 		</dt>
-		// 	</dl>
-		// </li>
-
 
 		function makeContent(start, end) {
 			var params = "&category=" + category + "&page=" + page;

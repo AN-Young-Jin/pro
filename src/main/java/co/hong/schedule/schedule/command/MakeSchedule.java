@@ -84,7 +84,7 @@ public class MakeSchedule implements Command {
 		svc.makeSchedule(vo);
 
 
-		return "schedule/travelList";
+		return "mypage.do";
 	}
 
 }
