@@ -11,9 +11,7 @@
 		VALUES(#{scNum},#{memId},#{sDate},#{eDate},
 					#{hday1Cid}, #{hday2Cid}, #{hday3Cid}, #{hday4Cid}, #{hday5Cid}, 
 					#{tday1Cid}, #{tday2Cid}, #{tday3Cid}, #{tday4Cid}, #{tday5Cid},#{title})
+
 	</insert>
 	
-	<insert id="makeHSC" parameterType="co.hong.schedule.schedule.vo.HotelScVO">
-		
-	</insert>
 </mapper>
