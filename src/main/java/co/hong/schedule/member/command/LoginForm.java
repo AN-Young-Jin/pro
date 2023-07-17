@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.common.Command;
+import co.hong.schedule.member.vo.MemberVO;
 
 public class LoginForm implements Command {
 

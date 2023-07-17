@@ -24,9 +24,18 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int memberUpdate(MemberVO vo) {
 		return map.memberUpdate(vo);
-	} 
+	}
 
+	@Override
+	public MemberVO memberSelect(MemberVO memberVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-
+	@Override
+	public boolean isMemberIdCheck(String id) {
+		// TODO Auto-generated method stub
+		return map.isMemberIdCheck(id);
+	}
 
 }

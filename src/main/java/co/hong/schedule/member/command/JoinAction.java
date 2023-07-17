@@ -17,6 +17,7 @@ public class JoinAction implements Command {
 		String memberPw = req.getParameter("member_pw");
 		String memberName = req.getParameter("member_name");
 		String memberEmail = req.getParameter("member_email");
+		String memberPhone = req.getParameter("member_phone");
 		
 		// memberVO 인스턴스를 채워넣기
 		MemberVO memberVO = new MemberVO();
@@ -24,23 +25,24 @@ public class JoinAction implements Command {
 		memberVO.setMemPw(memberPw);
 		memberVO.setMemName(memberName);
 		memberVO.setMemEmail(memberEmail);
+		memberVO.setMemPhone(memberPhone);
 		
 		
 		//서버와 주고받기
 		MemberService memberService = new MemberServiceImpl();
-//		memberService.memberJoin(memberVO); //service와 주고받기
+		memberService.memberJoin(memberVO); //service와 주고받기
+		
+		return "member/loginForm";
+		
+		// vo가 null 이면 사용가능 (조회되는게 없다)
+		// vo가 null 이 아니면 사용불가 (조회되는게 있다)
 		
 		//만약 이미 있는 아이디중에 회원가입을 시도한 아이디가 없으면.
 		
-		//만약 회원가입에 성공하면 (insert 가 한건 삽입되면) member/loginForm 으로 간다.
-		//만약 회원가입에 실패하면 (insert 가 한건도 삽입이 되지않으면) member/joinForm 으로 간다.
-		if(memberService.memberJoin(memberVO)) {
-			//true
-			return "member/loginForm";
-		}else {
-			//false
-			return "member/joinForm";
-		}
+		//해당하는 아이디가 없으면 회원가입하고 로그인 폼으로 넘기기
+		//해당하는 아이디가 있으면 회원가입 안되고 조인폼으로 다시 넘기기
+		
+		
 	}
 
 }

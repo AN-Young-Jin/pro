@@ -3780,7 +3780,7 @@ a.btn_view {
 }
 
 .recommend_area {
-  margin-top: 50px
+  margin-top: 10px
 }
 
 .recommend_area .util_area {
@@ -3882,8 +3882,7 @@ a.btn_view {
 }
 
 .recommend_area .item_list.type_list {
-  margin-top: 35px;
-  border-top: 1px solid #e5e5e5;
+  margin-top: 10px;
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -3891,7 +3890,7 @@ a.btn_view {
   position: relative;
   padding: 10px 5px;
   float: left;
-  text-align:center;
+  text-align: center;
 }
 
 .recommend_area .item_list.type_list li .item_section {
@@ -7933,7 +7932,7 @@ div.theme_head h4 {
 }
 
 #header_campaign .sear_nav {
-  
+
   border-top: 1px solid #dfdfdf;
   border-bottom: 1px solid #dfdfdf;
   height: 52px;
@@ -25100,7 +25099,7 @@ div.map_print_layer .popup.program .popup-contents .map_container {
   left: 20px;
   color: #fff
 }
-
+/* 
 @font-face {
   font-family: NanumSquare;
   src: url("/fonts/nanumsquarer.eot");
@@ -25135,7 +25134,7 @@ div.map_print_layer .popup.program .popup-contents .map_container {
   src: url("/fonts/mavenpro_bold.eot?#iefix") format("embedded-opentype"), url("/fonts/mavenpro_bold.woff2") format("woff2"), url("/fonts/mavenpro_bold.woff") format("woff"), url("/fonts/mavenpro_bold.ttf") format("truetype"), url("/fonts/mavenpro_bold.svg#mavenpro_bold") format("svg");
   font-weight: 800
 }
-
+ */
 .swiper-container {
   margin: 0 auto;
   position: relative;
@@ -26729,4 +26728,3 @@ div.recommend_area .map_outline .map_box .map_area[data-v-c3979686] {
   font-size: 14px;
   color: #fff
 }
-

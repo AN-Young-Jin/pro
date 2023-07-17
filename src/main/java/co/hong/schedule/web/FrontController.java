@@ -19,15 +19,22 @@ import co.hong.schedule.board.command.BoardRemoveControl;
 import co.hong.schedule.board.command.BoardSearchControl;
 import co.hong.schedule.board.command.MyPage;
 
+import co.hong.schedule.board.command.ReplyControl;
+import co.hong.schedule.board.command.ReplyListControl;
+
 import co.hong.schedule.board.command.boardFormCommand;
-import co.hong.schedule.board.command.boardListCommand;
 import co.hong.schedule.board.command.boardselectCommand;
 import co.hong.schedule.calendar.command.AddTravelControl;
 import co.hong.schedule.calendar.command.RemoveTravelControl;
 import co.hong.schedule.calendar.command.travelForm;
 import co.hong.schedule.calendar.command.travelListControl;
 import co.hong.schedule.common.Command;
-
+import co.hong.schedule.member.command.JoinAction;
+import co.hong.schedule.member.command.JoinForm;
+import co.hong.schedule.member.command.LogOut;
+import co.hong.schedule.member.command.LoginAction;
+import co.hong.schedule.member.command.LoginForm;
+import co.hong.schedule.member.command.ajaxIdCheck;
 
 //import co.hong.schedule.member.command.JoinAction;
 //import co.hong.schedule.member.command.JoinForm;
@@ -81,12 +88,12 @@ public class FrontController extends HttpServlet {
 
 
 		//로그인 호출하는 이름들
-//		map.put("/joinForm.do", new JoinForm()); //회원가입폼
-//		map.put("/joinAction.do", new JoinAction()); //회원가입
-//		map.put("/loginForm.do", new LoginForm()); //로그인 폼
-//		map.put("/loginAction.do", new LoginAction()); //로그인
-//		map.put("/logOut.do", new LogOut()); //로그아웃
-
+		map.put("/joinForm.do", new JoinForm()); //회원가입폼
+		map.put("/joinAction.do", new JoinAction()); //회원가입
+		map.put("/loginForm.do", new LoginForm()); //로그인 폼
+		map.put("/loginAction.do", new LoginAction()); //로그인
+		map.put("/logOut.do", new LogOut()); //로그아웃
+		map.put("/ajaxIdCheck.do", new ajaxIdCheck()); //아작스 아이디 중복체크
 			
 	}
 	
