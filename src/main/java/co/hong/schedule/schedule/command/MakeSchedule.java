@@ -6,9 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.hong.schedule.common.Command;
 import co.hong.schedule.schedule.service.ScheduleService;
 import co.hong.schedule.schedule.service.ScheduleServiceImpl;
-import co.hong.schedule.schedule.vo.HotelScVO;
 import co.hong.schedule.schedule.vo.ScheduleVO;
-import co.hong.schedule.schedule.vo.TourScVO;
 
 public class MakeSchedule implements Command {
 
@@ -39,28 +37,28 @@ public class MakeSchedule implements Command {
 				str1 += tour1[i] + ",";
 			}
 		}
-		
+
 		String str2 = "";
 		if (tour2 != null && !tour2.equals("")) {
 			for (int i = 0; i < tour2.length; i++) {
 				str2 += tour2[i] + ",";
 			}
 		}
-		
+
 		String str3 = "";
 		if (tour3 != null && !tour3.equals("")) {
 			for (int i = 0; i < tour3.length; i++) {
 				str3 += tour3[i] + ",";
 			}
 		}
-		
+
 		String str4 = "";
 		if (tour4 != null && !tour4.equals("")) {
 			for (int i = 0; i < tour4.length; i++) {
 				str4 += tour4[i] + ",";
 			}
 		}
-		
+
 		String str5 = "";
 		if (tour5 != null && !tour5.equals("")) {
 			for (int i = 0; i < tour5.length; i++) {
@@ -72,31 +70,20 @@ public class MakeSchedule implements Command {
 		vo.setMemId("user1");
 		vo.setSDate(sDate);
 		vo.setEDate(eDate);
-
+		vo.setHDay1Cid(hotel1);
+		vo.setHDay2Cid(hotel2);
+		vo.setHDay3Cid(hotel3);
+		vo.setHDay4Cid(hotel4);
+		vo.setHDay5Cid(hotel5);
+		vo.setTDay1Cid(str1);
+		vo.setTDay2Cid(str2);
+		vo.setTDay3Cid(str3);
+		vo.setTDay4Cid(str4);
+		vo.setHDay5Cid(str5);
+		
 		svc.makeSchedule(vo);
-		
-		int scNum = vo.getScNum();
-		
-		HotelScVO hvo = new HotelScVO();
-		
-		hvo.setScNum(scNum);
-		hvo.setDay1Cid(hotel1);
-		hvo.setDay2Cid(hotel2);
-		hvo.setDay3Cid(hotel3);
-		hvo.setDay4Cid(hotel4);
-		hvo.setDay5Cid(hotel5);
-		
-		TourScVO tvo = new TourScVO();
-		
-		tvo.setScNum(scNum);
-		tvo.setDay1Cid(str1);
-		tvo.setDay2Cid(str2);
-		tvo.setDay3Cid(str3);
-		tvo.setDay4Cid(str4);
-		tvo.setDay5Cid(str5);
-		
 
-		
+
 		return "schedule/travelList";
 	}
 
