@@ -328,18 +328,19 @@
 					method: 'get',
 					success: function (result) {
 						$(result.items).each(function (idx, ele) {
+							let imga;
+							if (ele.repPhoto != null) {
+								imga = ele.repPhoto.photoid.thumbnailpath
+							} else {
+								imga = '#'
+							}
 							let dl = $('<dl/>').attr('class', 'item_section');
-							let hiddneId = $('<input/>').attr('name', whatDay + '_hotel').attr('type', 'hidden').val(
-								cid);
+							let hiddneId = $('<input/>').attr('name', whatDay + '_hotel').attr('type', 'hidden')
+								.val('{"img": "' + imga + '", "title":"' + ele.title + '","label1": "' + ele.region1cd.label + '", "label2":"'+ele.region2cd.label+'"}');
 							$(dl).append(hiddneId);
 							let dt = $('<dt/>').attr('class', 'item_top');
 							let a = $('<a/>');
-							let img;
-							if (ele.repPhoto != null) {
-								img = $('<img/>').attr('src', ele.repPhoto.photoid.thumbnailpath);
-							} else {
-								img = $('<img/>').attr('src', '#');
-							}
+							let img = $('<img/>').attr('src', imga);
 							$(img).on('click', function () {
 								$(this).parent().parent().remove()
 							})
@@ -363,18 +364,20 @@
 					method: 'get',
 					success: function (result) {
 						$(result.items).each(function (idx, ele) {
+							let imga;
+							if (ele.repPhoto != null) {
+								imga = ele.repPhoto.photoid.thumbnailpath
+							} else {
+								imga = '#'
+							}
 							let li = $('<li/>');
 							let dl = $('<dl/>').attr('class', 'item_section');
-							let hiddneId = $('<input/>').attr('name', whatDay + '_tour').attr('type', 'hidden').val(cid);
+							let hiddneId = $('<input/>').attr('name', whatDay + '_tour').attr('type', 'hidden')
+						 		.val('{"img": "' + imga + '", "title":"' + ele.title + '", "label1": "' + ele.region1cd.label + '", "label2":"'+ele.region2cd.label+'"}');
 							$(dl).append(hiddneId);
 							let dt = $('<dt/>').attr('class', 'item_top');
 							let a = $('<a/>');
-							let img;
-							if (ele.repPhoto != null) {
-								img = $('<img/>').attr('src', ele.repPhoto.photoid.thumbnailpath);
-							} else {
-								img = $('<img/>').attr('src', '#');
-							}
+							let img = $('<img/>').attr('src', imga);
 							$(img).on('click', function () {
 								$(this).parent().parent().remove()
 							})
