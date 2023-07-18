@@ -129,7 +129,7 @@ body>.grid {
 											<c:forEach items="${list }" var="list">
 												<tr>
 													<td><c:out value="${list.scNum }" /></td>
-													<td><a href="boardselect.do?sno=${list.scNum}">${list.title }</a></td>
+													<td><a href="boardInfo.do?sno=${list.scNum}">${list.title }</a></td>
 													<td>${list.SDate } ~ 
 														${list.EDate }</td>
 

@@ -40,47 +40,58 @@ public class MakeSchedule implements Command {
 
 		String str1 = "";
 		if (tour1 != null && !tour1.equals("")) {
+			str1+="[";
 			for (int i = 0; i < tour1.length; i++) {
 				str1 += tour1[i] + ",";
 			}
 			str1=str1.substring(0, str1.length()-1);
+			str1+="]";
 		}
 
 		String str2 = "";
 		if (tour2 != null && !tour2.equals("")) {
+			str2+="[";
 			for (int i = 0; i < tour2.length; i++) {
 				str2 += tour2[i] + ",";
 			}
 			str2=str2.substring(0, str2.length()-1);
+			str2+="]";
 		}
 
 		
 		String str3 = "";
 		if (tour3 != null && !tour3.equals("")) {
+			str3+="[";
 			for (int i = 0; i < tour3.length; i++) {
 				str3 += tour3[i] + ",";
 			}
 			str3=str3.substring(0, str3.length()-1);
+			str3+="]";
 		}
 	
 		
 		String str4 = "";
 		if (tour4 != null && !tour4.equals("")) {
+			str4+="[";
 			for (int i = 0; i < tour4.length; i++) {
 				str4 += tour4[i] + ",";
 			}
 			str4=str4.substring(0, str4.length()-1);
+			str4+="]";
 		}
 	
 		
 		String str5 = "";
 		if (tour5 != null && !tour5.equals("")) {
+			str5+="[";
 			for (int i = 0; i < tour5.length; i++) {
 				str5 += tour5[i] + ",";
 			}
 			str5 = str5.substring(0, str5.length()-1);
+			str5+="]";
 		}
-	
+		
+		System.out.println(str1);
 		
 		ScheduleVO vo = new ScheduleVO();
 		vo.setMemId(memId);
@@ -97,8 +108,10 @@ public class MakeSchedule implements Command {
 		vo.setTday3Cid(str3);
 		vo.setTday4Cid(str4);
 		vo.setTday5Cid(str5);
-
-		vo.setTitle(title);
+		if(title!="") {
+			System.out.println(title);
+			vo.setTitle(title);			
+		}
 		
 		svc.makeSchedule(vo);
 		

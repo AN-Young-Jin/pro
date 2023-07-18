@@ -27,8 +27,9 @@ input[type="password"] {
 .show-btn,
 .container {
     position: absolute;
-    top: 50%;
+    top: 43%;
     left: 50%;
+    margin-bottom: 0px;
     transform: translate(-50%, -50%);
 }
 
@@ -163,8 +164,10 @@ input[type="password"] {
     background-color: #000;
 }
 .uk-input {
-    border: none !important;
-    background-color: #fafafa !important;
+    border-style: solid !important;
+    border-width: 2px;
+    border-radius: 50px;
+    background-color: #fafafad6 !important;
     font-size: 0.8rem !important;
 }
 

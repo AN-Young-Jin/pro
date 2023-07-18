@@ -16,6 +16,7 @@ public class LoginAction implements Command {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
 		// 유저가 입력한 값 가져오기
+
 		String id = req.getParameter("id");
 		String password = req.getParameter("passwd");
 		
@@ -23,8 +24,8 @@ public class LoginAction implements Command {
 		//		session.setAttribute("라벨", 라벨에 대한 물건);
 		MemberService service = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		vo.setMemId(id);
-		vo.setMemPw(password);
+//		vo.setMemId(id);
+//		vo.setMemPw(password);
 		MemberVO member = new MemberVO();
 		member = service.memberLogin(vo);
 		

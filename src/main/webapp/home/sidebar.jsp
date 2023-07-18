@@ -1,62 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+        <!-- Font online-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+      
+<!--        Animate.css-->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+                
+                                
+        <link rel="stylesheet" href="main.css" >
+        
+        <!-- Google JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script src="form.js"></script>
 
-body, h1, h2, h3, h4, h5, h6 {
-	font-family: "Montserrat", sans-serif;
-}
-.w3-sidebar {
-	border : 3px  #FFFFFF;
-	height: 300px;
-	width: 200px;
-	background: #0080FF;
-	
-}
-
-
-</style>
-
-<title>홈페이지 만들기</title>
-</head>
-<body class="w3-white">
-	<div>
-		<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" style="width:250px;font-weight:bold;">
-
-			<c:if test="${ id == null }">
-				<a href="loginForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
-	   				<i class="fa fa-connectdevelop w3-xxlarge"></i>
-	  			 	<br />로그인
-	  			</a>
-
-	  			<a href="joinForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
-	    			<i class="fa fa-user-plus w3-xxlarge"></i>
-	    			<br />회원가입
-	  			</a>
-      </c:if>
-  			<c:if test="${ id != null }">
-				<a href="MemberUpdateForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
-					<i class="fa fa-user w3-xxlarge"></i>
-					
-				</a>
-				<a href="logOut.do" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">
-					<i class="fa fa-sign-out w3-xxlarge"></i>
-					<br />로그아웃
-				</a>
-			</c:if>
-			<c:if test="${ id.equals('schedule') }">
-				<a href="#" class="w3-bar-item w3-button w3-hover-yellow">관리자 모드</a>
-			</c:if>
-			
-		</nav>
-	</div>
-</body>
+    </head>
+    <body>
+        <div>
+           <div class="panel shadow1">
+                    
+                    <form action="loginAction.do" method="post">
+                    <h1 class="animated fadeInUp animate1" id="title-login">welcome!</h1>
+                    <h1 class="animated fadeInUp animate1 hidden" id="title-signup">Welcome !</h1>
+                    <fieldset id="login-fieldset">
+                        <input class="login animated fadeInUp animate2" name="username" type="text"  required   placeholder="Username" autofocus value="" >
+                        <input class="login animated fadeInUp animate3" name="password" type="password"  required placeholder="Password" value="">
+                    </fieldset>
+                    <input type="submit" id="login-form-submit" class="login_form button animated fadeInUp animate4" value="Log in">
+                    <input type="submit" id="signup-form-submit" class="login_form button animated fadeInUp animate4 hidden" value="Sign up">
+                    <div class="panel-switch animated fadeIn">
+                        <button type="button" onclick="location.href='joinForm.do' "id="sign_up" class="active-button">Sign Up</button>
+                        <!-- <button type="button" id="log_in" class="" disabled>Log in</button> -->
+                    </div>
+                    </form>
+                    
+            </div>
+        </div>
+        <script src="form.js"></script>
+    </body>
 </html>
