@@ -20,9 +20,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="resources/demos/style.css">
 <link rel="stylesheet" type="text/css"
-	href="/schedule/resources/semantic.min.css">
+	href="resources/semantic.min.css">
 <link rel="stylesheet"
 	href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <link rel="stylesheet"
@@ -63,16 +63,26 @@ body>.grid {
 	$(function() {
 		var dateFormat = "yy-mm-dd", from = $("#from").datepicker({
 			defaultDate : "+1w",
-			changeMonth : true,
+			changeMonth: false,
 			numberOfMonths : 1,
-			dateFormat : dateFormat
+			dateFormat : dateFormat,
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
 		}).on("change", function() {
 			to.datepicker("option", "minDate", getDate(this));
 		}), to = $("#to").datepicker({
 			defaultDate : "+1w",
-			changeMonth : true,
+			changeMonth: false,
 			numberOfMonths : 1,
-			dateFormat : dateFormat
+			dateFormat : dateFormat,
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
 		}).on("change", function() {
 			from.datepicker("option", "maxDate", getDate(this));
 		});
@@ -107,8 +117,8 @@ body>.grid {
 						<div class="column">
 							<h5 style="font-family: 'Montserrat' !important">
 								<label for="from">출발일</label> <input type="text"
-						id="from" name="from"> <label for="to">도착일</label> <input
-						type="text" id="to" name="to">
+						id="from" name="from" autocomplete='off' readonly> <label for="to">도착일</label> <input
+						type="text" id="to" name="to" autocomplete='off' readonly>
 
 
 					<button type="button" onclick="memberSearch()">검색</button>

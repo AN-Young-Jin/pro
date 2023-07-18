@@ -76,7 +76,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardSearch.do", new BoardSearchControl());
 		
 
-  	map.put("/boardInfo.do", new BoardInfo());
+		map.put("/boardInfo.do", new BoardInfo());
 
 		//댓글
 		map.put("/addReply.do", new AddReplyControl());

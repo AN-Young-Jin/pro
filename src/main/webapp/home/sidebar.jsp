@@ -27,13 +27,13 @@
                     <h1 class="animated fadeInUp animate1" id="title-login">welcome!</h1>
                     <h1 class="animated fadeInUp animate1 hidden" id="title-signup">Welcome !</h1>
                     <fieldset id="login-fieldset">
-                        <input class="login animated fadeInUp animate2" name="username" type="text"  required   placeholder="Username" autofocus value="" >
-                        <input class="login animated fadeInUp animate3" name="password" type="password"  required placeholder="Password" value="">
+                        <input class="login animated fadeInUp animate2" name="id" type="text"  required   placeholder="Username" autofocus value="" >
+                        <input class="login animated fadeInUp animate3" name="passwd" type="password"  required placeholder="Password" value="">
                     </fieldset>
                     <input type="submit" id="login-form-submit" class="login_form button animated fadeInUp animate4" value="Log in">
                     <input type="submit" id="signup-form-submit" class="login_form button animated fadeInUp animate4 hidden" value="Sign up">
                     <div class="panel-switch animated fadeIn">
-                        <button type="button" onclick="location.href='joinForm.do' "id="sign_up" class="active-button">Sign Up</button>
+                        <button type="button" id="sign_up" class="active-button">Sign Up</button>
                         <!-- <button type="button" id="log_in" class="" disabled>Log in</button> -->
                     </div>
                     </form>
