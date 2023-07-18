@@ -10,7 +10,7 @@ public class MainCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		
-		return "main/main.tiles";
+		return "main/main";
 	}
 
 }

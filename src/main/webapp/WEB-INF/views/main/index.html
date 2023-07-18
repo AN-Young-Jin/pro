@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       const API_KEY ="im21a7vw6nqazzhs" //api키
+      //  const category = "c1";  //카테고리
+    //    const page = 1; //불러올 페이지 
+    //    const cid = "CONT_000000000500349";//콘텐츠ID
+       const category = "c1";  //카테고리 c1: c2: c3:
+       const page = ""; //불러올 페이지 
+       const cid = "CNTS_000000000018205";//콘텐츠ID
+      //  const params = "apiKey="+API_KEY+"&locale=kr&category="+category+"&page="+page+"&cid="+cid;
+       const params = "apiKey="+API_KEY+"&locale=kr&cid="+cid;
+
+       const url="http://api.visitjeju.net/vsjApi/contents/searchList?"+params;
+
+      console.log(url);
+       //         api url 넣기          //응답온걸 json으로 바꾸기  //  데이터를 조작하기
+       //fetch(apiURl,option).then(response=>response.json()).then(data=>console.log(data));
+       fetch(url).then(res=>res.json()).then(data=>console.log(data.items[0].latitude , data.items[0].longitude))
+       
+    </script>
+</body>
+</html>

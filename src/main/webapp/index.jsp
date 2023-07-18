@@ -16,7 +16,7 @@
 
 	<jsp:forward page="main.do"></jsp:forward>
 
-	<%@ include file="./home/sidebar.jsp" %>
+	
 
 </body>
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.hong.schedule.board.service.BoardService;
 import co.hong.schedule.board.service.BoardServiceImpl;
@@ -19,20 +20,16 @@ public class MyPage implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String page = req.getParameter("page");
-		page = page == null ? "1" : page;
+		HttpSession session = req.getSession();
+		String memId = (String) session.getAttribute("memberId");
 		
 		ScheduleService sService = new ScheduleServiceImpl();
-		BoardService service = new BoardServiceImpl();
-		PageDTO dto = new PageDTO(Integer.parseInt(page), service.totalCnt());
-		
-		List<ScheduleVO> list = sService.myList("user1");
-		List<ScheduleVO> schedules = new ArrayList<>();
-		
-		
+	
+		List<ScheduleVO> list = sService.myList(memId);
+			
 		req.setAttribute("list", list);
-		req.setAttribute("schedules", schedules);
-		req.setAttribute("page", dto);
+	
+		System.out.println(list);
 		
 		return "board/mypage";
 	}

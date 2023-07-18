@@ -16,8 +16,8 @@ public class LoginAction implements Command {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
 		// 유저가 입력한 값 가져오기
-		String id = "user1";
-		String password = "1111";
+		String id = req.getParameter("id");
+		String password = req.getParameter("passwd");
 		
 		//-------------------
 		//		session.setAttribute("라벨", 라벨에 대한 물건);

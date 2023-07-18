@@ -1,3 +1,13 @@
+.qwer{
+	display: flex;
+    list-style-type: none;
+}
+
+.mainsubtitle {
+	font-family: 'Black Han Sans', sans-serif;
+}
+
+
 #navcc {
     z-index: 9999;
     height: 80px;
@@ -10,7 +20,7 @@
 }
 
 #navtextbtn1{
-	color:lime;
+	color:black;
 
 }
 

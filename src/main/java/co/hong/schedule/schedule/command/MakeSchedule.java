@@ -2,6 +2,7 @@ package co.hong.schedule.schedule.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.hong.schedule.common.Command;
 import co.hong.schedule.schedule.service.ScheduleService;
@@ -12,6 +13,9 @@ public class MakeSchedule implements Command {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		String memId = (String) session.getAttribute("memberId");
+		
 		String hotel1 = req.getParameter("day1_hotel");
 		String hotel2 = req.getParameter("day2_hotel");
 		String hotel3 = req.getParameter("day3_hotel");
@@ -24,7 +28,7 @@ public class MakeSchedule implements Command {
 		String[] tour4 = req.getParameterValues("day4_tour");
 		String[] tour5 = req.getParameterValues("day5_tour");
 
-
+		
 		String title = req.getParameter("title");
 
 		String sDate = req.getParameter("from");
@@ -79,7 +83,7 @@ public class MakeSchedule implements Command {
 	
 		
 		ScheduleVO vo = new ScheduleVO();
-		vo.setMemId("user1");
+		vo.setMemId(memId);
 		vo.setSDate(sDate);
 		vo.setEDate(eDate);
 
