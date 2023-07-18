@@ -40,20 +40,7 @@
             content="6dLwVODj4glAujnMHA8rfK_9jrxixaxucC3c80JtNmA"
         />
 
-        <link rel="canonical" href="main.do" />
-        <link rel="stylesheet" type="text/css" href="resources/myro/myro.css" />
-
-        <link rel="stylesheet" type="text/css" href="resources/myro/materialize.min.css" />
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-
+       
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->

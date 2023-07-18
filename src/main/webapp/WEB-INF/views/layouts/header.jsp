@@ -4,298 +4,27 @@
 <html>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/myrojoin.css">
     <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <style>
-        #joinForm {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 9999;
-        }
-        form{
-            height: 380px;
-        }
-        .modal_join {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-
-            width: 500px;
-            height: 570px;
-            margin: 0 auto;
-            padding: 30px;
-        }
-
-        .panel {
-            width: 450px;
-            max-width: 90%;
-            height: 700px;
-            background: url('https://images.pexels.com/photos/3229452/pexels-photo-3229452.jpeg?auto=compress&cs=tinysrgb&w=1600') #fff;
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: cover;
-            margin: 5% auto 0px;
-        }
-
-
-
-
-        .shadow1 {
-            -webkit-box-shadow: 0 20px 15px -15px rgba(119, 119, 119, 0.85);
-            -moz-box-shadow: 0 20px 15px -15px rgba(119, 119, 119, 0.85);
-            box-shadow: 0 40px 30px -30px rgba(119, 119, 119, 0.85);
-        }
-
-        .panel-switch {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .panel-switch button {
-            display: inline-block;
-            width: 100px;
-            height: 40px;
-            background: #0080FF;
-            margin: 0px 10px 50px;
-            border: none;
-            color: #fff;
-            font-family: 'Open Sans', sans-serif;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 2px;
-            font-size: 0.8em;
-
-            transition: background-color 0.2s, color:0.2s, opacity:0.2s;
-        }
-
-        .panel-switch button:active {
-            background: #0080FF;
-            color: #0080FF;
-        }
-
-        .active-button {
-            opacity: 0.5;
-        }
-
-        button,
-        .button,
-        a {
-            cursor: pointer;
-        }
-
-        form h1 {
-            color: #fff;
-            font-family: 'Open Sans', sans-serif;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 4px;
-            margin: 50px 0;
-            font-size: 1.7em;
-        }
-
-        fieldset {
-            border: none;
-        }
-
-        .animate1,
-        .animate2,
-        .animate3,
-        .animate4 {
-            -webkit-animation-duration: 2s;
-            -moz-animation-duration: 2s;
-        }
-
-        .animate1 {
-            -webkit-animation-delay: 0.2s;
-            -moz-animation-delay: 0.2s;
-        }
-
-        .animate2 {
-            -webkit-animation-delay: 0.7s;
-            -moz-animation-delay: 0.7s;
-        }
-
-        .animate3 {
-            -webkit-animation-delay: 1.1s;
-            -moz-animation-delay: 1.1s;
-        }
-
-        .animate4 {
-            -webkit-animation-delay: 1.5s;
-            -moz-animation-delay: 1.5s;
-        }
-
-        .animate5 {
-            -webkit-animation-delay: 2.2s;
-            -moz-animation-delay: 2.2s;
-        }
-
-        @-webkit-keyframes fadeInUp {
-            from {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 100%, 0);
-                transform: translate3d(0, 100%, 0);
-            }
-
-            to {
-                opacity: 1;
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 100%, 0);
-                transform: translate3d(0, 100%, 0);
-            }
-
-            to {
-                opacity: 1;
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        fieldset input {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 5em;
-            height: 20px;
-            width: 80%;
-            margin: 10px 0;
-            padding: 5px;
-            text-indent: 10px;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        fieldset input::placeholder {
-            color: ##0080FF;
-        }
-
-
-        fieldset input:focus {
-            outline: ;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            border-radius: 5em;
-            margin: 9px 0;
-        }
-
-        .login_form {
-            position: relative;
-            bottom: 0;
-            width: 70%;
-            height: 4em;
-            margin-top: 150px;
-            border: none;
-            border-radius: 10em;
-            background: #0080FF;
-            color: #fff;
-            font-family: 'Open Sans', sans-serif;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 2px;
-            z-index: 1;
-
-            transition: background-color 0.2s, color:0.2s;
-        }
-
-        #login-form-submit:active {
-            background: #b52773;
-            color: #c9c9c9;
-        }
-
-        p,
-        a {
-            margin: 0;
-            padding: 0;
-        }
-
-        a {
-            color: #898787;
-            font-size: 0.7em;
-            text-decoration: none;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /*MEDIA QUERIES     */
-
-        @media (max-height:800px) {
-
-            body {
-                max-height: 100vh;
-            }
-
-            .panel {
-                width: 450px;
-                max-width: 90%;
-                background-size: cover;
-                margin: 1% auto;
-            }
-
-        }
-
-        @media (max-width:500px) {
-
-            html,
-            body {
-                background: url(https://picsum.photos/3695/5543?image=827) #fff;
-                background-repeat: no-repeat;
-                background-position: top center;
-                background-size: cover;
-                height: 100vh;
-                margin: 0px;
-                padding: 0px;
-                position: fixed;
-            }
-
-            .panel {
-                background: none;
-                box-shadow: none;
-            }
-
-
-            form {
-                padding: 50px;
-            }
-
-            .panel-switch {
-                margin-top: 30px;
-            }
-
-            .panel-switch button {
-                display: inline-block;
-                width: 80px;
-                margin: 0px 10px 50px;
-                font-weight: 600;
-                font-size: 0.7em;
-            }
-
-            form h1 {
-                font-size: 1.5em;
-            }
-
-            .login_form {
-                bottom: 0;
-                width: 70%;
-                margin-top: 100px;
-            }
-
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/daehan.css">
+    <link rel="stylesheet" href="css/myrojoin.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/travelList.css">
+    <link rel="stylesheet" href="css/jeju.css">
+   
+   
+	
+	
+    <link rel="stylesheet" type="text/css" href="resources/myro/myro.css" />
+    <link rel="stylesheet" type="text/css" href="resources/myro/materialize.min.css" />
+    
+   	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+   	
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	
+    <link rel="canonical" href="main.do" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -455,7 +184,7 @@
     </div>
     <div id="loginForm" style="display: none;">
         <div class="modal_login">
-
+			<%@ include file="/home/sidebar.jsp" %>
         </div>
     </div>
 </body>
@@ -465,14 +194,16 @@
     }
     $('#close').on('click', function () {
         $('#joinForm').attr('style', 'display:none')
+       
     })
 
     function login() {
         $('#loginForm').attr('style', 'display:block')
     }
-    $('#close').on('click', function () {
-        $('#loginForm').attr('style', 'display:none')
-    })
+    
+   	$('#loginClose').on('click',function(){
+   		$('#loginForm').attr('style', 'display:none')
+   	})
 </script>
 <script src="/build/emailSignUp.js"></script>
 <script type="text/javascript">
