@@ -308,12 +308,14 @@ a{
 			<form action="loginAction.do" method="post">
 				<input class="w3-input w3-border" style="width:50%" type="text" name="id" id="id" required="" placeholder="아이디" autofocus>
 				<input class="w3-input w3-border" style="width:50%" type="password" name="passwd" id="passwd" required="" placeholder="비밀번호">
+
 				<input class="w3-bar-item w3-button w3-padding-large w3-hover-green"  type="submit" value="로그인">
 				
 	  			<a href="joinForm.do" class="w3-bar-item w3-button w3-padding-large w3-hover-green">
 	    			<i class="fa fa-user-plus w3-xxlarge"></i>
 	    			<br />회원가입
 	  			</a>
+
 			</form>
 		</div>
 	</div> -->
