@@ -21,18 +21,12 @@
 
 
 <link rel="stylesheet" href="resources/demos/style.css">
-<link rel="stylesheet" type="text/css"
-	href="resources/semantic.min.css">
-<link rel="stylesheet"
-	href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" />
-<script
-	src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/semantic.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" />
+<script	src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="resources/myro/mypage.css" />
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -101,10 +95,11 @@ body>.grid {
 </script>
 </head>
 <body>
-	<div class="container">
+<div class="ui" style="margin-top: 10px;">
+	<div class="mycontainer">
 		
 		<!-- <div class="section-divider"></div> -->
-		<div class="container uk-container-large" id="mypageData">
+		<div class="mycontainer uk-container-large" id="mypageData">
 			<!-- 나의 일정 div -->
 			<div class="uk-padding-small">
 				<div class="section-title-container">
@@ -263,8 +258,8 @@ body>.grid {
 				</div>
 			</div>
 		</div>
-
-
+	</div>
+</div>
 		<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 		<script src="resources/myro/polyfill.min.js"></script>

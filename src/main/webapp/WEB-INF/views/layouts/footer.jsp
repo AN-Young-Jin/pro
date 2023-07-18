@@ -7,18 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<footer class="mainFooter">
+<footer class="mainFooter" style="height: 160px;">
             <!-- Store link Div -->
-            <div>
-           
-            </div>
-            <div class="bot_storelink">
-               
-            </div>
-           
-            <div style="margin: 16px">
-               
-            </div>
+            
             <h7>주식회사 홍규연</h7>
             <h7>사업자등록번호 852-481-481562</h7>
             <h7>경상북도 고령군 개진면 풀숲</h7>

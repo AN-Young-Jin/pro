@@ -32,7 +32,7 @@ public class JoinAction implements Command {
 		MemberService memberService = new MemberServiceImpl();
 		memberService.memberJoin(memberVO); //service와 주고받기
 		
-		return "member/loginForm";
+		return "main/main";
 		
 		// vo가 null 이면 사용가능 (조회되는게 없다)
 		// vo가 null 이 아니면 사용불가 (조회되는게 있다)

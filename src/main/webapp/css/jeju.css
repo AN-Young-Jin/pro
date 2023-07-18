@@ -2383,7 +2383,6 @@ tr,
 ul {
   margin: 0;
   padding: 0;
-  font-family: NanumSquare, Nanum Gothic, \\B098\B214\ACE0\B515, "\B9D1\C740   \ACE0\B515", Malgun Gothic, Open Sans, Dotum, \\B3CB\C6C0, arial, sans-serif
 }
 
 .jp blockquote,
@@ -2638,7 +2637,6 @@ footer,
 header,
 hgroup,
 menu,
-nav,
 section {
   display: block
 }
@@ -6427,16 +6425,6 @@ label.css-label3 {
   font-size: 18px
 }
 
-header {
-  height: 89px;
-  background: rgba(0, 0, 0, .3);
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 600;
-  border-bottom: 1px solid hsla(0, 0%, 100%, .3)
-}
 
 header .inner-conts {
   margin: 0 auto;

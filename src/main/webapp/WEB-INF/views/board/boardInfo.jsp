@@ -56,7 +56,8 @@
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5bd2e22372bd50b8787e20310220a5fd&libraries=services"></script>
 <script>
 	let data = [];
-
+	let centerLat;
+	let centerLng;
 
     kakao.maps.load(function () {
         var container = document.getElementById('map');
@@ -67,12 +68,7 @@
         };
         var map = new kakao.maps.Map(container, options);
 
-        var data = [ // 데이터로 사용할 위치 데이터 배열
-            { latitude: 33.489011, longitude: 126.498302 }, // 위치 1
-            { latitude: 33.477172, longitude: 126.561047 }, // 위치 2
-            { latitude: 33.506709, longitude: 126.493925 } // 위치 3
-            // 필요한 만큼 데이터 추가
-        ];
+       
 
         var path = [];
         var distance = 0;
@@ -195,6 +191,7 @@
 				}
 				$('#schedule').append(schedule);
 			}
+			
 			kakao.maps.load(function () {
 				var container = document.getElementById('map');
 				var distanceContainer = document.getElementById('distance');
@@ -203,22 +200,6 @@
 					level: 7 // 지도의 확대 레벨
 				};
 				var map = new kakao.maps.Map(container, options);
-
-				// var data = [ // 데이터로 사용할 위치 데이터 배열
-				// 	// {
-				// 	// 	latitude: 34.489011,
-				// 	// 	longitude: 126.498302
-				// 	// }, // 위치 1
-				// 	// {
-				// 	// 	latitude: 33.477172,
-				// 	// 	longitude: 126.561047
-				// 	// }, // 위치 2
-				// 	// {
-				// 	// 	latitude: 33.506709,
-				// 	// 	longitude: 126.493925
-				// 	// } // 위치 3
-				// 	// // 필요한 만큼 데이터 추가
-				// ];
 
 				var path = [];
 				var distance = 0;

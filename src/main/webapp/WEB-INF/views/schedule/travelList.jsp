@@ -10,107 +10,10 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/jeju.css">
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="css/daehan.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<style>
-		.center {
-			text-align: center;
-		}
-
-		.pagination {
-			display: inline-block;
-		}
-
-		.pagination a {
-			color: black;
-			float: left;
-			padding: 8px 16px;
-			text-decoration: none;
-			transition: background-color .3s;
-			border: 1px solid #ddd;
-			margin: 0 4px;
-		}
-
-		.pagination a.active {
-			background-color: #4CAF50;
-			color: white;
-			border: 1px solid #4CAF50;
-		}
-
-		.pagination a:hover:not(.active) {
-			background-color: #ddd;
-		}
-
-		.nav_schedule {
-			position: sticky;
-			top: 0;
-			z-index: 999;
-			width: 1450px;
-			margin: 10px auto;
-			background-color: white;
-			text-align: center;
-		}
-
-		.nav_schedule .title {
-			width: 300px;
-			border: 0px;
-			background-color: rgb(219, 240, 207);
-			font-size: large;
-			font-weight: bold;
-		}
-
-		.nav_schedule ul {
-			width: 1350px;
-			margin: 0 auto;
-		}
-
-		.nav_schedule button {
-			padding: 5px;
-		}
-
-		.nav_schedule .right {
-			position: absolute;
-			right: 0;
-			background-color: rgb(255, 189, 183);
-			color: #faf7f7;
-			border-radius: 30px;
-		}
-
-		#from,
-		#to {
-			width: 100px;
-		}
-
-		#ls {
-			position: absolute;
-			left: 0;
-			width: 50px;
-			height: 144px;
-			display: none;
-		}
-
-		#rs {
-			position: absolute;
-			top: 36px;
-			right: 0;
-			width: 50px;
-			height: 144px;
-			display: none;
-		}
-
-		.ic {
-			position: absolute;
-			top: 60px;
-			left: 13px;
-		}
-
-		.ui-datepicker {
-			z-index: 9999 !important;
-		}
-	</style>
+	
+	
 </head>
 
 <body>
