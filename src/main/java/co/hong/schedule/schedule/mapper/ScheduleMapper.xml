@@ -7,10 +7,14 @@
 		</selectKey>
 		INSERT INTO SCHEDULE(SC_NUM, MEM_ID, S_DATE, E_DATE, 
 										HDAY1_CID, HDAY2_CID, HDAY3_CID, HDAY4_CID, HDAY5_CID,
-										TDAY1_CID, TDAY2_CID, TDAY3_CID, TDAY4_CID, TDAY5_CID,title)
+										TDAY1_CID, TDAY2_CID, TDAY3_CID, TDAY4_CID, TDAY5_CID
+										<if test="title!=null">,title</if>
+										)
 		VALUES(#{scNum},#{memId},#{sDate},#{eDate},
 					#{hday1Cid}, #{hday2Cid}, #{hday3Cid}, #{hday4Cid}, #{hday5Cid}, 
-					#{tday1Cid}, #{tday2Cid}, #{tday3Cid}, #{tday4Cid}, #{tday5Cid},#{title})
+					#{tday1Cid}, #{tday2Cid}, #{tday3Cid}, #{tday4Cid}, #{tday5Cid}
+					<if test="title!=null">,#{title}</if>
+					)
 
 	</insert>
 	

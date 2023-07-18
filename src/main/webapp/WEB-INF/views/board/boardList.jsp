@@ -97,7 +97,7 @@ body>.grid {
 									<c:forEach items="${list }" var="list">
 										<tr>
 											<td><c:out value="${list.boardNum }" /></td>
-											<td><a href="boardselect.do?bno=${list.boardNum}">${list.boardTitle }</td>
+											<td><a href="boardInfo.do?bno=${list.boardNum}">${list.boardTitle }</td>
 											<td><fmt:formatDate pattern="yyyy-MM-dd"
 													value="${list.boardDate }" /> ~ <fmt:formatDate
 													pattern="yyyy-MM-dd" value="${list.boardEdate }" /></td>
