@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.hong.schedule.board.command.AddBoardCommand;
 import co.hong.schedule.board.command.AddReplyControl;
-import co.hong.schedule.board.command.BoardInfo;
+//import co.hong.schedule.board.command.BoardInfo;
 import co.hong.schedule.board.command.BoardModifyControl;
 import co.hong.schedule.board.command.BoardRemoveControl;
 import co.hong.schedule.board.command.BoardSearchControl;
@@ -74,7 +74,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardRemove.do", new BoardRemoveControl());
 		map.put("/boardSearch.do", new BoardSearchControl());
 		
-		map.put("/boardInfo.do", new BoardInfo());
+//		map.put("/boardInfo.do", new BoardInfo());
 		//댓글
 		map.put("/addReply.do", new AddReplyControl());
 

@@ -1154,12 +1154,13 @@ navsp ul li a:hover {
 
 .mainFooter {
     text-align: center;
-    background-color: #fafafa !important;
+    background-color: rgb(192, 192, 192) !important;
     padding: 30px 16px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 50px; /* footer의 높이를 조정해야 할 수 있습니다. */
 }
 
 .youtubeGuideBtn {

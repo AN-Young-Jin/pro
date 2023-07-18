@@ -51,6 +51,11 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.boardDate(from, to);
 	}
 
+	@Override
+	public List<BoardVO> boardList() {
+		return mapper.boardList();
+	}
+
 
 
 
