@@ -19,51 +19,43 @@
 <meta property="og:url" content="https://www.myro.co.kr">
 
 <link rel="stylesheet" href="css/myrojoin.css">
-<link rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/css/uikit.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/css/uikit.min.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 
 
 </script>
 <style>
-body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-   }
+  
 
-   .center {
-      flex: 1;
-   }
 </style>
+
 <body>
    <link rel="stylesheet" type="text/css" href="header.css">
    <link rel="stylesheet" type="text/css" href="uikit.min.css">
 
    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" /> -->
    <div id="headerArea" style="display: none;">
-      <nav id="navcc" class="nav-shadow"
-         style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+      <nav id="navcc" class="nav-shadow" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
          <div class="nav-wrapper navWidth">
-            <a href="/" id="navlefttext"> <b>MYRO</b> <h7 id="navlongtext2">&nbsp;MAKE
-               YOUR ROUTE OPTIMIZED</h7> <!-- h7사이에 ~~환영합니다 --> <!-- <h7 id="navlongtext2"></h7> -->
+            <a href="/" id="navlefttext"> <b>MYRO</b>
+               <h7 id="navlongtext2">&nbsp;MAKE
+                  YOUR ROUTE OPTIMIZED</h7> <!-- h7사이에 ~~환영합니다 -->
+               <!-- <h7 id="navlongtext2"></h7> -->
             </a>
 
             <ul id="navtextbtn1" class="nav-button-container">
-               <li id="navtextbtn1_1" style="display: none;"><a
-                  onclick="start()">여행지</a></li>
+               <li id="navtextbtn1_1" style="display: none;"><a onclick="start()">여행지</a></li>
 
                <li id="navtextbtn1_2" style="display: none;"><a href="/about">마이로</a>
                </li>
 
-               <li id="navtextbtn1_3" style="display: none;"><a href="/guide"
-                  id="guidebutton">이용방법</a></li>
+               <li id="navtextbtn1_3" style="display: none;"><a href="/guide" id="guidebutton">이용방법</a></li>
                <!--                <li class="mainNoticeStyle" id="navtextbtn1_4">-->
                <!--                    <a onclick="showNoticeMenu_Main()"> <i class="material-icons">campaign</i><span class="mainNavBadge badge red"></span> </a>-->
                <!--                </li>-->
-               <li id="navtextbtn1_5" class="header-start-button"
-                  style="display: none;"><a href="/" id="guidebutton">마이로
+               <li id="navtextbtn1_5" class="header-start-button" style="display: none;"><a href="/"
+                     id="guidebutton">마이로
                      시작하기</a></li>
 
                <li id="loginLogoutNav">
@@ -72,13 +64,11 @@ body {
                   </div>
                </li>
 
-               <li class="header-sidebar-button" id="navtextbtn1_5"><a
-                  uk-toggle="target: #offcanvas-flip" class="header-menu-flex"
-                  tabindex="0" aria-expanded="false"> <i class="material-icons">menu</i>
-               </a></li>
+               <li class="header-sidebar-button" id="navtextbtn1_5"><a uk-toggle="target: #offcanvas-flip"
+                     class="header-menu-flex" tabindex="0" aria-expanded="false"> <i class="material-icons">menu</i>
+                  </a></li>
 
-               <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true"
-                  class="uk-offcanvas">
+               <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas">
                   <div class="uk-offcanvas-bar nav-sidebar">
                      <ul class="uk-nav uk-nav-default">
                         <!-- 여긴 모바일 화면일 때 활성화 -->
@@ -129,8 +119,7 @@ body {
             <div>
                <label class="label-text" for="member_id">아이디</label>
                <div class="uk-form-controls input-button-flex">
-                  <input class="uk-input" type="text" id="member_id" name="member_id"
-                     placeholder="아이디를 입력하세요.">
+                  <input class="uk-input" type="text" id="member_id" name="member_id" placeholder="아이디를 입력하세요.">
                   <button class="uk-button email-btn" id="btnChk" val="No" onclick="idCheck()">
                      확인</button>
                </div>
@@ -138,22 +127,20 @@ body {
             <div>
                <label class="label-text" for="member_pw">비밀번호</label>
                <div class="uk-form-controls">
-                  <input class="uk-input" type="password" id="member_pw" name = "member_pw"
+                  <input class="uk-input" type="password" id="member_pw" name="member_pw"
                      placeholder="비밀번호(문자, 숫자, 특수문자 포함 10~20자)" required="">
                </div>
             </div>
             <div>
                <label class="label-text" for="member_name">이름</label>
                <div class="uk-form-controls">
-                  <input class="uk-input" type="text" id="member_name" name = "member_name"
-                      required="">
+                  <input class="uk-input" type="text" id="member_name" name="member_name" required="">
                </div>
             </div>
             <div>
                <label class="label-text" for="member_email">이메일</label>
                <div class="uk-form-controls">
-                  <input class="uk-input" type="email" id="member_email" name="member_email"
-                     placeholder="">
+                  <input class="uk-input" type="email" id="member_email" name="member_email" placeholder="">
                </div>
             </div>
             <div>
@@ -165,11 +152,11 @@ body {
 
             <div>
                <input type="submit" class="myro-btn" id="completeSignInAndSendVerifyCode" value="회원가입">
-                  
+
             </div>
-              <a href="loginForm.do">
-             <button class="myro-btn-back" id="backPage">뒤로가기</button></a>
-            
+            <a href="loginForm.do">
+               <button class="myro-btn-back" id="backPage">뒤로가기</button></a>
+
          </form>
          <div class="small-text"></div>
       </div>
@@ -177,40 +164,39 @@ body {
 
    <script src="/build/emailSignUp.js"></script>
    <script>
-        let headAddress = "https://www.myro.co.kr";
-    </script>
-    <script type="text/javascript">
+      let headAddress = "https://www.myro.co.kr";
+   </script>
+   <script type="text/javascript">
+      function joinCheck() {
+         let chk = document.getElementById("btnChk").value;
+         if (chk == 'No') {
+            alert("아이디 중복체크를 해주세요.");
+            return false;
+         }
+         alert("회원가입이 완료되었습니다. 로그인 하신 후 이용해주세요.")
+         let frm = document.getElementById("frm");
+         frm.action = "joinAction.do";
+         frm.submit();
+      }
 
-function joinCheck(){
-   let chk = document.getElementById("btnChk").value;
-   if(chk == 'No') {
-      alert("아이디 중복체크를 해주세요.");
-      return false;
-   }
-   alert("회원가입이 완료되었습니다. 로그인 하신 후 이용해주세요.")
-   let frm = document.getElementById("frm");
-   frm.action="joinAction.do";
-   frm.submit();
-}
+      function idCheck() { //Ajax를 통한 아이디 중복 체크
+         let id = document.getElementById("member_id").value;
+         let url = "ajaxIdCheck.do?id=" + id; //url이 get방식으로 날아간다
+         fetch(url)
+            .then(response => response.text()) //결과를 텍스트로 받겠다
+            .then(text => viewHtml(text)); //텍스트 콘솔로그에 찍어보고 처리 console ->>viewHtml로바꿔주고 alert띄우기
+      }
 
-function idCheck(){ //Ajax를 통한 아이디 중복 체크
-   let id = document.getElementById("member_id").value;
-   let url="ajaxIdCheck.do?id="+id;   //url이 get방식으로 날아간다
-   fetch(url)
-      .then(response => response.text())   //결과를 텍스트로 받겠다
-      .then(text => viewHtml(text));   //텍스트 콘솔로그에 찍어보고 처리 console ->>viewHtml로바꿔주고 alert띄우기
-}
+      function viewHtml(data) {
+         if (data == 1) { //비교 해보고 안되면 === 사용해본다
+            alert("이미 사용하는 아이디 입니다.");
 
-function viewHtml(data){
-   if(data == 1) {         //비교 해보고 안되면 === 사용해본다
-      alert("이미 사용하는 아이디 입니다.");
-      
-   }else {
-      alert("사용가능한 아이디 입니다.");
-      document.getElementById("btnChk").value = "Yes";
-   }   
-}
-</script>
+         } else {
+            alert("사용가능한 아이디 입니다.");
+            document.getElementById("btnChk").value = "Yes";
+         }
+      }
+   </script>
 </body>
 
 

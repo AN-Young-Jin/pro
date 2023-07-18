@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.hong.schedule.board.dao.BoardMapper">
-
-
-
-	<select id = "boardDate" resultType = "co.hong.schedule.board.vo.BoardVO">
-	SELECT *
-	FROM board
-	WHERE board_date BETWEEN TO_DATE(#{from}, 'YYYY-MM-DD')
-			AND TO_DATE(#{to}, 'YYYY-MM-DD')    
+	<select id="boardDate"
+		resultType="co.hong.schedule.board.vo.BoardVO">
+		SELECT *
+		FROM board
+		WHERE board_date BETWEEN TO_DATE(#{from}, 'YYYY-MM-DD')
+		AND TO_DATE(#{to}, 'YYYY-MM-DD')
 	</select>
 
- <select id = "boardList" resultType="co.hong.schedule.board.vo.BoardVO">
-		select *
-		from board
-		where mem_id = #{memId }
-	</select>
-
-
-	<select id ="boardList" resultType="co.hong.schedule.board.vo.BoardVO">
+	<select id="boardList"
+		resultType="co.hong.schedule.board.vo.BoardVO">
 		select *
 		from board
 		where mem_id = #{memId}
 	</select>
 
-	<select id ="totalCnt">
-  	select count(*)
-  	from board
-  	</select>
-	
-	<select id = "select" parameterType="long">
-		select * from schedule where sc_num = #{scNum}
+	<select id="totalCnt">
+		select count(*)
+		from board
 	</select>
-	
-	<insert id="boardInsert" parameterType="co.hong.schedule.board.vo.BoardVO">
-		<selectKey keyProperty="boardNum" resultType="int" order="BEFORE">
+
+	<select id="select" parameterType="long">
+		select * from schedule where
+		sc_num = #{scNum}
+	</select>
+
+	<insert id="boardInsert"
+		parameterType="co.hong.schedule.board.vo.BoardVO">
+		<selectKey keyProperty="boardNum" resultType="int"
+			order="BEFORE">
 			select count(board_num) +1 as boardNum from board
 		</selectKey>
-		insert into board(board_num,board_title,board_content,mem_id) values (#{boardNum},#{boardTitle},#{boardContent},#{memId})
+		insert into board(board_num,board_title,board_content,mem_id) values
+		(#{boardNum},#{boardTitle},#{boardContent},#{memId})
 	</insert>
-	
-	<update id="boardUpdate" parameterType="co.hong.schedule.board.vo.BoardVO">
+
+	<update id="boardUpdate"
+		parameterType="co.hong.schedule.board.vo.BoardVO">
 		update board
 		set board_title = #{boardTitle},
-			board_content = #{boardContent},
-			board_date = #{boardDate}
+		board_content = #{boardContent},
+		board_date = #{boardDate}
 		where board_num = #{boardNum}
 	</update>
-	
-	<delete id="boardDelete" parameterType="co.hong.schedule.board.vo.BoardVO">
+
+	<delete id="boardDelete"
+		parameterType="co.hong.schedule.board.vo.BoardVO">
 		delete from board
 		where board_num = #{boardNum}
 	</delete>

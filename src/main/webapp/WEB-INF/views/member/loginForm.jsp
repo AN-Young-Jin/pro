@@ -299,7 +299,7 @@ a{
 </script>
 </head>
 <body>
-	<div>
+	 <div>
 		<%@ include file="/home/sidebar.jsp" %>
 	</div>
 	<!-- <div class="w3-padding-large" style="margin-left:300px;margin-right:70px">

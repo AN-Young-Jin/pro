@@ -24,8 +24,8 @@ public class LoginAction implements Command {
 		//		session.setAttribute("라벨", 라벨에 대한 물건);
 		MemberService service = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-//		vo.setMemId(id);
-//		vo.setMemPw(password);
+		vo.setMemId(id);
+		vo.setMemPw(password);
 		MemberVO member = new MemberVO();
 		member = service.memberLogin(vo);
 		
