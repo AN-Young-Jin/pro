@@ -45,14 +45,72 @@
 		</div>
 	</div>
 
-	<div id="map"></div>
-	<div id="distance"></div>
+
+ <div id="map"></div>
+  <div id="distance"></div>
+
 
 	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5bd2e22372bd50b8787e20310220a5fd&libraries=services">
 	</script>
 </body>
+<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5bd2e22372bd50b8787e20310220a5fd&libraries=services"></script>
 <script>
 	let data = [];
+
+
+    kakao.maps.load(function () {
+        var container = document.getElementById('map');
+        var distanceContainer = document.getElementById('distance');
+        var options = {
+            center: new kakao.maps.LatLng(33.489011, 126.498302), // 지도의 중심 좌표
+            level: 5 // 지도의 확대 레벨
+        };
+        var map = new kakao.maps.Map(container, options);
+
+        var data = [ // 데이터로 사용할 위치 데이터 배열
+            { latitude: 33.489011, longitude: 126.498302 }, // 위치 1
+            { latitude: 33.477172, longitude: 126.561047 }, // 위치 2
+            { latitude: 33.506709, longitude: 126.493925 } // 위치 3
+            // 필요한 만큼 데이터 추가
+        ];
+
+        var path = [];
+        var distance = 0;
+        for (var i = 0; i < data.length; i++) {
+            var point = new kakao.maps.LatLng(data[i].latitude, data[i].longitude);
+            path.push(point);
+
+            if (i > 0) {
+                var prevPoint = new kakao.maps.LatLng(data[i - 1].latitude, data[i - 1].longitude);
+              
+            }
+
+            var marker = new kakao.maps.Marker({
+                position: point,
+                map: map
+            });
+        }
+
+        var polyline = new kakao.maps.Polyline({
+            path: path,
+            strokeWeight: 3,
+            strokeColor: '#db4040',
+            strokeOpacity: 1,
+            strokeStyle: 'solid'
+        });
+        polyline.setMap(map);
+
+        var bounds = new kakao.maps.LatLngBounds();
+        for (var i = 0; i < path.length; i++) {
+            bounds.extend(path[i]);
+        }
+        map.setBounds(bounds);
+
+       
+    });
+
+		
+		
 	const API_KEY = "im21a7vw6nqazzhs" //api키
 	const url = "http://api.visitjeju.net/vsjApi/contents/searchList?apiKey=" + API_KEY + "&locale=kr";
 	let cid;
