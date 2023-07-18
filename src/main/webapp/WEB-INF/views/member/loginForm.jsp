@@ -7,24 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>로그인</title>
 <style>
-	* {
-    margin: 0;
-    padding: 0;
-}
 
-html{
-    width: 100%;
-    height: 100vh;
-}
-
-body {
-    background: #0080FF;
-    width: 100%;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
 
 .panel{
     width: 450px;
