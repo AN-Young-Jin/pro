@@ -8,6 +8,7 @@ import co.hong.schedule.board.vo.BoardVO;
 public interface BoardService {
 	List<BoardVO> boardDate(String from, String to); //R  Ajax로 
 	List<BoardVO> boardList(int page);
+	List<BoardVO> boardList();
 	int totalCnt();
 	BoardVO select(long boardNum);
 	boolean boardInsert(BoardVO vo);

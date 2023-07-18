@@ -11,6 +11,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/jeju.css">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="css/daehan.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -56,6 +57,7 @@
 		.nav_schedule .title {
 			width: 300px;
 			border: 0px;
+			background-color:  rgb(219, 240, 207);
 			font-size: large;
 			font-weight: bold;
 		}
@@ -72,6 +74,9 @@
 		.nav_schedule .right {
 			position: absolute;
 			right: 0;
+			background-color: rgb(255, 189, 183);
+    		color: #faf7f7;
+			border-radius: 30px;
 		}
 
 		#from,
@@ -89,7 +94,7 @@
 
 		#rs {
 			position: absolute;
-			bottom: 25px;
+			top: 36px;
 			right: 0;
 			width: 50px;
 			height: 144px;
@@ -101,13 +106,14 @@
 			top: 60px;
 			left: 13px;
 		}
+		.ui-datepicker{ z-index: 9999 !important;}
 	</style>
 </head>
 
 <body>
 	<div class="nav_schedule">
-		<form action="makeSchedule.do">
-			<input type="text" name="title" placeholder="제목을 입력해주세요." class="center title" maxlength="15">
+		<form action="makeSchedule.do" id="scheduleForm">
+			<input type="text" id="title" name="title" placeholder="제목을 입력해주세요." class="center title" maxlength="15">
 			<div class="recommend_area">
 				<div id="ls">
 					<i class="material-icons ic">chevron_left</i>
@@ -119,18 +125,61 @@
 					<i class="material-icons ic">chevron_right</i>
 				</div>
 			</div>
-			<div style="text-align: left;">
-				<label for="from">From</label>
-				<input type="text" id="from" name="from">
-				<label for="to">to</label>
-				<input type="text" id="to" name="to">
-				<button id="makeSchedule">날짜선택</button>
-				<button id="tour" style="position: absolute; left: 41%;">관광지</button>
-				<button id="hotel" style="position: absolute; left: 55%;">숙박</button>
-				<button type="submit" class="right">일정저장</button>
+			
+			
+			<!-- calendar -->
+			<div style="text-align: left; margin-top: 30px;">
+			
+				<label for="from">출발일</label>
+				<input type="text" id="from" name="from" autocomplete='off' readonly>
+				<label for="to">도착일</label>
+				<input type="text" id="to" name="to" autocomplete='off' readonly>
+				<button id="makeSchedule" style="background-color: rgb(255, 189, 183); color: #faf7f7;
+				border-radius: 30px;">날짜선택</button>
+			
+	<!-- 			<button id="tour" style="position: absolute; left: 41%;">관광지</button>
+				<button id="hotel" style="position: absolute; left: 55%;">숙박</button> -->
+				
+			<button type="submit" class="right">일정저장</button>
+			
+				<ul _ngcontent-hwx-c18="" aria-labelledby="booking-widget"
+				aria-orientation="horizontal" class="booking-widget__list"
+				role="tablist" style="margin-top: 30px;">
+
+				<li _ngcontent-hwx-c18="" class="booking-widget__itm"
+					role="presentation"><button _ngcontent-hwx-c18=""
+						aria-controls="panel_3" class="booking-widget__button"
+						data-click-area="Main-Booking" data-click-name="Flight Status"
+						id="hotel" role="tab" type="button" aria-selected="false"
+						tabindex="-1">
+						<span _ngcontent-hwx-c18="" class="booking-widget__txt">숙소
+							예약</span>
+					</button></li>
+
+				<li _ngcontent-hwx-c18="" class="booking-widget__itm"
+					role="presentation"><button _ngcontent-hwx-c18=""
+						aria-controls="panel_2" class="booking-widget__button"
+						data-click-area="Main-Booking" data-click-name="Check-In"
+						id="tour" role="tab" type="button" aria-selected="false"
+						tabindex="-1">
+						<span _ngcontent-hwx-c18="" class="booking-widget__txt">관광지 예약</span>
+					</button></li>
+				
+			</ul>
+				
 			</div>
 		</form>
 	</div>
+			
+			
+				
+				
+			
+			
+			
+			
+			
+			
 	<div id="container">
 
 		<div id="content">
@@ -153,7 +202,25 @@
 		</div>
 	</div>
 </body>
+
+
+	
+
+
 <script>
+
+$("#scheduleForm").submit(function(event) {
+			var title = $("#title").val();
+			if (title.trim() === "") {
+				alert("제목을 입력해주세요.");
+				return false;
+			}
+		});
+
+
+
+
+
 	const API_KEY = "im21a7vw6nqazzhs" //api키
 	const url = "http://api.visitjeju.net/vsjApi/contents/searchList?apiKey=" + API_KEY + "&locale=kr";
 	//    const category = "c1";  //카테고리

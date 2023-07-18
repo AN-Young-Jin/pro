@@ -15,11 +15,11 @@
 <div align="center">
 	<!-- header -->
 	<tiles:insertAttribute name="header" ignore="true"/>
-	<hr>
+	
 	
 	<!-- body -->
 	<tiles:insertAttribute name="body" ignore="true"/>
-	<hr>
+	
 	<!-- footer -->
 	<tiles:insertAttribute name="footer" ignore="true"/>
 </div>
