@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <div id="headerArea">
     <nav id="navcc" class="nav-shadow">
         <div class="nav-wrapper navWidth">
@@ -36,14 +37,30 @@
                  
                 </li>
 
-                <li id="loginLogoutNav">
+                 <li id="loginLogoutNav">
                     <div class="nav-profile-btn-container">
-                        <span id="loginLogout">
-                        	 <a onclick="window.open('loginForm.do')">로그인</a>  
-                        </span>
+                        <%
+						Object memberId ="";
+						
+								if (session.getAttribute("memberId") != null) {
+								  	memberId = session.getAttribute("memberId");
+								}
+								%> 
+								 	<!--로그인 전 화면  -->
+								<% if (memberId == "") { %>
+								  <!-- 로그인 전 화면 -->
+									  <ul class="qwer">
+									    <li><a href="joinForm.do">회원가입</a></li>
+									    <li><a href="loginForm.do">로그인</a></li>
+									  </ul>
+								<% } else { %>
+								  <!-- 로그인 후 화면 -->
+									  <ul class="qwer">
+									    <li><a href="mypage.do">Mypage</a></li>
+									    <li><a href="logOut.do">로그아웃</a></li>
+									  </ul>
+								<% } %>
                     </div>
-                </li>
-
                 <li class="header-sidebar-button" id="navtextbtn1_5">
                     <a
                         uk-toggle="target: #offcanvas-flip"
@@ -52,20 +69,20 @@
                         <i class="material-icons">menu</i>
                     </a>
                 </li>
-
-                <div
+				
+                 <div
                     id="offcanvas-flip"
                     uk-offcanvas="flip: true; overlay: true"
                 >
                     <div class="uk-offcanvas-bar nav-sidebar">
                         <ul class="uk-nav uk-nav-default">
                            
-                                <!-- 로그인 상태라면 여기 display -->
+                                로그인 상태라면 여기 display
                                 <div class="nav-sidebar-avatar-container">
                                     <div class="nav-sidebar-avatar">
                                         <span id="userNickNameLogoByPhone">
                                         </span>
-                                        <!-- <img src="/myro_image/avatar.png" alt="avatar" /> -->
+                                        <img src="/myro_image/avatar.png" alt="avatar" />
                                     </div>
                                     <div class="user-text">
                                         <span id="userNickNameByPhone"></span>
@@ -83,7 +100,7 @@
                                 <!-- 로그아웃 상태라면 여기 display -->
                                 <!-- <div class="nav-sidebar-avatar-container">
                                     <button class="login-btn" onclick="">로그인</button>
-                                </div> -->
+                                </div> 
                             </div>
                             <li class="uk-active">
                                
@@ -93,7 +110,7 @@
                             
                             </li>
                             <li class="uk-parent">
-                                <a href="mypage.do">마이페이지</a>
+                                 <a href="mypage.do">마이페이지</a>
                             </li>
                         </ul>
                     </div>

@@ -17,21 +17,13 @@
 		where mem_id = #{memId }
 	</select>
 
-	<!-- <select id ="boardList" resultType="co.hong.schedule.board.vo.BoardVO">
-		 select *
-	from(
-        select rownum rn, a.*
-        from ( 
-                 select *
-                from board order by board_num desc
-                ) a
-            )b
-	where b.rn > (#{page} - 1) * 10 
-	<![CDATA[
-	and     b.rn <= #{page} * 10
-	]]>
+
+	<select id ="boardList" resultType="co.hong.schedule.board.vo.BoardVO">
+		select *
+		from board
+		where mem_id = #{memId}
 	</select>
-	 -->
+
 	<select id ="totalCnt">
   	select count(*)
   	from board

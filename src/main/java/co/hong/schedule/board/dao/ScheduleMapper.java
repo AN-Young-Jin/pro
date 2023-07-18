@@ -8,6 +8,6 @@ import co.hong.schedule.schedule.vo.ScheduleVO;
 
 public interface ScheduleMapper {
 	List<ScheduleVO> boardDate(@Param("from") String from, @Param("to") String to);
-	List<ScheduleVO> myList(String memId);
+	List<ScheduleVO> myList(@Param("memId") String memId);
 	ScheduleVO select(int scNum);
 }

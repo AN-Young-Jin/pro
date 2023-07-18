@@ -8,18 +8,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<meta name="description" content="마이로(MYRO)-쉽고 간편한 여행 일정 플래너" />
-<meta name="keywords"
-	content="마이로, myro, 여행일정, 마이로 여행일정, 추천 일정, 추천 코스, 여행 플래너, 5분 만에 여행 일정, 유럽 여행, 홍콩 여행, 대만 여행, 나만의 여행 일정, 해외여행, 국내여행" />
+<meta name="description" content="홍규연(HONG)-쉽고 간편한 여행 일정 플래너" />
+<meta name="keywords">
 
 <!--Open Graph-->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="마이로(MYRO)" />
+<meta property="og:title" content="홍규연(HONG)" />
 <meta property="og:description"
 	content="국내외 70개 여행 도시 / 여행 일정 플래너 / 일자별 경로 제공 / 가고 싶은 장소만 넣으면 되는 간단하고 쉬운 나만의 여행 일정 만들기" />
-<meta property="og:site_name" content="마이로" />
-<meta property="og:image" content="/myro_image/meta_logo.png" />
-<meta property="og:url" content="https://www.myro.co.kr" />
+<meta property="og:site_name" content="홍규연" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -136,7 +133,7 @@ body>.grid {
 													<td>${list.SDate } ~ 
 														${list.EDate }</td>
 
-													<!--  <td>${vo.clickCnt }</td>-->
+													
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -264,7 +261,6 @@ body>.grid {
 		<script src="resources/myro/myPage.js"></script>
 		<script src="resources/myro/common.js"></script>
 		<script type="text/javascript">
-			let headAddress = 'https://www.myro.co.kr';
 		</script>
 </body>
 

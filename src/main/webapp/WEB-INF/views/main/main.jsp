@@ -74,7 +74,9 @@
 
             gtag("config", "UA-132785313-1");
         </script>
-
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+  </style>
         
     </head>
 
@@ -181,37 +183,7 @@
             // $('#loginLogout').hide();
         }
     }
-    function loginByPhone() {
-        window.open("/login");
-    }
-
-    let pageLocation = location.href.split("/")[3];
-    if (pageLocation == "" || pageLocation.indexOf("myro1") != -1) {
-        $(document).scroll(function () {
-            var $nav = $("#navcc");
-            $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
-            //                $("#navcc b").css("display", "inherit");
-        });
-        $("#navtextbtn1_5").hide();
-    } else if (pageLocation.indexOf("guide") != -1) {
-        $("#navtextbtn1_1").hide();
-        $("#navtextbtn1_2").hide();
-        $("#navtextbtn1_3").hide();
-        $("#navtextbtn1_4").hide();
-        $("#navcc").css("background-color", "#fff");
-        $("#navcc").css("color", "#000");
-    } else {
-        $("#navtextbtn1_1").hide();
-        $("#navtextbtn1_2").hide();
-        $("#navtextbtn1_3").hide();
-        $("#navtextbtn1_4").hide();
-        $("#navtextbtn1_5").hide();
-        $("#navcc").css("background-color", "#fff");
-        $("#navcc").css("color", "#000");
-        if ($(window).width() >= 600) {
-            $("#navcc").addClass("nav-shadow");
-        }
-    }
+ 
 
     function logout() {
         window.localStorage.removeItem("myroRefreshToken");
@@ -541,10 +513,10 @@
                     <div style="margin: 0; padding: 0" class="uk-width-2-5@m uk-first-column">
                         <div class="main-left-container" >
                             <div>
-                                <div class="maintitleTextdiv" style="justify-content: center">
+                                <div class="maintitleTextdiv" style="justify-content: center;" >
                                     <div>
-                                        <h2 class="mainsubtitle">
-                                            ${memberId }
+                                        <h2 class="mainsubtitle" style= "color: rgb(110, 216, 110)">
+                                      		우리 한번 여행을 가보아오
                                         </h2>
                                         <!-- <h5 class="">
                                             여행 일자, 숙소, 가고 싶은 장소만
@@ -602,11 +574,7 @@
             <!--User city count Div-->
            
 
-            <div class="mobileContainer">
-                <p class="maintitlesummary">AI 여행 스케줄링 플래너 마이로</p>
-                <h1 class="maintitlemyro"><b>MYRO</b></h1>
-                <br />
-            </div>
+           
         </header>
 </body>
 </html>
