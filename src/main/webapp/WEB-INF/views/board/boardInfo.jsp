@@ -16,14 +16,19 @@
 	<link rel="stylesheet" href="css/jeju.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5bd2e22372bd50b8787e20310220a5fd&libraries=services"></script>
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5bd2e22372bd50b8787e20310220a5fd&libraries=services"></script>
 
 	<style>
-    #map {
-           width: 70%;
-           height: 500px;
-        }
-    
+		#map {
+			width: 70%;
+			height: 500px;
+		}
+
+		#distance {
+			margin-top: 10px;
+			font-weight: bold;
+		}
+
 		#schedule ul {
 			width: 1350px;
 			margin: 0 auto;
@@ -32,19 +37,22 @@
 </head>
 
 <body>
-	<h1 id="title" style="text-align: center;"></h1>
-	<div id="container">
+	<div id="container" style="margin-top: 50px;">
+		<h1 id="title" style="text-align: center;"></h1>
 		<div class="recommend_area">
 			<div id="schedule">
 			</div>
 		</div>
 	</div>
 
- <div id="map"></div>
+	<div id="map"></div>
+	<div id="distance"></div>
 
+	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5bd2e22372bd50b8787e20310220a5fd&libraries=services">
+	</script>
 </body>
 <script>
-		
+	let data = [];
 	const API_KEY = "im21a7vw6nqazzhs" //api키
 	const url = "http://api.visitjeju.net/vsjApi/contents/searchList?apiKey=" + API_KEY + "&locale=kr";
 	let cid;
@@ -56,7 +64,7 @@
 		success: function (result) {
 			console.log(result)
 			$('#title').text(result.title)
-			let from = Date.parse(result.sDate)	
+			let from = Date.parse(result.sDate)
 			let to = Date.parse(result.eDate)
 
 			let howLong = (to - from) / (1000 * 60 * 60 * 24) + 1;
@@ -82,7 +90,13 @@
 						"height: 142px; display: flex;align-items: center;width: 23px;").attr('id', 'set_hotel_' + i)
 					.text('숙박'))
 				let dl = $('<dl/>').attr('class', 'item_section')
+
 				if (hotel != null) {
+					let location = {
+						latitude: hotel.latitude,
+						longitude: hotel.longitude
+					}
+					data.push(location)
 					let dt = $('<dt/>').attr('class', 'item_top');
 					let a = $('<a/>');
 					let img = $('<img/>').attr('src', hotel.img);
@@ -101,6 +115,7 @@
 				$(schedule).append($('<li/>').attr('style',
 						"height: 142px; display: flex;align-items: center;width: 23px;").attr('id', 'set_tour_' + i)
 					.text('관광지'))
+
 				if (tour != null) {
 					for (let j = 0; j < tour.length; j++) {
 						dl = $('<dl/>').attr('class', 'item_section')
@@ -122,6 +137,64 @@
 				}
 				$('#schedule').append(schedule);
 			}
+			kakao.maps.load(function () {
+				var container = document.getElementById('map');
+				var distanceContainer = document.getElementById('distance');
+				var options = {
+					center: new kakao.maps.LatLng(33.489011, 126.498302), // 지도의 중심 좌표
+					level: 7 // 지도의 확대 레벨
+				};
+				var map = new kakao.maps.Map(container, options);
+
+				// var data = [ // 데이터로 사용할 위치 데이터 배열
+				// 	// {
+				// 	// 	latitude: 34.489011,
+				// 	// 	longitude: 126.498302
+				// 	// }, // 위치 1
+				// 	// {
+				// 	// 	latitude: 33.477172,
+				// 	// 	longitude: 126.561047
+				// 	// }, // 위치 2
+				// 	// {
+				// 	// 	latitude: 33.506709,
+				// 	// 	longitude: 126.493925
+				// 	// } // 위치 3
+				// 	// // 필요한 만큼 데이터 추가
+				// ];
+
+				var path = [];
+				var distance = 0;
+				for (var i = 0; i < data.length; i++) {
+					var point = new kakao.maps.LatLng(data[i].latitude, data[i].longitude);
+					path.push(point);
+
+					if (i > 0) {
+						var prevPoint = new kakao.maps.LatLng(data[i - 1].latitude, data[i - 1].longitude);
+
+					}
+
+					var marker = new kakao.maps.Marker({
+						position: point,
+						map: map
+					});
+				}
+
+				var polyline = new kakao.maps.Polyline({
+					path: path,
+					strokeWeight: 3,
+					strokeColor: '#db4040',
+					strokeOpacity: 1,
+					strokeStyle: 'solid'
+				});
+				polyline.setMap(map);
+
+				var bounds = new kakao.maps.LatLngBounds();
+				for (var i = 0; i < path.length; i++) {
+					bounds.extend(path[i]);
+				}
+				map.setBounds(bounds);
+
+			});
 		}
 	}).fail(err => console.log(err))
 </script>

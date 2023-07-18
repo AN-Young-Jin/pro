@@ -91,7 +91,7 @@ public class MakeSchedule implements Command {
 			str5+="]";
 		}
 		
-		System.out.println(str1);
+		
 		
 		ScheduleVO vo = new ScheduleVO();
 		vo.setMemId(memId);
@@ -109,15 +109,15 @@ public class MakeSchedule implements Command {
 		vo.setTday4Cid(str4);
 		vo.setTday5Cid(str5);
 		if(title!="") {
-			System.out.println(title);
 			vo.setTitle(title);			
 		}
 		
 		svc.makeSchedule(vo);
 		
 		int scNum = vo.getScNum();
-
-		return "mypage.do";
+		req.setAttribute("sno", scNum);
+		System.out.println(scNum);
+		return "board/boardInfo";
 	}
 
 }
